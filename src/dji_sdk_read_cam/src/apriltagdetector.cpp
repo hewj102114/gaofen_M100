@@ -679,7 +679,8 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		  //if (Th1 > 3.5 && Th2 > 3.5  && Th4 > 100 && Th5 > 90&&abs(Th3)<50)   //afternoon, 4, 4, 120, 120
                   //if (Th1 > 1.7 && Th2 > 1.7  && Th4 > 60 && Th5 > 60&&abs(Th3)<50)    //2018-07-20-11:36  on the sunshine
 		//   if (Th1 > 1.4 && Th2 > 1.4 && Th4 > 50 && Th5 >60&&abs(Th3)<50)       // 2018-07-31-18:55  beside the building
-		 if (Th1 > 1.3 && Th2 > 1.3 && Th4 > 50 && Th5 >60&&abs(Th3)<50)	// 2018-08-08-17:14  123
+		//if (Th1 > 1.58 && Th2 > 1.58 && Th4 > 200 && Th5 >100&&abs(Th3)<50)	// 2018-08-19-16:55  bright
+		if (Th1 > 1.3 && Th2 > 1.3 && Th4 > 50 && Th5 >60&&abs(Th3)<50)	// 2018-08-08-17:14  darker	
 			{  
 			  RedChannel.at<uchar>(j, i) = 255;
 			  GreenChannel.at<uchar>(j, i) = 255;

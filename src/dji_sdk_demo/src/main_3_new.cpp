@@ -261,8 +261,8 @@ int main(int argc, char **argv)
     
     
     
-//    drone->gimbal_angle_control ( 0,-900,0,20 ); 
-    drone->gimbal_angle_control ( 0,0,0,20 ); //for cross
+    drone->gimbal_angle_control ( 0,-900,0,20 ); 
+   // drone->gimbal_angle_control ( 0,0,0,20 ); //for cross
 
     while ( ros::ok() )
     {
@@ -314,8 +314,8 @@ int main(int argc, char **argv)
         {
             mode=1;
             state_in_mission=-1;
-	  //  state_in_mission=6;//for cross
-//	    state_in_mission=18;//for tags
+	  //state_in_mission=6;//for cross
+	  //  state_in_mission=17;//for tags
             time_count=0;
             cbring_mode=0;
             land_mode=0;
@@ -352,13 +352,13 @@ int main(int argc, char **argv)
                         {
                             if ( ob_distance[0]<serach_flight_height_1-0.1) //adjust height
                             {
-                                flying_height_control_tracking += 0.003;     
+                                flying_height_control_tracking += 0.003;   //initial 0.003   
                             }
                             else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
                             { 
                                 flying_height_control_tracking -= 0.003;
                             }
-                            drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+                            drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
 
                             writeF<<"ob_distance[0]="<<ob_distance[0]<<endl;   // write in log
                             
@@ -375,7 +375,7 @@ int main(int argc, char **argv)
                                     drone->attitude_control(0x4B, 0, 0, 0, 0);
                                 usleep(10000);
                                 }
-                                state_in_mission = 4;//cross circle
+                                state_in_mission = 0;//cross circle
                                 
                                 writeF<<"start yaw = "<<start_yaw<<endl;
 			        writeF <<"X="<<g_pos_x<<"  Y="<< g_pos_y <<"  Z="<<g_pos_z << endl;
@@ -424,22 +424,32 @@ int main(int argc, char **argv)
 		       {
 			 case 0:
 			 {
-			    if ( (ob_distance[0]<serach_flight_height_1-0.1))
-			    {
-			      flying_height_control_tracking += 0.01; //init 0.003,speed up 
-			    }
-			    else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
-			    { 
-			      flying_height_control_tracking -= 0.01; //init 0.003
-			    }
-                            drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+			    if (drone->flight_status==1)//standby
+                            {  	
+                              drone->takeoff();
+                            }
+                            else if(drone->flight_status==3)//in air
+			    {			    
+				if ( (ob_distance[0]<serach_flight_height_1-0.1))
+				{
+				  flying_height_control_tracking += 0.01; //init 0.003,speed up 
+				}
+				else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+				{ 
+				  flying_height_control_tracking -= 0.01; //init 0.003
+				}
+				drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
 
-			    if((ob_distance[0]>serach_flight_height_1-0.2)&&ob_distance[0]<4)
-			    {
-			      cross_state = 1;
-			    }  
-			  
-			  break;
+				if((ob_distance[0]>serach_flight_height_1-0.2)&&ob_distance[0]<4)
+				{
+				  cross_state = 1;
+				}  
+			    }
+			   else
+                           {
+                   
+                           }
+                           break;			 
 			 }
 			 case 1:
 			 {
@@ -502,22 +512,32 @@ int main(int argc, char **argv)
 		       {
 			 case 0:
 			 {
-			    if ( (ob_distance[0]<serach_flight_height_1-0.1))
-			    {
-			      flying_height_control_tracking += 0.01; //init 0.003,speed up 
-			    }
-			    else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
-			    { 
-			      flying_height_control_tracking -= 0.01; //init 0.003
-			    }
-                            drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+			    if (drone->flight_status==1)//standby
+			      {  	
+				drone->takeoff();
+			      }
+			      else if(drone->flight_status==3)//in air
+			      {			    
+				  if ( (ob_distance[0]<serach_flight_height_1-0.1))
+				  {
+				    flying_height_control_tracking += 0.01; //init 0.003,speed up 
+				  }
+				  else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+				  { 
+				    flying_height_control_tracking -= 0.01; //init 0.003
+				  }
+				  drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
 
-			    if((ob_distance[0]>serach_flight_height_1-0.2)&&ob_distance[0]<4)
+				  if((ob_distance[0]>serach_flight_height_1-0.2)&&ob_distance[0]<4)
+				  {
+				    cross_state = 1;
+				  }  
+			      }
+			    else
 			    {
-			      cross_state = 1;
-			    }  
-			  
-			  break;
+		    
+			    }
+			    break;
 			 }
 			 case 1:
 			 {
@@ -577,30 +597,41 @@ int main(int argc, char **argv)
                         break;
                     }
 
-                    case 5://take off and forward 0,need to change height   //maybe will see Num6
+                    case 5://take off and forward,need to change height   //maybe will see Num6
                     {
 		       switch(cross_state)
 		       {
 			 case 0:
 			 {
-			    drone->gimbal_angle_control(0,0,0,20);   //look farward.
-			    
-			    if ( (ob_distance[0]<serach_flight_height_1-0.1))
-			    {
-			      flying_height_control_tracking += 0.006; //init 0.003,speed up 
-			    }
-			    else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
-			    { 
-			      flying_height_control_tracking -= 0.006; //init 0.003
-			    }
-                            drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+			      drone->gimbal_angle_control(0,0,0,20);   //look farward.
 
-			    if((ob_distance[0]>first_square_height)&&ob_distance[0]<4)
-			    {
-			      cross_state = 1;
-			    }  
-			  
-			  break;
+			      if (drone->flight_status==1)//standby
+			      {  	
+				drone->takeoff();
+			      }
+			      else if(drone->flight_status==3)//in air
+			      {			    
+				  if ( (ob_distance[0]<serach_flight_height_1-0.1))
+				  {
+				    flying_height_control_tracking += 0.01; //init 0.003,speed up 
+				  }
+				  else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+				  { 
+				    flying_height_control_tracking -= 0.01; //init 0.003
+				  }
+				  drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
+
+				  if(abs(ob_distance[0]-first_square_height)<0.1&&ob_distance[0]<4)
+				  {
+				    cross_state = 1;
+				  }  
+			      }
+			      else
+			      {
+		      
+			      }
+			      break;			   
+			   			   			    			   
 			 }
 			 case 1:
 			 {			    
@@ -655,20 +686,20 @@ int main(int argc, char **argv)
                         break;
                     }
            	
-                    case 7://take off and forward,need to change forward distance
+                    case 7://go up and forward,need to change forward distance
                     {
                         switch(cross_state)
                         {
                             case 0:
                             {
-                                // go up
+                                // go up/down
                                 if ( ob_distance[0]<first_cross_height-0.1)
                                 {
-                                    flying_height_control_tracking += 0.003;   //initial 0.003
+                                    flying_height_control_tracking += 0.01;   //initial 0.003
                                 }
                                 else if ( (ob_distance[0]>first_cross_height+0.1)&&ob_distance[0]<10)
                                 {
-                                    flying_height_control_tracking -= 0.003;   //initial 0.003
+                                    flying_height_control_tracking -= 0.01;   //initial 0.003
                                 }
                                 drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
                                 if(abs(first_cross_height-ob_distance[0])<0.2)
@@ -690,21 +721,21 @@ int main(int argc, char **argv)
                             }
 			    case 1:
 			    {
-			       //cross you can also use pos_x to limit the x distance
-				    //for example
-				    float delta_g_pos_x = g_pos_x - last_g_pos_x;
-				    writeF << "delta_g_pos_x="<<delta_g_pos_x << endl;//
-				    if(abs(delta_g_pos_x)<cross_forward_distance45) //for parking 5
-				    {
-				       drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
-				       //usleep(10000);
-				    }
-				    else
-				    {
-				        cross_state = 2;
-					writeF << "delta_g_pos_x1="<<delta_g_pos_x << endl;//
-				    }				    
-				   break;  
+				//cross you can also use pos_x to limit the x distance
+				//for example
+				float delta_g_pos_x = g_pos_x - last_g_pos_x;
+				writeF << "delta_g_pos_x="<<delta_g_pos_x << endl;//
+				if(abs(delta_g_pos_x)<cross_forward_distance45) //for parking 5
+				{
+				    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+				    //usleep(10000);
+				}
+				else
+				{
+				    cross_state = 2;
+				    writeF << "delta_g_pos_x1="<<delta_g_pos_x << endl;//
+				}				    
+				break;  
 			    }
                             case 2:
                             {			        
@@ -713,11 +744,11 @@ int main(int argc, char **argv)
 
                                 if ( (ob_distance[0]<serach_flight_height_1-0.1))
                                 {
-                                    flying_height_control_tracking += 0.01;
+                                    flying_height_control_tracking += 0.003;
                                 }
                                 else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
                                 { 
-                                    flying_height_control_tracking -= 0.01;
+                                    flying_height_control_tracking -= 0.003;
                                 }
                                 drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
 
@@ -770,24 +801,34 @@ int main(int argc, char **argv)
 		       {
 			 case 0:
 			 {
-			    drone->gimbal_angle_control(0,0,0,20);   //look farward.
-			    
-			    if ( (ob_distance[0]<serach_flight_height_1-0.1))
-			    {
-			      flying_height_control_tracking += 0.008; //init 0.003,speed up 
-			    }
-			    else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
-			    { 
-			      flying_height_control_tracking -= 0.008; //init 0.003
-			    }
-                            drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+			      drone->gimbal_angle_control(0,0,0,20);   //look farward.
 
-			    if((ob_distance[0]>second_square_height)&&ob_distance[0]<4)
-			    {
-			      cross_state = 1;
-			    }  
-			  
-			  break;
+			      if (drone->flight_status==1)//standby
+			      {  	
+				drone->takeoff();
+			      }
+			      else if(drone->flight_status==3)//in air
+			      {			    
+				  if ( (ob_distance[0]<serach_flight_height_1-0.1))
+				  {
+				    flying_height_control_tracking += 0.01; //init 0.003,speed up 
+				  }
+				  else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+				  { 
+				    flying_height_control_tracking -= 0.01; //init 0.003
+				  }
+				  drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
+
+				  if(abs(ob_distance[0]-second_square_height)<0.1&&ob_distance[0]<4)
+				  {
+				    cross_state = 1;
+				  }  
+			      }
+			     else
+			     {
+		    
+			     }
+			     break;
 			 }
 			 case 1:
 			 {			   			     
@@ -842,13 +883,13 @@ int main(int argc, char **argv)
                         break;
                     }
 
-                    case 11://take off and forward,need to change height and forward distance
+                    case 11://go up and forward,need to change height and forward distance
                     {
                         switch(cross_state)
                         {
                             case 0:
                             {
-                                // go up
+                                // go up/down
                                 if ( ob_distance[0]<second_cross_height-0.1)
                                 {
                                     flying_height_control_tracking += 0.01;
@@ -950,14 +991,14 @@ int main(int argc, char **argv)
                         break;
                     }
 
-                    case 13://take off and forward
+                    case 13://go up/down and forward
                     {
 
                         switch(cross_state)
                         {
                             case 0:
                             {
-                                // go up
+                                // go up/down
                                 if ( ob_distance[0]<third_cross_height-0.1)
                                 {
                                     flying_height_control_tracking += 0.01;
@@ -1067,22 +1108,32 @@ int main(int argc, char **argv)
 		       {
 			 case 0:
 			 {
-			    if ( (ob_distance[0]<serach_flight_height_1-0.1))
-			    {
-			      flying_height_control_tracking += 0.008; //init 0.003,speed up 
-			    }
-			    else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
-			    { 
-			      flying_height_control_tracking -= 0.008; //init 0.003
-			    }
-                            drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+			     if (drone->flight_status==1)//standby
+			      {  	
+				drone->takeoff();
+			      }
+			      else if(drone->flight_status==3)//in air
+			      {			    
+				  if ( (ob_distance[0]<serach_flight_height_1-0.1))
+				  {
+				    flying_height_control_tracking += 0.01; //init 0.003,speed up 
+				  }
+				  else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+				  { 
+				    flying_height_control_tracking -= 0.01; //init 0.003
+				  }
+				  drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
 
-			    if((ob_distance[0]>serach_flight_height_1-0.2)&&ob_distance[0]<4)
+				  if((ob_distance[0]>serach_flight_height_1-0.2)&&ob_distance[0]<4)
+				  {
+				    cross_state = 1;
+				  }  
+			      }
+			    else
 			    {
-			      cross_state = 1;
-			    }  
-			  
-			  break;
+		    
+			    }
+			    break;
 			 }
 			 case 1:
 			 {
@@ -1143,22 +1194,32 @@ int main(int argc, char **argv)
 		       {
 			 case 0:
 			 {
-			    if ( (ob_distance[0]<serach_flight_height_2-0.1))
-			    {
-			      flying_height_control_tracking += 0.008; //init 0.003,speed up 
-			    }
-			    else if ( (ob_distance[0]>serach_flight_height_2+0.1)&&ob_distance[0]<5)
-			    { 
-			      flying_height_control_tracking -= 0.008; //init 0.003
-			    }
-                            drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+			    if (drone->flight_status==1)//standby
+			      {  	
+				drone->takeoff();
+			      }
+			      else if(drone->flight_status==3)//in air
+			      {			    
+				  if ( (ob_distance[0]<serach_flight_height_1-0.1))
+				  {
+				    flying_height_control_tracking += 0.01; //init 0.003,speed up 
+				  }
+				  else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+				  { 
+				    flying_height_control_tracking -= 0.01; //init 0.003
+				  }
+				  drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
 
-			    if((ob_distance[0]>serach_flight_height_2-0.2)&&ob_distance[0]<4)
+				  if((ob_distance[0]>serach_flight_height_1-0.2)&&ob_distance[0]<4)
+				  {
+				    cross_state = 1;
+				  }  
+			      }
+			    else
 			    {
-			      cross_state = 1;
-			    }  
-			  
-			  break;
+		    
+			    }
+			    break;
 			 }
 			 case 1:
 			 {
@@ -1479,51 +1540,26 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
             }
             else if(abs(cmd_fligh_x)<0.12&&abs(cmd_flight_y)<0.12) //samll adjust
             {
-//                 samll_adjust_count ++;
-//                 if(samll_adjust_count < 0)
-//                 {
-//                     drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0); 
-//                 }
-//                 else
-//                 {
-//                     samll_adjust_count = 0;
-//                     //drone->landing();
-//                     //sleep(1);
-//                     for(int i = 0; i < count_to_landing; i ++)
-//                     {
-//                         if(i < count_to_landing)
-//                             drone->attitude_control(0x4B, 0, 0, -0.5, 0);//NOT 0X42
-//                         else
-//                             drone->attitude_control(0x4B, 0, 0, 0, 0);
-//                         usleep(10000);
-//                     }
-//                     land_mode=2;
-//                 }
 	      
-		  if ( ob_distance[0]<1.8)
+		  if ( ob_distance[0]<2.4)
 		  {
 		    flying_height_control_tracking += 0.015;   //init 0.008,speed up landing
 		  }
-		  else if ( (ob_distance[0]>2.0)&&ob_distance[0]<6) 
+		  else if ( (ob_distance[0]>2.6)&&ob_distance[0]<6) 
 		  { 
 		    flying_height_control_tracking -= 0.015;    //init 0.008
 		  }
 		  drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
 
-		  if(ob_distance[0]<2.0)
+		  if(ob_distance[0]<2.6)
 		  {
-		      for(int i = 0; i < count_to_landing; i ++)
-		      {
-			  if(i < count_to_landing)
-			      drone->attitude_control(0x4B, 0, 0, -0.5, 0);//NOT 0X42
-			  else
-			      drone->attitude_control(0x4B, 0, 0, 0, 0);
-			  usleep(10000);
-		      }
+		      drone->landing();
+		      sleep(1);   //wait for airscrew still
+		      
 		      writeF << "land_mode = 2" << endl;
-		      	land_mode=0;
-			return true;
-		    }
+		      land_mode=0;
+		      return true;
+	       }
             }
         }
         else    //parkinng pad undetected
@@ -1613,11 +1649,11 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
   return false;
 }
 
-void searching_right(float &pos_y,float &bound_length, int state,DJIDrone* drone)
-{
-
-}
-void searching_left(float &pos_y,float &bound_length, int state,DJIDrone* drone)
-{
-  
-}
+// void searching_right(float &pos_y,float &bound_length, int state,DJIDrone* drone)
+// {
+// 
+// }
+// void searching_left(float &pos_y,float &bound_length, int state,DJIDrone* drone)
+// {
+//   
+// }

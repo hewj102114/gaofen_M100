@@ -22,13 +22,13 @@
 	
 		<param name="bound_len" type="int" value="500"/>
 		<param name="park_direction_1" type="bool" value="true"/>
-		<param name="park_direction_2" type="bool" value="true"/>
+		<param name="park_direction_2" type="bool" value="false"/>
 		<param name="park_direction_3" type="bool" value="true"/>
-		<param name="cross_direction_4" type="bool" value="true"/>
+		<param name="cross_direction_4" type="bool" value="false"/>
 		<param name="park_direction_5" type="bool" value="false"/>
 		<param name="cross_direction_6" type="bool" value="false"/>
-		<param name="cross_direction_7" type="bool" value="false"/>
-		<param name="park_direction_8" type="bool" value="false"/>
+		<param name="cross_direction_7" type="bool" value="true"/>
+		<param name="park_direction_8" type="bool" value="true"/>
 		<param name="park_direction_9" type="bool" value="false"/>
 
 		<param name="serach_flight_height_1" value="3.0"/>
@@ -39,17 +39,17 @@
 		<param name="cross_forward_distance45"  value="3.2"/>
 		<param name="cross_forward_distance56"  value="0"/>
 		<param name="cross_forward_distance67"  value="1.8"/>
-		<param name="cross_forward_distance78"  value="3.2"/>
+		<param name="cross_forward_distance78"  value="1.8"/>
 		<param name="cross_forward_distance89"  value="1.3"/>
 		<param name="cross_forward_distance910" value="5.0"/>
 		<param name="set_count_to_landing" type="int" value="230"/>
 		
-		<param name="first_square_height" value="1.4"/>
-		<param name="first_cross_height" value="2.3"/>
-		<param name="second_square_height" value="1.4"/>
-		<param name="second_cross_height" value="2.3"/>
-		<param name="third_square_height" value="1.3"/>
-		<param name="third_cross_height" value="2.3"/>
+		<param name="first_square_height" value="0.9"/>
+		<param name="first_cross_height" value="1.4"/>
+		<param name="second_square_height" value="0.9"/>
+		<param name="second_cross_height" value="1.4"/>
+		<param name="third_square_height" value="0.9"/>
+		<param name="third_cross_height" value="1.4"/>
 		
 		<param name="searching_velocity" value="0.7"/>
 												
