@@ -10,7 +10,6 @@
  */
 #ifndef DJI_FLIGHT_H
 #define DJI_FLIGHT_H
-
 #include "DJI_API.h"
 
 namespace DJI

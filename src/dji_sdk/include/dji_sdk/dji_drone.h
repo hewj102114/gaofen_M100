@@ -170,6 +170,8 @@ private:
 	void attitude_quaternion_subscriber_callback(dji_sdk::AttitudeQuaternion attitude_quaternion)
 	{
 		this->attitude_quaternion = attitude_quaternion;
+		this->yaw_from_drone = atan2(2.0*(attitude_quaternion.q3*attitude_quaternion.q0+attitude_quaternion.q1*attitude_quaternion.q2),
+				 -1.0+2.0*(attitude_quaternion.q0*attitude_quaternion.q0+attitude_quaternion.q1*attitude_quaternion.q1));	
 	}
 
 	void compass_subscriber_callback(dji_sdk::Compass compass)

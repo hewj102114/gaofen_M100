@@ -1,2910 +1,701 @@
-1534242119.459343946
-begin take off start yaw = 0
-begin take off start yaw = 0
-begin take off start yaw = 0
-begin take off start yaw = 0
-begin take off start yaw = 0
-begin take off start yaw = 0
-ob_distance[0]=80
--0.04258770.020697-0.0939593
-ob_distance[0]=80
--0.04300630.0206852-0.0902228
-ob_distance[0]=80
--0.04338980.0206852-0.0827978
-ob_distance[0]=80
--0.04382790.0200636-0.0801987
-ob_distance[0]=80
--0.04426150.0193556-0.0809349
-ob_distance[0]=80
--0.044730.0192042-0.0832978
-ob_distance[0]=80
--0.04504750.0181012-0.0814805
-ob_distance[0]=80
--0.04558740.0167662-0.0784009
-ob_distance[0]=80
--0.04629140.0160195-0.0783245
-ob_distance[0]=80
--0.04679230.015395-0.0813044
-ob_distance[0]=80
--0.04708060.0152003-0.0806313
-ob_distance[0]=80
--0.047330.0150326-0.0753735
-ob_distance[0]=80
--0.04768510.0147612-0.0664469
-ob_distance[0]=80
--0.047330.0150326-0.0549559
-ob_distance[0]=80
--0.04685120.0168832-0.0518351
-ob_distance[0]=80
--0.04617390.0190023-0.0486788
-ob_distance[0]=80
--0.0460290.0194803-0.0436652
-ob_distance[0]=80
--0.04586180.0200333-0.0410591
-ob_distance[0]=80
--0.04582060.0201669-0.0323863
-ob_distance[0]=80
--0.04578670.0202899-0.0297747
-ob_distance[0]=80
--0.04578670.0202201-0.02647
-ob_distance[0]=80
--0.04581980.0200876-0.0278642
-ob_distance[0]=80
--0.04592510.0201707-0.0319151
-ob_distance[0]=80
--0.04603490.0201707-0.0392181
-ob_distance[0]=80
--0.0461520.020402-0.046657
-ob_distance[0]=80
--0.04631870.0204217-0.0388732
-ob_distance[0]=80
--0.04674380.0204632-0.035642
-ob_distance[0]=80
--0.04712470.0204875-0.031751
-ob_distance[0]=80
--0.04721730.0204875-0.0240365
-ob_distance[0]=80
--0.04729780.0206578-0.0186047
-ob_distance[0]=80
--0.04738870.0208047-0.0190594
-ob_distance[0]=80
--0.04748120.020945-0.0203894
-ob_distance[0]=80
--0.04754420.0210707-0.0150933
-ob_distance[0]=80
--0.04754420.0210707-0.00564923
-ob_distance[0]=80
--0.04753740.02116250.0115405
-ob_distance[0]=80
--0.04754420.02135480.0259895
-ob_distance[0]=80
--0.04756170.0216930.0394053
-ob_distance[0]=80
--0.0476170.02230880.0677611
-ob_distance[0]=80
--0.04761690.02271070.0861611
-ob_distance[0]=80
--0.04732650.02366330.099837
-ob_distance[0]=80
--0.0469430.02470940.100801
-ob_distance[0]=80
--0.04686240.02497520.111217
-ob_distance[0]=80
--0.04676890.02507790.117288
-ob_distance[0]=80
--0.04661760.02511580.133781
-ob_distance[0]=80
--0.04643620.02523380.157503
-ob_distance[0]=80
--0.04587260.02664570.18504
-ob_distance[0]=80
--0.045310.02833190.202784
-ob_distance[0]=80
--0.04515910.02881540.206806
-ob_distance[0]=80
--0.0450450.02894740.232008
-ob_distance[0]=80
--0.04488340.02965260.248589
-ob_distance[0]=80
--0.04463640.03079280.255725
-ob_distance[0]=80
--0.04443670.03190410.250869
-ob_distance[0]=80
--0.04419720.03264610.250869
-ob_distance[0]=80
--0.04414850.03280440.250407
-ob_distance[0]=80
--0.04394130.03344760.25849
-ob_distance[0]=80
--0.04356230.03446890.263175
-ob_distance[0]=80
--0.04347840.03456310.262514
-ob_distance[0]=80
--0.04327320.03489330.260632
-ob_distance[0]=80
--0.04307610.03516540.259953
-ob_distance[0]=80
--0.04319550.03516540.26386
-ob_distance[0]=80
--0.04318930.03541460.271049
-ob_distance[0]=80
--0.04322870.03563970.278395
-ob_distance[0]=80
--0.0433910.03587230.282091
-ob_distance[0]=80
--0.04355520.0359680.292899
-ob_distance[0]=80
--0.04355520.03621540.319306
-ob_distance[0]=80
--0.04351960.03748730.335326
-ob_distance[0]=80
--0.04352220.03804330.36187
-ob_distance[0]=80
--0.04365910.03818820.38843
-ob_distance[0]=80
--0.04360730.03854980.408373
-ob_distance[0]=80
--0.04294930.04156750.421787
-ob_distance[0]=80
--0.04197520.04567680.448737
-ob_distance[0]=80
--0.04187290.04567680.461069
-ob_distance[0]=80
--0.04182730.04546270.464482
-ob_distance[0]=80
--0.04170910.04521690.480379
-ob_distance[0]=80
--0.04182730.0449190.498336
-ob_distance[0]=80
--0.04200250.04493080.498336
-ob_distance[0]=80
--0.04220210.04493080.549144
-ob_distance[0]=80
--0.04264230.04397720.561261
-ob_distance[0]=80
--0.04312550.04314950.612626
-ob_distance[0]=80
--0.04336050.04300920.664555
-ob_distance[0]=80
--0.04368520.04286560.706604
-ob_distance[0]=80
--0.04368520.04299150.768204
-ob_distance[0]=80
--0.0435470.04319190.796087
-ob_distance[0]=80
--0.04353370.04319190.844083
-ob_distance[0]=80
--0.04352830.0431710.859866
-ob_distance[0]=80
--0.04376720.04263780.902626
-ob_distance[0]=80
--0.04378580.04250880.91729
-ob_distance[0]=80
--0.04418820.04148470.939799
-ob_distance[0]=80
--0.04467890.04032390.956471
-ob_distance[0]=80
--0.04493790.03975310.95892
-ob_distance[0]=80
--0.04516230.03975310.984564
-ob_distance[0]=80
--0.04644010.04001771.01572
-ob_distance[0]=80
--0.04741570.04071761.08111
-ob_distance[0]=80
--0.04744680.04250051.09383
-ob_distance[0]=80
--0.04727620.04420831.15689
-ob_distance[0]=80
--0.04727620.04431141.1853
-ob_distance[0]=80
--0.04735310.04469851.19684
-ob_distance[0]=80
--0.04761680.04469851.18147
-ob_distance[0]=80
--0.04929020.04260341.16802
-ob_distance[0]=80
--0.05055850.040061.12753
-ob_distance[0]=80
--0.05055850.03956391.06171
-ob_distance[0]=80
--0.05026880.03794681.04732
-ob_distance[0]=80
--0.0500640.03655760.96228
-ob_distance[0]=80
--0.0494060.03610760.906819
-ob_distance[0]=80
--0.04753520.03563640.867436
-ob_distance[0]=80
--0.04578890.03531940.815594
-ob_distance[0]=80
--0.04464070.03557020.758319
-ob_distance[0]=80
--0.04339610.03550630.701159
-ob_distance[0]=80
--0.04217490.03545770.63607
-ob_distance[0]=34.51
--0.0406690.03559220.571239
-ob_distance[0]=6.92
--0.03853630.03680360.520844
-ob_distance[0]=0.77
--0.03624380.03824250.466603
-ob_distance[0]=0.77
--0.03423510.03860980.401726
-ob_distance[0]=0.26
--0.03227490.03913560.291553
-ob_distance[0]=0.25
--0.02962010.04002540.24191
-ob_distance[0]=0.25
--0.02711190.04092640.175725
-ob_distance[0]=0.26
--0.0251390.04184730.139257
-ob_distance[0]=0.26
--0.02259330.04352860.0601251
-ob_distance[0]=0.26
--0.01960130.04569860.0109351
-ob_distance[0]=0.29
--0.01619080.0498638-0.0274946
-ob_distance[0]=0.31
--0.01328630.054057-0.0797641
-ob_distance[0]=0.32
--0.01076970.0566201-0.114741
-ob_distance[0]=0.32
--0.008599130.058904-0.175996
-ob_distance[0]=0.33
--0.007131410.0600488-0.229554
-ob_distance[0]=0.34
--0.005401690.0614413-0.266811
-ob_distance[0]=0.34
--0.003625380.0632775-0.312405
-ob_distance[0]=0.35
--0.001282590.0671101-0.373906
-ob_distance[0]=0.35
-0.001787760.0718504-0.316628
-ob_distance[0]=0.39
-0.005063110.0761327-0.331855
-ob_distance[0]=0.43
-0.007543480.0795381-0.358512
-ob_distance[0]=0.43
-0.01026850.0831689-0.381615
-ob_distance[0]=0.45
-0.01345420.0874751-0.411564
-ob_distance[0]=0.47
-0.01599170.0907856-0.430076
-ob_distance[0]=0.5
-0.01868250.0952088-0.448347
-ob_distance[0]=0.52
-0.02082630.0990673-0.466048
-ob_distance[0]=0.55
-0.0236390.102761-0.491215
-ob_distance[0]=0.55
-0.02707890.107154-0.505161
-ob_distance[0]=0.56
-0.02936830.110189-0.537841
-ob_distance[0]=0.59
-0.03159020.11343-0.557436
-ob_distance[0]=0.62
-0.03396160.116979-0.56951
-ob_distance[0]=0.62
-0.03508740.119118-0.599279
-ob_distance[0]=0.64
-0.03644820.12173-0.610061
-ob_distance[0]=0.67
-0.03804980.124172-0.637781
-ob_distance[0]=0.69
-0.04029350.126252-0.661504
-ob_distance[0]=0.69
-0.04311420.128751-0.666784
-ob_distance[0]=0.72
-0.0443110.129976-0.694076
-ob_distance[0]=0.74
-0.04643960.131666-0.712806
-ob_distance[0]=0.77
-0.04913630.133776-0.745097
-ob_distance[0]=0.79
-0.05106770.135559-0.770571
-ob_distance[0]=0.82
-0.05297370.137234-0.802136
-ob_distance[0]=0.82
-0.05521690.138507-0.811449
-ob_distance[0]=0.84
-0.05698940.139399-0.85332
-ob_distance[0]=0.87
-0.05845290.139899-0.870112
-ob_distance[0]=0.89
-0.0601350.140471-0.883653
-ob_distance[0]=0.89
-0.0610470.140859-0.904096
-ob_distance[0]=0.91
-0.06208060.141336-0.935889
-ob_distance[0]=0.91
-0.06311850.14212-0.942642
-ob_distance[0]=0.96
-0.06371160.142721-0.983207
-ob_distance[0]=0.98
-0.06496510.14351-1.01609
-ob_distance[0]=0.98
-0.06721210.144843-1.03877
-ob_distance[0]=1.01
-0.06901210.145893-1.06092
-ob_distance[0]=1.04
-0.07030.146798-1.09168
-ob_distance[0]=1.05
-0.07176280.147921-1.10386
-ob_distance[0]=1.05
-0.07286590.148667-1.12165
-ob_distance[0]=1.09
-0.07415740.148922-1.148
-ob_distance[0]=1.12
-0.07580810.149407-1.16724
-ob_distance[0]=1.15
-0.07758520.15022-1.19311
-ob_distance[0]=1.18
-0.07940380.15086-1.21621
-ob_distance[0]=1.18
-0.0813490.15106-1.23033
-ob_distance[0]=1.21
-0.08302820.15106-1.25025
-ob_distance[0]=1.24
-0.08406810.151003-1.28106
-ob_distance[0]=1.26
-0.08604930.150946-1.31316
-ob_distance[0]=1.26
-0.08840760.150598-1.32188
-ob_distance[0]=1.29
-0.08964070.150445-1.34966
-ob_distance[0]=1.32
-0.09108820.150287-1.3647
-ob_distance[0]=1.32
-0.09275190.150164-1.3948
-ob_distance[0]=1.34
-0.09417240.150303-1.4103
-ob_distance[0]=1.37
-0.09624940.150151-1.43982
-ob_distance[0]=1.39
-0.09849820.150148-1.45765
-ob_distance[0]=1.41
-0.1009840.150257-1.47729
-ob_distance[0]=1.44
-0.1032050.150189-1.49966
-ob_distance[0]=1.44
-0.1050380.150189-1.51849
-ob_distance[0]=1.47
-0.1071550.150066-1.54526
-ob_distance[0]=1.49
-0.1094920.149769-1.56836
-ob_distance[0]=1.52
-0.1124120.148932-1.58671
-ob_distance[0]=1.52
-0.1149690.147941-1.60235
-ob_distance[0]=1.55
-0.1164710.147209-1.61483
-ob_distance[0]=1.57
-0.1188960.146825-1.64454
-ob_distance[0]=1.59
-0.1221540.146556-1.66322
-ob_distance[0]=1.61
-0.1257290.145899-1.68638
-ob_distance[0]=1.64
-0.1292370.145417-1.70618
-ob_distance[0]=1.64
-0.1327690.145344-1.71077
-ob_distance[0]=1.66
-0.1351930.145115-1.73355
-ob_distance[0]=1.68
-0.1371220.144997-1.7532
-ob_distance[0]=1.71
-0.1406660.144757-1.76633
-ob_distance[0]=1.72
-0.143560.144754-1.79386
-ob_distance[0]=1.72
-0.1467130.144882-1.80047
-ob_distance[0]=1.75
-0.1493870.144679-1.82033
-ob_distance[0]=1.77
-0.1512640.14458-1.84233
-ob_distance[0]=1.79
-0.1543530.14361-1.85114
-ob_distance[0]=1.79
-0.1566640.142733-1.86654
-ob_distance[0]=1.81
-0.1583710.142389-1.89672
-ob_distance[0]=1.82
-0.1610080.141758-1.91005
-ob_distance[0]=1.85
-0.1633910.141173-1.92674
-ob_distance[0]=1.87
-0.1652730.140739-1.93776
-ob_distance[0]=1.89
-0.1669890.140312-1.95761
-ob_distance[0]=1.89
-0.1688170.13987-1.97301
-ob_distance[0]=1.91
-0.1711560.139345-1.99407
-ob_distance[0]=1.92
-0.1735460.138773-2.00762
-ob_distance[0]=1.94
-0.1751820.138129-2.02144
-ob_distance[0]=1.94
-0.1762640.13757-2.0332
-ob_distance[0]=1.96
-0.1774670.137121-2.0484
-ob_distance[0]=1.98
-0.1791480.136521-2.0687
-ob_distance[0]=2
-0.1812120.136351-2.0834
-ob_distance[0]=2.03
-0.1834330.13633-2.09862
-ob_distance[0]=2.04
-0.1854550.136542-2.10364
-ob_distance[0]=2.04
-0.1864140.136562-2.11305
-ob_distance[0]=2.05
-0.1879370.13662-2.13028
-ob_distance[0]=2.06
-0.1901280.13662-2.14443
-ob_distance[0]=2.08
-0.1924280.136322-2.15078
-ob_distance[0]=2.08
-0.1941730.135922-2.16606
-ob_distance[0]=2.1
-0.1962820.135605-2.17864
-ob_distance[0]=2.12
-0.1988310.135245-2.1897
-ob_distance[0]=2.14
-0.20030.135052-2.20607
-ob_distance[0]=2.15
-0.2029590.134473-2.21723
-ob_distance[0]=2.15
-0.2057620.133717-2.22361
-ob_distance[0]=2.17
-0.2070640.133209-2.23423
-ob_distance[0]=2.18
-0.2096310.13218-2.2448
-ob_distance[0]=2.19
-0.2126920.130832-2.25533
-ob_distance[0]=2.19
-0.2146150.129744-2.26345
-ob_distance[0]=2.21
-0.2166060.128916-2.27361
-ob_distance[0]=2.23
-0.2185630.128287-2.29318
-ob_distance[0]=2.25
-0.2206510.127701-2.29915
-ob_distance[0]=2.25
-0.2222780.127496-2.31533
-ob_distance[0]=2.26
-0.2244490.12749-2.32559
-ob_distance[0]=2.28
-0.2269070.127236-2.33871
-ob_distance[0]=2.29
-0.2285170.126675-2.34307
-ob_distance[0]=2.29
-0.2296430.126631-2.35428
-ob_distance[0]=2.3
-0.2303970.126521-2.36231
-ob_distance[0]=2.3
-0.2311990.126506-2.36895
-ob_distance[0]=2.31
-0.232540.126506-2.37895
-ob_distance[0]=2.31
-0.233580.126148-2.38864
-ob_distance[0]=2.32
-0.2336880.125047-2.39726
-ob_distance[0]=2.34
-0.2338190.123802-2.40694
-ob_distance[0]=2.36
-0.2338190.123098-2.42661
-ob_distance[0]=2.37
-0.2348730.121702-2.43992
-ob_distance[0]=2.38
-0.2360130.120013-2.44964
-ob_distance[0]=2.38
-0.2368280.119314-2.45357
-ob_distance[0]=2.4
-0.2376040.119128-2.46538
-ob_distance[0]=2.42
-0.237950.118443-2.47476
-ob_distance[0]=2.42
-0.2392080.117443-2.48621
-ob_distance[0]=2.42
-0.2406620.116398-2.49131
-ob_distance[0]=2.42
-0.2413370.11559-2.50041
-ob_distance[0]=2.43
-0.242440.114763-2.50899
-ob_distance[0]=2.43
-0.2437870.113718-2.51637
-ob_distance[0]=2.44
-0.2446250.113282-2.52314
-ob_distance[0]=2.44
-0.2450910.11285-2.5341
-ob_distance[0]=2.45
-0.2456730.112451-2.54139
-ob_distance[0]=2.45
-0.2465160.112294-2.54673
-ob_distance[0]=2.47
-0.2472390.112013-2.5559
-ob_distance[0]=2.49
-0.2480370.111687-2.56714
-ob_distance[0]=2.5
-0.2490440.110761-2.57497
-ob_distance[0]=2.5
-0.2499660.109693-2.57942
-ob_distance[0]=2.51
-0.2504920.109154-2.59186
-ob_distance[0]=2.52
-0.251670.108526-2.60079
-ob_distance[0]=2.53
-0.2531470.107766-2.61432
-ob_distance[0]=2.53
-0.2550940.106981-2.61669
-ob_distance[0]=2.54
-0.2567040.106449-2.62618
-ob_distance[0]=2.55
-0.2574740.106082-2.6352
-ob_distance[0]=2.55
-0.2589460.1051-2.64328
-ob_distance[0]=2.56
-0.2603340.10409-2.64788
-ob_distance[0]=2.57
-0.2611590.103573-2.65665
-ob_distance[0]=2.58
-0.2617880.102397-2.67014
-ob_distance[0]=2.59
-0.2630010.100588-2.67461
-ob_distance[0]=2.59
-0.2641720.0994702-2.6821
-ob_distance[0]=2.59
-0.2654330.0991468-2.69195
-ob_distance[0]=2.59
-0.2671060.0985111-2.70265
-ob_distance[0]=2.59
-0.2682920.0972515-2.70372
-ob_distance[0]=2.6
-0.2688420.0965233-2.71333
-ob_distance[0]=2.6
-0.2694670.0957894-2.71909
-ob_distance[0]=2.6
-0.2710060.0941911-2.7248
-ob_distance[0]=2.6
-0.2723780.0928052-2.73139
-ob_distance[0]=2.64
-0.2732280.0918725-2.74171
-ob_distance[0]=2.66
-0.2747470.0908876-2.74363
-ob_distance[0]=2.67
-0.2759570.0902721-2.75542
-ob_distance[0]=2.67
-0.2772040.0889179-2.76234
-ob_distance[0]=2.68
-0.2788120.0872631-2.76926
-ob_distance[0]=2.7
-0.2797060.0864705-2.77058
-ob_distance[0]=2.7
-0.2801630.0853303-2.77386
-ob_distance[0]=2.71
-0.2803060.084317-2.78038
-ob_distance[0]=2.72
-0.2806180.0835132-2.78437
-ob_distance[0]=2.72
-0.2815130.0816807-2.78903
-ob_distance[0]=2.73
-0.2823470.0798086-2.79448
-ob_distance[0]=2.73
-0.2827050.0784746-2.80192
-ob_distance[0]=2.74
-0.2837530.0762419-2.80886
-ob_distance[0]=2.74
-0.2849120.0736074-2.81447
-ob_distance[0]=2.75
-0.2864510.0721304-2.81978
-ob_distance[0]=2.75
-0.2880740.0710151-2.82435
-ob_distance[0]=2.75
-0.2887840.0695726-2.83287
-ob_distance[0]=2.76
-0.2898530.0682231-2.83606
-ob_distance[0]=2.76
-0.2908310.0671429-2.84327
-ob_distance[0]=2.76
-0.2916330.0658878-2.84831
-ob_distance[0]=2.77
-0.2930060.0647538-2.8563
-ob_distance[0]=2.78
-0.2945110.063697-2.86266
-ob_distance[0]=2.78
-0.2955960.0619361-2.86514
-ob_distance[0]=2.78
-0.2961870.0607235-2.87175
-ob_distance[0]=2.78
-0.2968860.0598742-2.87422
-ob_distance[0]=2.79
-0.2975780.0590439-2.88317
-ob_distance[0]=2.8
-0.2980410.0569166-2.88656
-ob_distance[0]=2.81
-0.2985080.0546543-2.89512
-0.2985080.0546543-2.89512
-ob_distance[0]=2.91
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.89
-ob_distance[0]=2.89
-ob_distance[0]=2.88
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.86
-ob_distance[0]=2.85
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.85
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.88
-ob_distance[0]=2.89
-ob_distance[0]=2.89
-ob_distance[0]=2.89
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.91
-ob_distance[0]=2.91
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.93
-ob_distance[0]=2.93
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.96
-ob_distance[0]=2.97
-ob_distance[0]=2.98
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3.01
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.07
-ob_distance[0]=3.07
-ob_distance[0]=3.07
-ob_distance[0]=3.08
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.09
-ob_distance[0]=3.08
-ob_distance[0]=3.08
-ob_distance[0]=3.08
-ob_distance[0]=3.08
-ob_distance[0]=3.08
-ob_distance[0]=3.08
-ob_distance[0]=3.08
-ob_distance[0]=3.07
-ob_distance[0]=3.07
-ob_distance[0]=3.05
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.02
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=2.99
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.96
-ob_distance[0]=2.95
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.93
-ob_distance[0]=2.93
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.89
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.86
-ob_distance[0]=2.84
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.81
-ob_distance[0]=2.8
-ob_distance[0]=2.79
-ob_distance[0]=2.79
-ob_distance[0]=2.78
-ob_distance[0]=2.78
-ob_distance[0]=2.77
-ob_distance[0]=2.76
-ob_distance[0]=2.74
-ob_distance[0]=2.73
-ob_distance[0]=2.72
-ob_distance[0]=2.71
-ob_distance[0]=2.7
-ob_distance[0]=2.7
-ob_distance[0]=2.68
-ob_distance[0]=2.67
-ob_distance[0]=2.66
-ob_distance[0]=2.64
-ob_distance[0]=2.63
-ob_distance[0]=2.62
-ob_distance[0]=2.61
-ob_distance[0]=2.61
-ob_distance[0]=2.61
-ob_distance[0]=2.6
-ob_distance[0]=2.59
-ob_distance[0]=2.57
-ob_distance[0]=2.55
-ob_distance[0]=2.54
-ob_distance[0]=2.54
-ob_distance[0]=2.53
-ob_distance[0]=2.52
-ob_distance[0]=2.5
-ob_distance[0]=2.48
-ob_distance[0]=2.47
-ob_distance[0]=2.47
-ob_distance[0]=2.47
-ob_distance[0]=2.45
-ob_distance[0]=2.44
-ob_distance[0]=2.43
-ob_distance[0]=2.42
-ob_distance[0]=2.4
-ob_distance[0]=2.4
-ob_distance[0]=2.38
-ob_distance[0]=2.36
-ob_distance[0]=2.35
-ob_distance[0]=2.34
-ob_distance[0]=2.33
-ob_distance[0]=2.32
-ob_distance[0]=2.3
-ob_distance[0]=2.3
-ob_distance[0]=2.29
-ob_distance[0]=2.29
-ob_distance[0]=2.26
-ob_distance[0]=2.24
-ob_distance[0]=2.22
-ob_distance[0]=2.21
-ob_distance[0]=2.2
-ob_distance[0]=2.2
-ob_distance[0]=2.2
-ob_distance[0]=2.18
-ob_distance[0]=2.14
-ob_distance[0]=2.12
-ob_distance[0]=2.11
-ob_distance[0]=2.1
-ob_distance[0]=2.08
-ob_distance[0]=2.05
-ob_distance[0]=2.04
-ob_distance[0]=2.04
-ob_distance[0]=2.04
-ob_distance[0]=2.02
-ob_distance[0]=2.01
-ob_distance[0]=1.99
-land_mode = 2
-1.67343-0.899769-1.83756
-1.56163-0.790913-2.3086
-decending for tag detection, pitch=-0.1,height=1.45
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-tag detected, cmd_x=1.84704
-tag detected, cmd_y=-0.0979016
-alined...
-delta_g_pos_x=-0.2234
-delta_g_pos_x=-0.224064
-delta_g_pos_x=-0.224499
-delta_g_pos_x=-0.224691
-delta_g_pos_x=-0.224777
-delta_g_pos_x=-0.225045
-delta_g_pos_x=-0.225022
-delta_g_pos_x=-0.217584
-delta_g_pos_x=-0.206891
-delta_g_pos_x=-0.206149
-delta_g_pos_x=-0.204851
-delta_g_pos_x=-0.204503
-delta_g_pos_x=-0.205291
-delta_g_pos_x=-0.204345
-delta_g_pos_x=-0.203621
-delta_g_pos_x=-0.203621
-delta_g_pos_x=-0.203336
-delta_g_pos_x=-0.202549
-delta_g_pos_x=-0.199106
-delta_g_pos_x=-0.195482
-delta_g_pos_x=-0.183317
-delta_g_pos_x=-0.166801
-delta_g_pos_x=-0.152573
-delta_g_pos_x=-0.137678
-delta_g_pos_x=-0.1281
-delta_g_pos_x=-0.121114
-delta_g_pos_x=-0.108438
-delta_g_pos_x=-0.0941541
-delta_g_pos_x=-0.0779191
-delta_g_pos_x=-0.0645351
-delta_g_pos_x=-0.0519326
-delta_g_pos_x=-0.034709
-delta_g_pos_x=-0.0166373
-delta_g_pos_x=0.00174046
-delta_g_pos_x=0.0195837
-delta_g_pos_x=0.0432324
-delta_g_pos_x=0.0686297
-delta_g_pos_x=0.086602
-delta_g_pos_x=0.10315
-delta_g_pos_x=0.126145
-delta_g_pos_x=0.149632
-delta_g_pos_x=0.170006
-delta_g_pos_x=0.190177
-delta_g_pos_x=0.216421
-delta_g_pos_x=0.235778
-delta_g_pos_x=0.252851
-delta_g_pos_x=0.279344
-delta_g_pos_x=0.301114
-delta_g_pos_x=0.321819
-delta_g_pos_x=0.347949
-delta_g_pos_x=0.382271
-delta_g_pos_x=0.417312
-delta_g_pos_x=0.434852
-delta_g_pos_x=0.451933
-delta_g_pos_x=0.481758
-delta_g_pos_x=0.503542
-delta_g_pos_x=0.524031
-delta_g_pos_x=0.557932
-delta_g_pos_x=0.591719
-delta_g_pos_x=0.608531
-delta_g_pos_x=0.633895
-delta_g_pos_x=0.673525
-delta_g_pos_x=0.689722
-delta_g_pos_x=0.707418
-delta_g_pos_x=0.751276
-delta_g_pos_x=0.795689
-delta_g_pos_x=0.832026
-delta_g_pos_x=0.864503
-delta_g_pos_x=0.887169
-delta_g_pos_x=0.913463
-delta_g_pos_x=0.939767
-delta_g_pos_x=0.964646
-delta_g_pos_x=1.0023
-delta_g_pos_x=1.02962
-delta_g_pos_x=1.0526
-delta_g_pos_x=1.08758
-delta_g_pos_x=1.12254
-delta_g_pos_x=1.15578
-delta_g_pos_x=1.17443
-delta_g_pos_x=1.20381
-delta_g_pos_x=1.2476
-delta_g_pos_x=1.28295
-delta_g_pos_x=1.32234
-delta_g_pos_x=1.34287
-delta_g_pos_x=1.36569
-delta_g_pos_x=1.40987
-delta_g_pos_x=1.45195
-delta_g_pos_x=1.47679
-delta_g_pos_x=1.50306
-delta_g_pos_x=1.54201
-delta_g_pos_x=1.58137
-delta_g_pos_x=1.6039
-delta_g_pos_x=1.63612
-delta_g_pos_x=1.67678
-delta_g_pos_x=1.70904
-delta_g_pos_x=1.75194
-delta_g_pos_x=1.7841
-delta_g_pos_x=1.81241
-delta_g_pos_x=1.84419
-delta_g_pos_x=1.87562
-delta_g_pos_x=1.89732
-delta_g_pos_x=1.92388
-delta_g_pos_x=1.9556
-delta_g_pos_x=1.97453
-delta_g_pos_x=1.98717
-delta_g_pos_x=2.00555
-delta_g_pos_x=2.0277
-delta_g_pos_x=2.04909
-delta_g_pos_x=2.07214
-delta_g_pos_x=2.09279
-delta_g_pos_x=2.10475
-delta_g_pos_x=2.11637
-delta_g_pos_x=2.1256
-delta_g_pos_x=2.14136
-delta_g_pos_x=2.16616
-delta_g_pos_x=2.18176
-delta_g_pos_x=2.19929
-delta_g_pos_x=2.21911
-delta_g_pos_x=2.24278
-delta_g_pos_x=2.26336
-delta_g_pos_x=2.2782
-delta_g_pos_x=2.30129
-delta_g_pos_x=2.33184
-delta_g_pos_x=2.36139
-delta_g_pos_x=2.38417
-delta_g_pos_x=2.40544
-delta_g_pos_x=2.4337
-delta_g_pos_x=2.46924
-delta_g_pos_x=2.49133
-delta_g_pos_x=2.50794
-delta_g_pos_x=2.54101
-delta_g_pos_x=2.57424
-delta_g_pos_x=2.61099
-delta_g_pos_x=2.65032
-delta_g_pos_x=2.68467
-delta_g_pos_x=2.70304
-delta_g_pos_x=2.7251
-delta_g_pos_x=2.76167
-delta_g_pos_x=2.79506
-delta_g_pos_x=2.82156
-delta_g_pos_x=2.84456
-delta_g_pos_x=2.8734
-delta_g_pos_x=2.89843
-delta_g_pos_x=2.93274
-delta_g_pos_x=2.96127
-delta_g_pos_x=2.98487
-delta_g_pos_x=3.01217
-delta_g_pos_x=3.03116
-delta_g_pos_x=3.06062
-delta_g_pos_x=3.08635
-delta_g_pos_x=3.10938
-delta_g_pos_x=3.14285
-delta_g_pos_x=3.17847
-delta_g_pos_x=3.2057
-delta_g_pos_x1=3.2057
-5.12895-2.43398-3.87187
-ob_distance[0]=2.81
-ob_distance[0]=2.81
-ob_distance[0]=2.81
-ob_distance[0]=2.82
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.84
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.89
-ob_distance[0]=2.89
-ob_distance[0]=2.89
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.91
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.93
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.97
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3.01
-ob_distance[0]=3.02
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=2.99
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.93
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.91
-ob_distance[0]=2.91
-ob_distance[0]=2.9
-ob_distance[0]=2.89
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.87
-ob_distance[0]=2.86
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.82
-ob_distance[0]=2.81
-ob_distance[0]=2.8
-ob_distance[0]=2.8
-ob_distance[0]=2.8
-ob_distance[0]=2.8
-ob_distance[0]=2.79
-ob_distance[0]=2.78
-ob_distance[0]=2.78
-ob_distance[0]=2.77
-ob_distance[0]=2.76
-ob_distance[0]=2.76
-ob_distance[0]=2.74
-ob_distance[0]=2.74
-ob_distance[0]=2.73
-ob_distance[0]=2.72
-ob_distance[0]=2.71
-ob_distance[0]=2.7
-ob_distance[0]=2.69
-ob_distance[0]=2.68
-ob_distance[0]=2.67
-ob_distance[0]=2.66
-ob_distance[0]=2.64
-ob_distance[0]=2.64
-ob_distance[0]=2.63
-ob_distance[0]=2.63
-ob_distance[0]=2.62
-ob_distance[0]=2.61
-ob_distance[0]=2.6
-ob_distance[0]=2.59
-ob_distance[0]=2.57
-ob_distance[0]=2.56
-ob_distance[0]=2.56
-ob_distance[0]=2.55
-ob_distance[0]=2.52
-ob_distance[0]=2.51
-ob_distance[0]=2.5
-ob_distance[0]=2.49
-ob_distance[0]=2.48
-ob_distance[0]=2.48
-ob_distance[0]=2.46
-ob_distance[0]=2.44
-ob_distance[0]=2.43
-ob_distance[0]=2.43
-ob_distance[0]=2.42
-ob_distance[0]=2.41
-ob_distance[0]=2.41
-ob_distance[0]=2.4
-ob_distance[0]=2.39
-ob_distance[0]=2.38
-ob_distance[0]=2.38
-ob_distance[0]=2.37
-ob_distance[0]=2.36
-ob_distance[0]=2.35
-ob_distance[0]=2.33
-ob_distance[0]=2.32
-ob_distance[0]=2.31
-ob_distance[0]=2.31
-ob_distance[0]=2.3
-ob_distance[0]=2.27
-ob_distance[0]=2.25
-ob_distance[0]=2.24
-ob_distance[0]=2.23
-ob_distance[0]=2.23
-ob_distance[0]=2.23
-ob_distance[0]=2.22
-ob_distance[0]=2.2
-ob_distance[0]=2.19
-ob_distance[0]=2.18
-ob_distance[0]=2.16
-ob_distance[0]=2.14
-ob_distance[0]=2.14
-ob_distance[0]=2.13
-ob_distance[0]=2.13
-ob_distance[0]=2.12
-ob_distance[0]=2.12
-ob_distance[0]=2.11
-ob_distance[0]=2.1
-ob_distance[0]=2.1
-ob_distance[0]=2.09
-ob_distance[0]=2.08
-ob_distance[0]=2.06
-ob_distance[0]=2.05
-ob_distance[0]=2.04
-ob_distance[0]=2.03
-ob_distance[0]=2.03
-ob_distance[0]=2.01
-ob_distance[0]=2
-ob_distance[0]=2
-ob_distance[0]=2
-ob_distance[0]=1.99
-land_mode = 2
-5.78996-1.60191-1.71959
-decending for tag detection, pitch=-4.3,height=1.43
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-mode: 1
-tag detected, cmd_yaw=0
-tag detected, cmd_x=1.64177
-tag detected, cmd_y=-0.0957673
-alined...
-delta_g_pos_x=-0.489048
-delta_g_pos_x=-0.489303
-delta_g_pos_x=-0.489413
-delta_g_pos_x=-0.489279
-delta_g_pos_x=-0.488854
-delta_g_pos_x=-0.488142
-delta_g_pos_x=-0.487407
-delta_g_pos_x=-0.486553
-delta_g_pos_x=-0.483169
-delta_g_pos_x=-0.479165
-delta_g_pos_x=-0.476087
-delta_g_pos_x=-0.473923
-delta_g_pos_x=-0.471879
-delta_g_pos_x=-0.469446
-delta_g_pos_x=-0.467578
-delta_g_pos_x=-0.466162
-delta_g_pos_x=-0.465746
-delta_g_pos_x=-0.464584
-delta_g_pos_x=-0.462779
-delta_g_pos_x=-0.461255
-delta_g_pos_x=-0.460319
-delta_g_pos_x=-0.45057
-delta_g_pos_x=-0.437206
-delta_g_pos_x=-0.430784
-delta_g_pos_x=-0.422373
-delta_g_pos_x=-0.413077
-delta_g_pos_x=-0.404772
-delta_g_pos_x=-0.39667
-delta_g_pos_x=-0.385458
-delta_g_pos_x=-0.373155
-delta_g_pos_x=-0.360375
-delta_g_pos_x=-0.346583
-delta_g_pos_x=-0.340527
-delta_g_pos_x=-0.330613
-delta_g_pos_x=-0.314797
-delta_g_pos_x=-0.304273
-delta_g_pos_x=-0.29383
-delta_g_pos_x=-0.276678
-delta_g_pos_x=-0.256059
-delta_g_pos_x=-0.23706
-delta_g_pos_x=-0.226034
-delta_g_pos_x=-0.206966
-delta_g_pos_x=-0.182446
-delta_g_pos_x=-0.162796
-delta_g_pos_x=-0.14712
-delta_g_pos_x=-0.131401
-delta_g_pos_x=-0.110329
-delta_g_pos_x=-0.0883794
-delta_g_pos_x=-0.0754519
-delta_g_pos_x=-0.0591073
-delta_g_pos_x=-0.032187
-delta_g_pos_x=-0.0073328
-delta_g_pos_x=0.0127516
-delta_g_pos_x=0.0277643
-delta_g_pos_x=0.0502572
-delta_g_pos_x=0.0781369
-delta_g_pos_x=0.10335
-delta_g_pos_x=0.123149
-delta_g_pos_x=0.142292
-delta_g_pos_x=0.15838
-delta_g_pos_x=0.181465
-delta_g_pos_x=0.214798
-delta_g_pos_x=0.240555
-delta_g_pos_x=0.264856
-delta_g_pos_x=0.284476
-delta_g_pos_x=0.301759
-delta_g_pos_x=0.327845
-delta_g_pos_x=0.355444
-delta_g_pos_x=0.375819
-delta_g_pos_x=0.39046
-delta_g_pos_x=0.416384
-delta_g_pos_x=0.437157
-delta_g_pos_x=0.457208
-delta_g_pos_x=0.485527
-delta_g_pos_x=0.510575
-delta_g_pos_x=0.530836
-delta_g_pos_x=0.554449
-delta_g_pos_x=0.582004
-delta_g_pos_x=0.59958
-delta_g_pos_x=0.622292
-delta_g_pos_x=0.654043
-delta_g_pos_x=0.673597
-delta_g_pos_x=0.700143
-delta_g_pos_x=0.74676
-delta_g_pos_x=0.783259
-delta_g_pos_x=0.80833
-delta_g_pos_x=0.835272
-delta_g_pos_x=0.867918
-delta_g_pos_x=0.904347
-delta_g_pos_x=0.934453
-delta_g_pos_x=0.953535
-delta_g_pos_x=0.979813
-delta_g_pos_x=1.01673
-delta_g_pos_x=1.05347
-delta_g_pos_x=1.08083
-delta_g_pos_x=1.09983
-delta_g_pos_x=1.12558
-delta_g_pos_x=1.15468
-delta_g_pos_x=1.17855
-delta_g_pos_x=1.19737
-delta_g_pos_x=1.20944
-delta_g_pos_x=1.22545
-delta_g_pos_x=1.24521
-delta_g_pos_x=1.2602
-delta_g_pos_x=1.27249
-delta_g_pos_x=1.28631
-delta_g_pos_x=1.30014
-delta_g_pos_x=1.30939
-delta_g_pos_x=1.32491
-delta_g_pos_x=1.34544
-delta_g_pos_x=1.36346
-delta_g_pos_x=1.38027
-delta_g_pos_x=1.40011
-delta_g_pos_x=1.42052
-delta_g_pos_x=1.44154
-delta_g_pos_x=1.46036
-delta_g_pos_x=1.47584
-delta_g_pos_x=1.4986
-delta_g_pos_x=1.52409
-delta_g_pos_x=1.54282
-delta_g_pos_x=1.56069
-delta_g_pos_x=1.58351
-delta_g_pos_x=1.60208
-delta_g_pos_x=1.62097
-delta_g_pos_x=1.64537
-delta_g_pos_x=1.6653
-delta_g_pos_x=1.68849
-delta_g_pos_x=1.71716
-delta_g_pos_x=1.74805
-delta_g_pos_x=1.77419
-delta_g_pos_x=1.80078
-delta_g_pos_x=1.8202
-delta_g_pos_x=1.83808
-delta_g_pos_x=1.87133
-delta_g_pos_x=1.8995
-delta_g_pos_x=1.91978
-delta_g_pos_x=1.94083
-delta_g_pos_x=1.97154
-delta_g_pos_x=2
-delta_g_pos_x1=2
-8.10496-4.2062-1.76291
-decending for tag detection, pitch=0,height=1.49
-mode: 1
-tag detected, cmd_yaw=0
-tag detected, cmd_x=1.64132
-tag detected, cmd_y=-0.0455825
-alined...
-delta_g_pos_x=-0.096447
-delta_g_pos_x=-0.0968552
-delta_g_pos_x=-0.097208
-delta_g_pos_x=-0.0974865
-delta_g_pos_x=-0.0978088
-delta_g_pos_x=-0.097847
-delta_g_pos_x=-0.0977077
-delta_g_pos_x=-0.0979366
-delta_g_pos_x=-0.0977077
-delta_g_pos_x=-0.0961657
-delta_g_pos_x=-0.0944824
-delta_g_pos_x=-0.0944824
-delta_g_pos_x=-0.094799
-delta_g_pos_x=-0.0951042
-delta_g_pos_x=-0.0952988
-delta_g_pos_x=-0.0961742
-delta_g_pos_x=-0.0974083
-delta_g_pos_x=-0.0983162
-delta_g_pos_x=-0.0983162
-delta_g_pos_x=-0.0959854
-delta_g_pos_x=-0.0924702
-delta_g_pos_x=-0.0876694
-delta_g_pos_x=-0.0813904
-delta_g_pos_x=-0.0761766
-delta_g_pos_x=-0.0705452
-delta_g_pos_x=-0.0629864
-delta_g_pos_x=-0.0559511
-delta_g_pos_x=-0.0491629
-delta_g_pos_x=-0.0376501
-delta_g_pos_x=-0.0279646
-delta_g_pos_x=-0.0233288
-delta_g_pos_x=-0.0128155
-delta_g_pos_x=-0.000364304
-delta_g_pos_x=0.0102386
-delta_g_pos_x=0.0268898
-delta_g_pos_x=0.0425911
-delta_g_pos_x=0.0599899
-delta_g_pos_x=0.0764847
-delta_g_pos_x=0.0855236
-delta_g_pos_x=0.10004
-delta_g_pos_x=0.120661
-delta_g_pos_x=0.143232
-delta_g_pos_x=0.160667
-delta_g_pos_x=0.17292
-delta_g_pos_x=0.192816
-delta_g_pos_x=0.207712
-delta_g_pos_x=0.220068
-delta_g_pos_x=0.244577
-delta_g_pos_x=0.272861
-delta_g_pos_x=0.292044
-delta_g_pos_x=0.306082
-delta_g_pos_x=0.327635
-delta_g_pos_x=0.355427
-delta_g_pos_x=0.374607
-delta_g_pos_x=0.398566
-delta_g_pos_x=0.431985
-delta_g_pos_x=0.454729
-delta_g_pos_x=0.481262
-delta_g_pos_x=0.51359
-delta_g_pos_x=0.528191
-delta_g_pos_x=0.544744
-delta_g_pos_x=0.574532
-delta_g_pos_x=0.605881
-delta_g_pos_x=0.628967
-delta_g_pos_x=0.643106
-delta_g_pos_x=0.667215
-delta_g_pos_x=0.694667
-delta_g_pos_x=0.713805
-delta_g_pos_x=0.738794
-delta_g_pos_x=0.77277
-delta_g_pos_x=0.788391
-delta_g_pos_x=0.807058
-delta_g_pos_x=0.839283
-delta_g_pos_x=0.866369
-delta_g_pos_x=0.885571
-delta_g_pos_x=0.901674
-delta_g_pos_x=0.924202
-delta_g_pos_x=0.94208
-delta_g_pos_x=0.953889
-delta_g_pos_x=0.972408
-delta_g_pos_x=0.993479
-delta_g_pos_x=1.01057
-delta_g_pos_x=1.02522
-delta_g_pos_x=1.03524
-delta_g_pos_x=1.04401
-delta_g_pos_x=1.05775
-delta_g_pos_x=1.07451
-delta_g_pos_x=1.08634
-delta_g_pos_x=1.09711
-delta_g_pos_x=1.11059
-delta_g_pos_x=1.12729
-delta_g_pos_x=1.14686
-delta_g_pos_x=1.15966
-delta_g_pos_x=1.17316
-delta_g_pos_x=1.19449
-delta_g_pos_x=1.2175
-delta_g_pos_x=1.23282
-delta_g_pos_x=1.24663
-delta_g_pos_x=1.26875
-delta_g_pos_x=1.28885
-delta_g_pos_x=1.31129
-delta_g_pos_x=1.33594
-delta_g_pos_x=1.34923
-delta_g_pos_x=1.36603
-delta_g_pos_x=1.3889
-delta_g_pos_x=1.40511
-delta_g_pos_x=1.42604
-delta_g_pos_x=1.44729
-delta_g_pos_x=1.46259
-delta_g_pos_x=1.49394
-delta_g_pos_x=1.52415
-delta_g_pos_x=1.54502
-delta_g_pos_x=1.57473
-delta_g_pos_x=1.59164
-delta_g_pos_x=1.60962
-delta_g_pos_x=1.62929
-delta_g_pos_x=1.64665
-delta_g_pos_x=1.67776
-delta_g_pos_x=1.71028
-delta_g_pos_x=1.72749
-delta_g_pos_x=1.74828
-delta_g_pos_x=1.77956
-delta_g_pos_x=1.79526
-delta_g_pos_x=1.81799
-delta_g_pos_x=1.85164
-delta_g_pos_x=1.88206
-delta_g_pos_x=1.90887
-delta_g_pos_x=1.93369
-delta_g_pos_x=1.96441
-delta_g_pos_x=1.99939
-delta_g_pos_x=2.03273
-delta_g_pos_x=2.06099
-delta_g_pos_x=2.08921
-delta_g_pos_x=2.11979
-delta_g_pos_x=2.14515
-delta_g_pos_x=2.16984
-delta_g_pos_x=2.20862
-delta_g_pos_x=2.24813
-delta_g_pos_x=2.27967
-delta_g_pos_x=2.30554
-delta_g_pos_x=2.32818
-delta_g_pos_x=2.36697
-delta_g_pos_x=2.40775
-delta_g_pos_x=2.44065
-delta_g_pos_x=2.47984
-delta_g_pos_x=2.50694
-delta_g_pos_x=2.52745
-delta_g_pos_x=2.55206
-delta_g_pos_x=2.58187
-delta_g_pos_x=2.61806
-delta_g_pos_x=2.65049
-delta_g_pos_x=2.6891
-delta_g_pos_x=2.7287
-delta_g_pos_x=2.76835
-delta_g_pos_x=2.80946
-delta_g_pos_x=2.84632
-delta_g_pos_x=2.8753
-delta_g_pos_x=2.8898
-delta_g_pos_x=2.92302
-delta_g_pos_x=2.97067
-delta_g_pos_x=2.99747
-delta_g_pos_x=3.0201
-delta_g_pos_x=3.0536
-delta_g_pos_x=3.08723
-delta_g_pos_x=3.11632
-delta_g_pos_x=3.14933
-delta_g_pos_x=3.1844
-delta_g_pos_x=3.21141
-delta_g_pos_x1=3.21141
-11.8647-5.58509-3.39773
-ob_distance[0]=2.81
-ob_distance[0]=2.81
-ob_distance[0]=2.81
-ob_distance[0]=2.81
-ob_distance[0]=2.81
-ob_distance[0]=2.81
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.83
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.84
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.89
-ob_distance[0]=2.9
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.93
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3.01
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.93
-ob_distance[0]=2.93
-ob_distance[0]=2.93
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.91
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.89
-ob_distance[0]=2.89
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.87
-ob_distance[0]=2.86
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.84
-ob_distance[0]=2.83
-ob_distance[0]=2.82
-ob_distance[0]=2.81
-ob_distance[0]=2.8
-ob_distance[0]=2.8
-ob_distance[0]=2.79
-ob_distance[0]=2.79
-ob_distance[0]=2.78
-ob_distance[0]=2.78
-ob_distance[0]=2.77
-ob_distance[0]=2.77
-ob_distance[0]=2.76
-ob_distance[0]=2.76
-ob_distance[0]=2.75
-ob_distance[0]=2.75
-ob_distance[0]=2.74
-ob_distance[0]=2.72
-ob_distance[0]=2.71
-ob_distance[0]=2.69
-ob_distance[0]=2.69
-ob_distance[0]=2.66
-ob_distance[0]=2.66
-ob_distance[0]=2.65
-ob_distance[0]=2.64
-ob_distance[0]=2.63
-ob_distance[0]=2.62
-ob_distance[0]=2.58
-ob_distance[0]=2.58
-ob_distance[0]=2.57
-ob_distance[0]=2.56
-ob_distance[0]=2.56
-ob_distance[0]=2.55
-ob_distance[0]=2.54
-ob_distance[0]=2.54
-ob_distance[0]=2.52
-ob_distance[0]=2.51
-ob_distance[0]=2.5
-ob_distance[0]=2.49
-ob_distance[0]=2.48
-ob_distance[0]=2.47
-ob_distance[0]=2.45
-ob_distance[0]=2.45
-ob_distance[0]=2.44
-ob_distance[0]=2.44
-ob_distance[0]=2.43
-ob_distance[0]=2.42
-ob_distance[0]=2.4
-ob_distance[0]=2.38
-ob_distance[0]=2.37
-ob_distance[0]=2.36
-ob_distance[0]=2.34
-ob_distance[0]=2.34
-ob_distance[0]=2.33
-ob_distance[0]=2.31
-ob_distance[0]=2.3
-ob_distance[0]=2.29
-ob_distance[0]=2.28
-ob_distance[0]=2.28
-ob_distance[0]=2.26
-ob_distance[0]=2.26
-ob_distance[0]=2.25
-ob_distance[0]=2.24
-ob_distance[0]=2.23
-ob_distance[0]=2.21
-ob_distance[0]=2.21
-ob_distance[0]=2.19
-ob_distance[0]=2.18
-ob_distance[0]=2.17
-ob_distance[0]=2.15
-ob_distance[0]=2.1
-ob_distance[0]=2.08
-ob_distance[0]=2.06
-ob_distance[0]=2.05
-ob_distance[0]=2.04
-ob_distance[0]=2.02
-ob_distance[0]=2.01
-ob_distance[0]=2
-ob_distance[0]=2
-ob_distance[0]=1.98
-land_mode = 2
-11.9232-5.25907-3.63743
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.82
-ob_distance[0]=2.83
-ob_distance[0]=2.83
-ob_distance[0]=2.84
-ob_distance[0]=2.85
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.89
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.9
-ob_distance[0]=2.91
-ob_distance[0]=2.91
-ob_distance[0]=2.91
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.92
-ob_distance[0]=2.93
-ob_distance[0]=2.93
-ob_distance[0]=2.93
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.95
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.96
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.97
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.98
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.03
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.06
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.05
-ob_distance[0]=3.04
-ob_distance[0]=3.04
-ob_distance[0]=3.03
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3.02
-ob_distance[0]=3
-ob_distance[0]=3
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.99
-ob_distance[0]=2.98
-ob_distance[0]=2.96
-ob_distance[0]=2.95
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.94
-ob_distance[0]=2.93
-ob_distance[0]=2.92
-ob_distance[0]=2.91
-ob_distance[0]=2.9
-ob_distance[0]=2.89
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.88
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.87
-ob_distance[0]=2.86
-ob_distance[0]=2.86
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.85
-ob_distance[0]=2.84
-ob_distance[0]=2.83
-ob_distance[0]=2.82
-ob_distance[0]=2.81
-ob_distance[0]=2.79
-ob_distance[0]=2.78
-ob_distance[0]=2.78
-ob_distance[0]=2.77
-ob_distance[0]=2.77
-ob_distance[0]=2.76
-ob_distance[0]=2.75
-ob_distance[0]=2.73
-ob_distance[0]=2.73
-ob_distance[0]=2.72
-ob_distance[0]=2.72
-ob_distance[0]=2.7
-ob_distance[0]=2.69
-ob_distance[0]=2.69
-ob_distance[0]=2.68
-ob_distance[0]=2.67
-ob_distance[0]=2.66
-ob_distance[0]=2.65
-ob_distance[0]=2.64
-ob_distance[0]=2.62
-ob_distance[0]=2.62
-ob_distance[0]=2.61
-ob_distance[0]=2.6
-ob_distance[0]=2.6
-ob_distance[0]=2.59
-ob_distance[0]=2.58
-ob_distance[0]=2.58
-ob_distance[0]=2.57
-ob_distance[0]=2.56
-ob_distance[0]=2.54
-ob_distance[0]=2.53
-ob_distance[0]=2.53
-ob_distance[0]=2.51
-ob_distance[0]=2.5
-ob_distance[0]=2.49
-ob_distance[0]=2.48
-ob_distance[0]=2.47
-ob_distance[0]=2.47
-ob_distance[0]=2.46
-ob_distance[0]=2.45
-ob_distance[0]=2.44
-ob_distance[0]=2.42
-ob_distance[0]=2.41
-ob_distance[0]=2.4
-ob_distance[0]=2.4
-ob_distance[0]=2.4
-ob_distance[0]=2.39
-ob_distance[0]=2.38
-ob_distance[0]=2.37
-ob_distance[0]=2.37
-ob_distance[0]=2.36
-ob_distance[0]=2.35
-ob_distance[0]=2.34
-ob_distance[0]=2.33
-ob_distance[0]=2.32
-ob_distance[0]=2.31
-ob_distance[0]=2.31
-ob_distance[0]=2.31
-ob_distance[0]=2.3
-ob_distance[0]=2.29
-ob_distance[0]=2.28
-ob_distance[0]=2.28
-ob_distance[0]=2.27
-ob_distance[0]=2.27
-ob_distance[0]=2.26
-ob_distance[0]=2.25
-ob_distance[0]=2.24
-ob_distance[0]=2.23
-ob_distance[0]=2.23
-ob_distance[0]=2.22
-ob_distance[0]=2.21
-ob_distance[0]=2.2
-ob_distance[0]=2.2
-ob_distance[0]=2.18
-ob_distance[0]=2.18
-ob_distance[0]=2.17
-ob_distance[0]=2.16
-ob_distance[0]=2.16
-ob_distance[0]=2.15
-ob_distance[0]=2.13
-ob_distance[0]=2.13
-ob_distance[0]=2.13
-ob_distance[0]=2.12
-ob_distance[0]=2.12
-ob_distance[0]=2.11
-ob_distance[0]=2.09
-ob_distance[0]=2.08
-ob_distance[0]=2.07
-ob_distance[0]=2.07
-ob_distance[0]=2.07
-ob_distance[0]=2.06
-ob_distance[0]=2.05
-ob_distance[0]=2.04
-ob_distance[0]=2.04
-ob_distance[0]=2.02
-ob_distance[0]=2
-ob_distance[0]=2
-ob_distance[0]=1.99
-land_mode = 2
-14.461-4.08868-1.91381
+1534412681.243286413
+begin take off start yaw = -0.303505
+X=0  Y=0  Z=0
+begin take off start yaw = -0.303486
+X=0  Y=0  Z=0
+begin take off start yaw = -0.303499
+X=0  Y=0  Z=0
+begin take off start yaw = -0.303498
+X=0  Y=0  Z=0
+begin take off start yaw = -0.303491
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
+ob_distance[0]=10
+X=0  Y=0  Z=0
