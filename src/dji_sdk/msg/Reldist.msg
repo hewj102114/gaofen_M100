@@ -1,0 +1,13 @@
+Header header
+int32 ts
+float32 x
+float32 y
+float32 z
+float32 roll
+float32 pitch
+float32 yaw
+float32 norm
+float32 height_with_gimbal
+float32 gimbal_pitch_inc
+float32 gimbal_yaw_inc
+bool istracked

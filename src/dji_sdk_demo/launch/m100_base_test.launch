@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="dji_sdk_demo" type="m100_base_test" name="m100_base_test" output="screen">
+	</node>
+</launch>

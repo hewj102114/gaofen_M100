@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="guidance" type="guidance_calibration_stereo" name="Guidance" output="screen">
+        <remap from="guidance/left/camera_info" to="/stereo/left/camera_info" />
+        <remap from="guidance/right/camera_info" to="/stereo/right/camera_info" />
+        <remap from="guidance/left/image_raw" to="/stereo/left/image_raw" />
+        <remap from="guidance/right/image_raw" to="/stereo/right/image_raw" />
+    </node>
+
+    <!--<node pkg="tf" type="static_transform_publisher" name="GuidanceTestCloud" args="0 0 0 0 90 90 /m100_guidance /map 100" />-->
+</launch>
