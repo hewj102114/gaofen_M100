@@ -656,7 +656,7 @@ void ApriltagDetector::Calcu_attitude(Point2f pnt_tl_src, Point2f pnt_tr_src, Po
 	thetay = atan2(-1 * r31, sqrt(r32*r32 + r33*r33)) / CV_PI * 180;
 	thetax = atan2(r32, r33) / CV_PI * 180;
 }
-
+/*********************************************************************************************************************************/	
 //input: color images
 int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk::Reldist & pos_result)
 {
@@ -679,7 +679,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			double Th6 = (double)BlueChannel.at<uchar>(j, i);
 
 			//if (Th1 > 3.5 && Th2 > 3.5  && Th4 > 100 && Th5 > 90&&abs(Th3)<50)   //afternoon, 4, 4, 120, 120
-    if (Th1 > 1.7 && Th2 > 1.7  && Th4 > 60 && Th5 > 60&&abs(Th3)<50)   //2018-07-20-11:36  on the sunshine
+                if (Th1 > 1.7 && Th2 > 1.7  && Th4 > 60 && Th5 > 60&&abs(Th3)<50)   //2018-07-20-11:36  on the sunshine
 			{  
 				RedChannel.at<uchar>(j, i) = 255;
 				GreenChannel.at<uchar>(j, i) = 255;

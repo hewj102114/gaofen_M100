@@ -1,0 +1,5 @@
+[CMake]
+ProjectRootRelative=./
+
+[Project]
+VersionControlSupport=kdevgit

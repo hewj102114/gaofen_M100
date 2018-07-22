@@ -148,18 +148,25 @@ int main ( int argc, char **argv )
   
   int time_count=0;
   int count=0;
+  
   bool main_operate_code=false;
+  
   int state_in_mission = 0;
   std_msgs::Int8 state_msg;
   state_msg.data = state_in_mission;
+  
   float start_yaw = 0.0;
+  
   std_msgs::Bool start_searching;
   start_searching.data= false;
+  
   bool flip_once = false;
+  
   std_msgs::Bool mission_type;
   mission_type.data=false; //false for round 3, true for round 4
 
   int mode = 0;
+  
   ros::Rate loop_rate ( 50 );
   //Head down at the beginning.row,picth,yaw,duration
   drone->gimbal_angle_control ( 0,-900,0,20 ); 
@@ -197,6 +204,7 @@ int main ( int argc, char **argv )
     {
       drone->request_sdk_permission_control();
     }
+    
 
     if (drone->rc_channels.gear==-10000)
     {
@@ -226,52 +234,52 @@ int main ( int argc, char **argv )
 	{
 	  case -1://take off
 	  {
-	    if (drone->flight_status==1)//standby
-	    {  
-	      start_yaw = drone->yaw_from_drone;//Record the yaw of taking off	
-	      drone->takeoff();
-	      writeF<<"begin take off start yaw = "<<start_yaw<<endl;
-	    }
-	    else if(drone->flight_status==3)//in air
-	    {
-//	      flying_height_control_tracking = tracking_flight_height;
-	      drone->attitude_control ( 0x9B,0,0,tracking_flight_height,0 );
-	      if(drone->local_position.z>2.6)		 
-		  state_in_mission=0;		
-	    }
-	    else
-	    {
-	      
-	    }
+	      if (drone->flight_status==1)//standby
+	      {  
+		start_yaw = drone->yaw_from_drone;//Record the yaw of taking off	
+		drone->takeoff();
+		writeF<<"begin take off start yaw = "<<start_yaw<<endl;
+	      }
+	      else if(drone->flight_status==3)//in air
+	      {
+  //	      flying_height_control_tracking = tracking_flight_height;
+		drone->attitude_control ( 0x9B,0,0,tracking_flight_height,0 );
+		if(drone->local_position.z>2.6)		 
+		    state_in_mission=0;		
+	      }
+	      else
+	      {
+		
+	      }
 	    break;	
 	  }
+/***************************************************************/	  
 	  case 0: //for parking pad 2
 	  {
-	    if(main_operate_code==false)
-	    {
-	      count++;
-	      drone->attitude_control(0x4B,0.7,0,0,0); //first go forward
-	      if(count>200) //for middle searching
-	      { 
-		count=0;
-		main_operate_code=true;
-		drone->attitude_control(0x4B,0,0,0,0);
-	      }
-	    }
-	    else
-	    {
-	    
-	      
-	      flip_once = parking(filtered_x,filtered_y,tracking_flight_height,Detection_fg,drone);
-	      if(flip_once)
+	      if(main_operate_code==false)
 	      {
-		state_in_mission=1;
-		flip_once=false;
-		main_operate_code=false;
+		  count++;
+		  drone->attitude_control(0x4B,0.7,0,0,0); //first go forward
+		  if(count>200) //for middle searching
+		  { 
+		    count=0;
+		    main_operate_code=true;
+		    drone->attitude_control(0x4B,0,0,0,0);
+		  }
 	      }
-	    }
-	    break;
+	      else
+	      {	      
+		  flip_once = parking(filtered_x,filtered_y,tracking_flight_height,Detection_fg,drone);
+		  if(flip_once)
+		  {
+		    state_in_mission=1;
+		    flip_once=false;
+		    main_operate_code=false;
+		  }
+	      }
+	      break;
 	  }
+/***************************************************************/	
 	  case 1:  //for crossing circle 3
 	  {
 	    flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.2,1.90,Detection_fg,drone,time_count);
@@ -282,6 +290,7 @@ int main ( int argc, char **argv )
 	    }
 	  break;
 	  }
+/***************************************************************/		  
 	  case 2:  //for parking pad 4
 	  {
 	    writeF<<"drone yaw"<<drone->yaw_from_drone<<" start_yaw"<<start_yaw<<endl;
@@ -289,32 +298,33 @@ int main ( int argc, char **argv )
 	      drone->attitude_control(0x4B,0,0,0,10); //back
 	    else
 	    {
-	      writeF<<"after turned, go ahead"<<endl;
-	      if(main_operate_code==false)
-	      {
-		count++;
-		drone->attitude_control(0x4B,0.4,0.2,0,0); //back
-		if(count>280) //for middle searching
-		{ 
-		  count=0;
-		  main_operate_code=true;
-		  drone->attitude_control(0x4B,0,0,0,0);
-		}
-	      }
-	      else
-	      {		
-		flip_once = parking(filtered_x,filtered_y,tracking_flight_height,Detection_fg,drone);
-				
-		if(flip_once)
+		writeF<<"after turned, go ahead"<<endl;
+		if(main_operate_code==false)
 		{
-		  main_operate_code=false;
-		  state_in_mission=3;
-		  flip_once=false;
+		    count++;
+		    drone->attitude_control(0x4B,0.4,0.2,0,0); //back
+		    if(count>280) //for middle searching
+		    { 
+		      count=0;
+		      main_operate_code=true;
+		      drone->attitude_control(0x4B,0,0,0,0);
+		    }
 		}
-	      }
+		else
+		{		
+		    flip_once = parking(filtered_x,filtered_y,tracking_flight_height,Detection_fg,drone);
+				    
+		    if(flip_once)
+		    {
+		      main_operate_code=false;
+		      state_in_mission=3;
+		      flip_once=false;
+		    }
+		}
 	    }
 	  break;
 	  }
+/***************************************************************/	
 	  case 3: //land
 	    drone->landing();
 	    break;
@@ -337,7 +347,6 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
   
   writeF<<"ob_distance[0]="<<ob_distance[0]<<endl;   // write in log
 	
-  
   if(cmd_fligh_x>0.2) cmd_fligh_x=0.2;//init 0.8
   else if(cmd_fligh_x<-0.2) cmd_fligh_x=-0.2;
   
@@ -379,11 +388,11 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
       {
 	if ( ob_distance[0]<1.8)
 	{
-	  flying_height_control_tracking += 0.015;
+	  flying_height_control_tracking += 0.015;   //init 0.008
 	}
-	else if ( (ob_distance[0]>2.0)&&ob_distance[0]<10)
+	else if ( (ob_distance[0]>2.0)&&ob_distance[0]<10) 
 	{ 
-	  flying_height_control_tracking -= 0.015;
+	  flying_height_control_tracking -= 0.015;    //init 0.008
 	}
 	drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
 	if(ob_distance[0]<2.0)
