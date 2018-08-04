@@ -150,6 +150,10 @@ add_executable(m100_base_test src/m100_base_test.cpp)
 target_link_libraries(m100_base_test ${catkin_LIBRARIES})
 add_dependencies(m100_base_test dji_sdk_generate_messages_cpp)
 
+add_executable(m100_takeoff_landing src/m100_takeoff_landing.cpp)
+target_link_libraries(m100_takeoff_landing ${catkin_LIBRARIES})
+add_dependencies(m100_takeoff_landing dji_sdk_generate_messages_cpp)
+
 # old main_3.cpp
 # add_executable(dji_sdk_gaofen_3 src/main_3.cpp)
 # target_link_libraries(dji_sdk_gaofen_3 ${catkin_LIBRARIES})

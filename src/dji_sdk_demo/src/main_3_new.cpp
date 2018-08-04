@@ -23,6 +23,7 @@ using namespace DJI::onboardSDK;
 using namespace actionlib;
 
 ofstream writeF ( "/home/ubuntu/GaofenChallenge/log.txt");
+
 bool parking(float &cmd_fligh_x,
 	     float &cmd_flight_y,
 	     float height,
@@ -60,7 +61,7 @@ void obstacle_distance_callback ( const sensor_msgs::LaserScan & g_oa )
 {
     for ( int i=0; i<5; i++ )
         ob_distance[i]=g_oa.ranges[i];
-    ROS_INFO("1: %f 2:%f 3:%f 4: %f 5:%f",ob_distance[0],ob_distance[1],ob_distance[2],ob_distance[3],ob_distance[4]);
+    //ROS_INFO("1: %f 2:%f 3:%f 4: %f 5:%f",ob_distance[0],ob_distance[1],ob_distance[2],ob_distance[3],ob_distance[4]);
 }
 
 void tag_detection_resultCallback(const std_msgs::Bool & num_of_detection )
@@ -127,7 +128,7 @@ int main ( int argc, char **argv )
   node_priv.param<double>("initial_searching_height",initial_searching_height,1.7);
   
   ros::NodeHandle nh; 
-  DJIDrone* drone = new DJIDrone ( nh );
+  DJIDrone* drone = new DJIDrone ( nh );   //
   
   writeF<<ros::Time::now() <<endl;//virtual RC test data
   //USED_APRILTAG_TYPE
@@ -188,8 +189,9 @@ int main ( int argc, char **argv )
     filter_seq_y[filter_N-1] = drone->flight_y;
     last_flight_yaw = filtered_yaw;
 
-    filtered_x =  drone->flight_x*0.9;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
-    filtered_y =  (( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 ))*0.9;
+    //filtered_x =  drone->flight_x*0.9;//
+    filtered_x =  (( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 ))*0.8;
+    filtered_y =  (( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 ))*0.8;
     filtered_yaw= drone->flight_yaw;
     if(abs(filtered_yaw-last_flight_yaw)>20.0)   
       filtered_yaw = last_flight_yaw;
@@ -253,7 +255,7 @@ int main ( int argc, char **argv )
 	      }
 	    break;	
 	  }
-/***************************************************************/	  
+/********************************************************************************************************************************/	  
 	  case 0: //for parking pad 2
 	  {
 	      if(main_operate_code==false)
@@ -279,10 +281,10 @@ int main ( int argc, char **argv )
 	      }
 	      break;
 	  }
-/***************************************************************/	
+/*******************************************************************************************************************************/	
 	  case 1:  //for crossing circle 3
 	  {
-	    flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.2,1.90,Detection_fg,drone,time_count);
+	    flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.5,2.3,Detection_fg,drone,time_count);  //2018-07-31 19:50  1.2  1.9
 	    if(flip_once)
 	    {
 	      state_in_mission=2; 
@@ -290,7 +292,7 @@ int main ( int argc, char **argv )
 	    }
 	  break;
 	  }
-/***************************************************************/		  
+/*******************************************************************************************************************************/		  
 	  case 2:  //for parking pad 4
 	  {
 	    writeF<<"drone yaw"<<drone->yaw_from_drone<<" start_yaw"<<start_yaw<<endl;
@@ -355,64 +357,6 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
   
   if(land_mode==0)
   {
-    if ( ob_distance[0]<height-0.1)
-    {
-      flying_height_control_tracking += 0.003;
-    }
-    else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
-    { 
-      flying_height_control_tracking -= 0.003;
-    }
-    drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
-    
-    if(ob_distance[0]>height-0.5)
-      land_mode=1;
-  }
-  if(land_mode==1&&drone->gimbal.pitch<-85)   //closing to landing part and landing
-  {
-    if(detection_flag)  //parking pad detected
-    {     
-      if(abs(cmd_fligh_x)>0.16||abs(cmd_flight_y)>0.16)  //closing and keep height
-      {
-	if ( ob_distance[0]<height-0.1)
-	{
-	  flying_height_control_tracking += 0.003;
-	}
-	else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
-	{ 
-	  flying_height_control_tracking -= 0.003;
-	}
-	drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);
-      }
-      else if(abs(cmd_fligh_x)<0.16&&abs(cmd_flight_y)<0.16) 
-      {
-	if ( ob_distance[0]<1.8)
-	{
-	  flying_height_control_tracking += 0.015;   //init 0.008
-	}
-	else if ( (ob_distance[0]>2.0)&&ob_distance[0]<10) 
-	{ 
-	  flying_height_control_tracking -= 0.015;    //init 0.008
-	}
-	drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
-	if(ob_distance[0]<2.0)
-	{
-	  drone->landing();
-	  // not landing,just set flying_height_control_tracking = 0
-//	  drone->attitude_control(0x9B,0,0,0,0); 
-// 	  if(drone->local_position.z<0.02)	
-// 	  {
-// 	    printf("get bottom...\n");
-// 	    land_mode = 2;
-// 	  }
-// 	  sleep(1);
-	  land_mode=2;
-	  sleep(1);
-	}
-      }
-    }
-    else    //parkinng pad undetected
-    {
       if ( ob_distance[0]<height-0.1)
       {
 	flying_height_control_tracking += 0.003;
@@ -422,21 +366,80 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
 	flying_height_control_tracking -= 0.003;
       }
       drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
-    }
-      //TODO:   for different tag, do different pre-moving to detect tag
+      
+      if(ob_distance[0]>height-0.5)
+	land_mode=1;
+  }
+  
+  if(land_mode==1&&drone->gimbal.pitch<-85)   //closing to landing part and landing
+  {
+	if(detection_flag)  //parking pad detected
+	{     
+	    if(abs(cmd_fligh_x)>0.16||abs(cmd_flight_y)>0.16)  //closing and keep height
+	    {
+		if ( ob_distance[0]<height-0.1)
+		{
+		  flying_height_control_tracking += 0.003;
+		}
+		else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
+		{ 
+		  flying_height_control_tracking -= 0.003;
+		}
+		drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);
+	    }
+	    else if(abs(cmd_fligh_x)<0.16&&abs(cmd_flight_y)<0.16) 
+	    {
+		if ( ob_distance[0]<1.8)
+		{
+		  flying_height_control_tracking += 0.008;   //init 0.008
+		}
+		else if ( (ob_distance[0]>2.0)&&ob_distance[0]<10) 
+		{ 
+		  flying_height_control_tracking -= 0.008;    //init 0.008
+		}
+		drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
+		if(ob_distance[0]<2.0)
+		{
+		  drone->landing();
+		  // not landing,just set flying_height_control_tracking = 0
+	//	  drone->attitude_control(0x9B,0,0,0,0); 
+	// 	  if(drone->local_position.z<0.02)	
+	// 	  {
+	// 	    printf("get bottom...\n");
+	// 	    land_mode = 2;
+	// 	  }
+	// 	  sleep(1);
+		  land_mode=2;
+		  sleep(1);
+		}
+	    }
+	}
+	else    //parkinng pad undetected
+	{
+	    if ( ob_distance[0]<height-0.1)
+	    {
+	      flying_height_control_tracking += 0.003;
+	    }
+	    else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
+	    { 
+	      flying_height_control_tracking -= 0.003;
+	    }
+	    drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
+	}
+	  //TODO:   for different tag, do different pre-moving to detect tag
   } 
   else if(land_mode==2)   //automatic takeoff
   {
-    //sleep(4);
-    if(drone->flight_status == 1)  //1: standby; 2: take off, 3: in air; 4:landing, 5: finish landing
-    drone->takeoff();
-    //flying_height_control_tracking=1.2;
-    //drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
-    if(drone->flight_status == 3&&ob_distance[0]>0.5&&ob_distance[0]<10)   //TODO: adjusting using the land pad.
-    {
-      land_mode=0;
-      return true;
-    }
+      //sleep(4);
+      if(drone->flight_status == 1)  //1: standby; 2: take off, 3: in air; 4:landing, 5: finish landing
+      drone->takeoff();
+      //flying_height_control_tracking=1.2;
+      //drone->attitude_control(0x9B,0,0,flying_height_control_tracking,0);
+      if(drone->flight_status == 3&&ob_distance[0]>0.5&&ob_distance[0]<10)   //TODO: adjusting using the land pad.
+      {
+	land_mode=0;
+	return true;
+      }
   }
   
   return false;
@@ -446,90 +449,101 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
 {
   if(cbring_mode==0)  //turn the gimbal direction
   {
-    drone->gimbal_angle_control(0,0,0,20);   //look farward.
-    if ( ob_distance[0]<height-0.1)
-    {
-      flying_height_control_tracking += 0.005;
-    }
-    else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
-    { 
-      flying_height_control_tracking -= 0.005;
-    }
-    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
-    if(drone->gimbal.pitch>-5&&abs(ob_distance[0]-height)<0.5)
-      cbring_mode=1; 
-    writeF<<"decending for tag detection, pitch="<<drone->gimbal.pitch<<",height="<<ob_distance[0]<<endl;
+      drone->gimbal_angle_control(0,0,0,20);   //look farward.
+      
+      if ( ob_distance[0]<height-0.1)
+      {
+	flying_height_control_tracking += 0.005;
+      }
+      else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
+      { 
+	flying_height_control_tracking -= 0.005;
+      }
+      
+      drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+      
+      if(drone->gimbal.pitch>-5&&abs(ob_distance[0]-height)<0.5)
+	cbring_mode=1; 
+      
+      writeF<<"decending for tag detection, pitch="<<drone->gimbal.pitch<<",height="<<ob_distance[0]<<endl;
   }
   else if(cbring_mode==1)  //closing to the hanging pad. first x,y then z
   {
-    writeF<<"mode: "<<cbring_mode<<endl;
-    //cmd_fligh_x-0.5 is the safe distance of drone to the pad, adjusting
-    if ( ob_distance[0]<height-0.1)
-    {
-      flying_height_control_tracking += 0.002;
-    }   
-    else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
-    { 
-      flying_height_control_tracking -= 0.002;
-    }
-    if(detection_flag)
-    {
-      if(cmd_flight_y>0.25)  cmd_flight_y = 0.25;
-      if(cmd_flight_y<-0.25) cmd_flight_y =-0.25;
-      if(abs(cmd_yaw)<5&&cmd_flight_y<0.2)
-	drone->attitude_control ( 0x5B,0.2,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
-      else
-	drone->attitude_control ( 0x5B,0.0,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
-      writeF<<"tag detected, cmd_yaw="<<cmd_yaw<<endl;
-    }
-    else   
-    {
-      cmd_fligh_x=0.0; cmd_flight_y=0.0;
-      drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
-      writeF<<"tag NOT detected, cmd_yaw="<<cmd_yaw<<endl;   //yaw is not zero for no tag, need to be fixed.
-    }
-    if(detection_flag&&abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)
-      cbring_mode=2;
+      writeF<<"mode: "<<cbring_mode<<endl;
+      //cmd_fligh_x-0.5 is the safe distance of drone to the pad, adjusting
+      if ( ob_distance[0]<height-0.1)
+      {
+	flying_height_control_tracking += 0.002;
+      }   
+      else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
+      { 
+	flying_height_control_tracking -= 0.002;
+      }
+      
+      if(detection_flag)
+      {
+	if(cmd_flight_y>0.16)  cmd_flight_y = 0.16;    //initial 0.25
+	if(cmd_flight_y<-0.16) cmd_flight_y =-0.16;    //initial 0.25
+	if(abs(cmd_yaw)<5&&cmd_flight_y<0.1)           //initial 0.1
+	  drone->attitude_control ( 0x5B,0.25,cmd_flight_y,flying_height_control_tracking,cmd_yaw);   //initial 0.2
+	else
+	  drone->attitude_control ( 0x5B,0.0,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
+	
+	writeF<<"tag detected, cmd_yaw="<<cmd_yaw<<endl;
+      }
+      else   
+      {
+	cmd_fligh_x=0.0; cmd_flight_y=0.0;
+	drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+	writeF<<"tag NOT detected, cmd_yaw="<<cmd_yaw<<endl;   //yaw is not zero for no tag, need to be fixed.
+      }
+      
+      if(detection_flag&&abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)
+	cbring_mode=2;
   }
   else if(cbring_mode==2)   //go up
   {
-    writeF<<"mode: "<<cbring_mode<<endl;
-    if ( ob_distance[0]<set_height-0.1)
-    {
-      flying_height_control_tracking += 0.003;
-    }
-    else if ( (ob_distance[0]>set_height+0.1)&&ob_distance[0]<10)
-    {
-      flying_height_control_tracking -= 0.003;
-    }
-    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
-    
-    if(abs(set_height-ob_distance[0])<0.2)
-      cbring_mode=3;
+      writeF<<"mode: "<<cbring_mode<<endl;
+      
+      if ( ob_distance[0]<set_height-0.1)
+      {
+	flying_height_control_tracking += 0.003;
+      }
+      else if ( (ob_distance[0]>set_height+0.1)&&ob_distance[0]<10)
+      {
+	flying_height_control_tracking -= 0.003;
+      }
+      
+      drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+      
+      if(abs(set_height-ob_distance[0])<0.2)
+	cbring_mode=3;
   }
   else if(cbring_mode==3)  //cross
   { 
-    writeF<<"mode: "<<cbring_mode<<", dtime="<<delayCount<<endl;
-    if ( ob_distance[0]<set_height-0.1)
-    {
-      flying_height_control_tracking += 0.001;
-    }
-    else if ( (ob_distance[0]>set_height+0.1)&&ob_distance[0]<10)
-    { 
-      flying_height_control_tracking -= 0.001;
-    }
-    drone->attitude_control ( 0x4B,0.4,0,0,0);  //go farward
-    delayCount++;
-    //sleep(10);
-    //if(detection_flag==0) 
-    //   drone->attitude_control ( 0x9B,1,0,flying_height_control_tracking,0);  //go farward
-    //else
-    if(delayCount>delay_count)
-    {
-      cbring_mode=0;
-      delayCount=0;
-      return true; 
-    }
+      writeF<<"mode: "<<cbring_mode<<", dtime="<<delayCount<<endl;
+      
+      if ( ob_distance[0]<set_height-0.1)
+      {
+	flying_height_control_tracking += 0.001;
+      }
+      else if ( (ob_distance[0]>set_height+0.1)&&ob_distance[0]<10)
+      { 
+	flying_height_control_tracking -= 0.001;
+      }
+      
+      drone->attitude_control ( 0x4B,0.4,0,0,0);  //go farward
+      delayCount++;
+      //sleep(10);
+      //if(detection_flag==0) 
+      //   drone->attitude_control ( 0x9B,1,0,flying_height_control_tracking,0);  //go farward
+      //else
+      if(delayCount>delay_count)
+      {
+	cbring_mode=0;
+	delayCount=0;
+	return true; 
+      }
   }
   
   return false;

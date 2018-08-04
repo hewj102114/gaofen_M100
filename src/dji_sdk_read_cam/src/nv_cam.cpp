@@ -496,6 +496,7 @@ int main ( int argc, char **argv )
   pthread_t pid;
   ApriltagDetector* detectorAndTracker = new ApriltagDetector ( node );//sub sth.
   int res = pthread_create ( &pid, NULL, trackLoop,  detectorAndTracker);
+  
   if ( res != 0 )
     printf ( "pthread_create error!\n" );
   

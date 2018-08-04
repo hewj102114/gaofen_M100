@@ -15,6 +15,8 @@ using namespace cv;
 using namespace std;
 
 ofstream fcout( "/root/circleDetection.txt",ios::app );
+ofstream writeF ( "/home/ubuntu/GaofenChallenge/log1.txt");
+
 float flight_height = 0.0;
 bool change_once_flag = true;  
 const float EPS = 0.00000001;      
@@ -278,7 +280,6 @@ void ApriltagDetector::print_detections ( )
           rel_dist.z = temp *sin ( 0.017453* ( rel_dist.gimbal_pitch_inc+m_gimbal.pitch+90.0 ) ); // /57.2958 ); //IMPORTANT NOTE: Uisng GIMBAL makes it a little bit different
           rel_dist.height_with_gimbal = temp*cos ( ( rel_dist.gimbal_pitch_inc+m_gimbal.pitch+90.0 ) /57.2958 );
 
-
           //  flight_height = translation(0)*cos((rel_dist.gimbal_pitch_inc+m_gimbal.pitch+90)/57.2958);
         }
 #endif
@@ -338,12 +339,10 @@ void ApriltagDetector::print_detections ( )
       std_msgs::Bool using_smallTags;
       using_smallTags.data = true;
       m_using_smallTags_pub.publish ( using_smallTags );
-
     }
 
 
 }
-
 
 
 std::vector<int> ApriltagDetector::point2win ( cv::Mat image, float delta )
@@ -463,7 +462,7 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 		{
 			for (int j = 0; j < V; j++)
 			{
-				g.addEdge(i, j, disMat[i][j]);
+			  g.addEdge(i, j, disMat[i][j]);
 			}
 		}
 
@@ -481,8 +480,8 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 		//找到每个节点相连的节点
 		for (int i = 0; i < V - 1; i++)
 		{
-			crossroadMatrix[mst[i].v()].push_back(mst[i].w());  // mst is the edges vector 
-			crossroadMatrix[mst[i].w()].push_back(mst[i].v());
+		  crossroadMatrix[mst[i].v()].push_back(mst[i].w());  // mst is the edges vector 
+		  crossroadMatrix[mst[i].w()].push_back(mst[i].v());
 		}
 		//十字路口节点距离矩阵
 		vector<vector<double>> distanceCrossroad(6, vector<double>(3));
@@ -493,36 +492,36 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 			// cout << i << " " << crossroadMatrix[i].size() << endl;
 			if (crossroadMatrix[i].size() == 4)
 			{
-				
-				flagSituation = 1;
-				int k = 0;
-				double maxBelow = 0, maxUp = 0;
+			    
+			    flagSituation = 1;
+			    int k = 0;
+			    double maxBelow = 0, maxUp = 0;
 
-				for (int m = 0; m < 3; m++)
-				{
-					for (int n = m + 1; n < 4; n++)
+			    for (int m = 0; m < 3; m++)
+			    {
+				    for (int n = m + 1; n < 4; n++)
+				    {
+					distanceCrossroad[k][0] = crossroadMatrix[i][m];
+					if(circles[crossroadMatrix[i][m]][1]<=CrossTpLine) CrossTpLine=circles[crossroadMatrix[i][m]][1];
+					if(circles[crossroadMatrix[i][m]][1]>CrossBwLine) CrossBwLine=circles[crossroadMatrix[i][m]][1];
+					distanceCrossroad[k][1] = crossroadMatrix[i][n];
+					if(circles[crossroadMatrix[i][n]][1]<=CrossTpLine) CrossTpLine=circles[crossroadMatrix[i][n]][1];
+					if(circles[crossroadMatrix[i][n]][1]>CrossBwLine) CrossBwLine=circles[crossroadMatrix[i][n]][1];
+	
+					distanceCrossroad[k][2] = circleDistance(circles[crossroadMatrix[i][m]], circles[crossroadMatrix[i][n]]);
+					if (distanceCrossroad[k][2] > maxUp)
 					{
-						distanceCrossroad[k][0] = crossroadMatrix[i][m];
-						if(circles[crossroadMatrix[i][m]][1]<=CrossTpLine) CrossTpLine=circles[crossroadMatrix[i][m]][1];
-						if(circles[crossroadMatrix[i][m]][1]>CrossBwLine) CrossBwLine=circles[crossroadMatrix[i][m]][1];
-						distanceCrossroad[k][1] = crossroadMatrix[i][n];
-						if(circles[crossroadMatrix[i][n]][1]<=CrossTpLine) CrossTpLine=circles[crossroadMatrix[i][n]][1];
-						if(circles[crossroadMatrix[i][n]][1]>CrossBwLine) CrossBwLine=circles[crossroadMatrix[i][n]][1];
-		
-						distanceCrossroad[k][2] = circleDistance(circles[crossroadMatrix[i][m]], circles[crossroadMatrix[i][n]]);
-						if (distanceCrossroad[k][2] > maxUp)
-						{
-							maxUp = distanceCrossroad[k][2];
-							indexMaxUp = k;
-						}
-						else if (distanceCrossroad[k][2] > maxBelow)
-						{
-							maxBelow = distanceCrossroad[k][2];
-							indexMaxBelow = k;
-						}
-						k++;
+					  maxUp = distanceCrossroad[k][2];
+					  indexMaxUp = k;
 					}
-				}
+					else if (distanceCrossroad[k][2] > maxBelow)
+					{
+					  maxBelow = distanceCrossroad[k][2];
+					  indexMaxBelow = k;
+					}
+					k++;
+				    }
+			    }
 				//cout << distanceCrossroad[indexMaxUp][0] << " " <<distanceCrossroad[indexMaxUp][1] << " " << distanceCrossroad[indexMaxBelow][0] << " " << distanceCrossroad[indexMaxBelow][1] << endl;
 			}
 		}
@@ -659,8 +658,7 @@ void ApriltagDetector::Calcu_attitude(Point2f pnt_tl_src, Point2f pnt_tr_src, Po
 /*********************************************************************************************************************************/	
 //input: color images
 int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk::Reldist & pos_result)
-{
-	
+{	
 	vector<Mat> channels;
 	Mat  BlueChannel, GreenChannel, RedChannel;
 	split(img, channels);
@@ -678,18 +676,19 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			double Th5 = (double)GreenChannel.at<uchar>(j, i);
 			double Th6 = (double)BlueChannel.at<uchar>(j, i);
 
-			//if (Th1 > 3.5 && Th2 > 3.5  && Th4 > 100 && Th5 > 90&&abs(Th3)<50)   //afternoon, 4, 4, 120, 120
-                if (Th1 > 1.7 && Th2 > 1.7  && Th4 > 60 && Th5 > 60&&abs(Th3)<50)   //2018-07-20-11:36  on the sunshine
+		  //if (Th1 > 3.5 && Th2 > 3.5  && Th4 > 100 && Th5 > 90&&abs(Th3)<50)   //afternoon, 4, 4, 120, 120
+                  //if (Th1 > 1.7 && Th2 > 1.7  && Th4 > 60 && Th5 > 60&&abs(Th3)<50)    //2018-07-20-11:36  on the sunshine
+		   if (Th1 > 1.4 && Th2 > 1.4 && Th4 > 50 && Th5 >60&&abs(Th3)<50)       // 2018-07-31-18:55  beside the building
 			{  
-				RedChannel.at<uchar>(j, i) = 255;
-				GreenChannel.at<uchar>(j, i) = 255;
-				BlueChannel.at<uchar>(j, i) = 255;
+			  RedChannel.at<uchar>(j, i) = 255;
+			  GreenChannel.at<uchar>(j, i) = 255;
+			  BlueChannel.at<uchar>(j, i) = 255;
 			}
 			else
 			{
-				RedChannel.at<uchar>(j, i) = 0;
-				GreenChannel.at<uchar>(j, i) = 0;
-				BlueChannel.at<uchar>(j, i) = 0;
+			  RedChannel.at<uchar>(j, i) = 0;
+			  GreenChannel.at<uchar>(j, i) = 0;
+			  BlueChannel.at<uchar>(j, i) = 0;
 			}
 		}
 	}
@@ -715,25 +714,22 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		itc1 = contours.begin();
 		while (itc1 != contours.end())
 		{//size threshold need to be fixed for 640*360
-			if (itc1->size() < 40||(itc1->size() == itc2->size() && contourArea(*itc1, false) == contourArea(*itc2, false)))
-				itc1 = contours.erase(itc1);
-			else
-				++itc1;
+		      if (itc1->size() < 40||(itc1->size() == itc2->size() && contourArea(*itc1, false) == contourArea(*itc2, false)))
+			      itc1 = contours.erase(itc1);
+		      else
+			      ++itc1;
 		}
 		++itc2;
 	}
-
 
 	Mat result(img.size(), CV_8U, Scalar(0));
 	Mat result_out(img.size(), CV_8U, Scalar(0));
 	Mat result_num(img.size(), CV_8U, Scalar(0));
 
-
 	drawContours(result, contours, -1, Scalar(255), 2);
 	
 	findContours(result, contours_num, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-
-
+	
 	vector<std::vector<Point>>::const_iterator itc3 = contours_num.begin();
 
 	double minconform=10.0, midle, conform;
@@ -749,19 +745,22 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		}
 		(itc3)++;
 	}
+	
 	vector<std::vector<Point>>::const_iterator itc4 = contours_test.end();
  
 	std_msgs::Bool detection_flag;
+	
 	if(contours_test.empty())
-{
+        {
 	  detection_flag.data=false;
           pos_result.x = 0;  //5 pixles = 4cm
           pos_result.y = 0;  //5 pixles = 4cm
 	  pos_result.z = 0;
 	  pos_result.yaw = 0;
-}
+        }
 	else 
 	  detection_flag.data=true;
+	
 	tag_detections_pub.publish(detection_flag);
 	
 	if (!contours_test.empty())  
@@ -776,156 +775,165 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		ROS_INFO("tx=%d, ty=%d ",Senter.x,Senter.y);
 		
 		//output the result
-		    pos_result.header.frame_id = "x3_reldist";
-		    pos_result.header.stamp = ros::Time::now();
-		    //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
-		    pos_result.norm = 0;
-		    pos_result.gimbal_pitch_inc = 0;
-		    pos_result.istracked = true;
+		  pos_result.header.frame_id = "x3_reldist";
+		  pos_result.header.stamp = ros::Time::now();
+		  //if camera faces down, x is the vertical distance, y is horizontal y, z is horizontal x
+		  pos_result.norm = 0;
+		  pos_result.gimbal_pitch_inc = 0;
+		  pos_result.istracked = true;
 
 		      
 		if(!flag)
 		{ //for drone coordinate, x is forward
-		  pos_result.x = -(Senter.y-180)*0.04/5;  //5 pixles = 4cm
-		  pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm
+		  pos_result.x = -(Senter.y-180)*0.04/5;  //5 pixles = 4cm  
+		  pos_result.y = (Senter.x-300)*0.04/5;  //5 pixles = 4cm  (320,180)
 		  pos_result.z = 0;
 		  pos_result.yaw = 0;
 		}
 		else
 		{
-		  vector<std::vector<Point>>::iterator itc = contours_out.begin();
-		  Point2f senter;
-		  while (itc != contours_out.end())
-		  {
-		    senter.x = (float)Senter.x;
-		    senter.y = (float)Senter.y;
-		    double INorOUT = pointPolygonTest(*itc, senter, true);
-		    if (INorOUT <= 0)
-		      itc = contours_out.erase(itc);
-		    else
-		      ++itc;
-		  }
-		  
-		  drawContours(result_out, contours_out, -1, Scalar(255), 2);
-		  
-		  if (contours_out.size() == 1)
-		  {
-		    //Rect boundRect;
-		    //RotatedRect roRect;
-		    
-		    vector<Point> pts;
-		    approxPolyDP(Mat(contours_out[0]), pts, arcLength(Mat(contours_out[0]), true)*0.03, true);
-		    //roRect = minAreaRect(Mat(contours_out[0]));
-		    //Point2f pts[4];
-		    //roRect.points(pts);
-		    //if(pts.size()==4)
-		    //{
-		    //  int minsumxy=2000;
-		    Point2f ptfour[4];
-		    int addmax=0,addmin=2000,submin=2000,submax=-2000;
-		    for(int i=0;i<pts.size();i++)
-		    {
-		      if(pts[i].x+pts[i].y<addmin)
+		      vector<std::vector<Point>>::iterator itc = contours_out.begin();
+		      Point2f senter;
+		      while (itc != contours_out.end())
 		      {
-			addmin=pts[i].x+pts[i].y;
-			ptfour[0]=pts[i];
+			senter.x = (float)Senter.x;
+			senter.y = (float)Senter.y;
+			double INorOUT = pointPolygonTest(*itc, senter, true);
+			if (INorOUT <= 0)
+			  itc = contours_out.erase(itc);
+			else
+			  ++itc;
 		      }
-		      if(pts[i].x+pts[i].y>addmax)
+		      
+		      drawContours(result_out, contours_out, -1, Scalar(255), 2);
+		      
+		      if (contours_out.size() == 1)
 		      {
-			addmax=pts[i].x+pts[i].y;
-			ptfour[2]=pts[i];
-		      }
-		      if(pts[i].x-pts[i].y<submin)
-		      {
-			submin=pts[i].x-pts[i].y;
-			ptfour[3]=pts[i];
-		      }
-		      if(pts[i].x-pts[i].y>submax)
-		      {
-			submax=pts[i].x-pts[i].y;
-			ptfour[1]=pts[i];
-		      }
-		    }
-		   //   int tlid=4;
-		   //   for(int i=0;i<4;i++)
-		   //   {
-		   //if(pts[i].x+pts[i].y<minsumxy)
-		   //	{
-			//  minsumxy=pts[i].x+pts[i].y;
-			  //tlid=i;
+			//Rect boundRect;
+			//RotatedRect roRect;
+			
+			vector<Point> pts;
+			
+			approxPolyDP(Mat(contours_out[0]), pts, arcLength(Mat(contours_out[0]), true)*0.03, true);
+			//roRect = minAreaRect(Mat(contours_out[0]));
+			//Point2f pts[4];
+			//roRect.points(pts);
+			//if(pts.size()==4)
+			//{
+			//  int minsumxy=2000;
+			Point2f ptfour[4];
+			int addmax=0,addmin=2000,submin=2000,submax=-2000;
+			for(int i=0;i<pts.size();i++)
+			{
+			  if(pts[i].x+pts[i].y<addmin)
+			  {
+			    addmin=pts[i].x+pts[i].y;
+			    ptfour[0]=pts[i];
+			  }
+			  if(pts[i].x+pts[i].y>addmax)
+			  {
+			    addmax=pts[i].x+pts[i].y;
+			    ptfour[2]=pts[i];
+			  }
+			  if(pts[i].x-pts[i].y<submin)
+			  {
+			    submin=pts[i].x-pts[i].y;
+			    ptfour[3]=pts[i];
+			  }
+			  if(pts[i].x-pts[i].y>submax)
+			  {
+			    submax=pts[i].x-pts[i].y;
+			    ptfour[1]=pts[i];
+			  }
+			}
+		      //   int tlid=4;
+		      //   for(int i=0;i<4;i++)
+		      //   {
+		      //if(pts[i].x+pts[i].y<minsumxy)
+		      //	{
+			    //  minsumxy=pts[i].x+pts[i].y;
+			      //tlid=i;
+			    //}
+		      // }
+    #ifdef _SHOW_PHOTO
+			  circle(result_num, ptfour[0], 2, Scalar(255), 2);
+			  circle(result_num, ptfour[1], 4, Scalar(255), 2);
+			  circle(result_num, ptfour[2], 6, Scalar(255), 2);
+			  circle(result_num, ptfour[3], 8, Scalar(255), 2);
+    #endif
+			/* if(abs(senter.x-320)>30)
+			  {  
+			    pos_result.x = 0; //5 pixles = 4cm
+			    pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm
+			    //pos_result.z = -(Senter.y-180)*0.04/5;
+			    pos_result.yaw = 0;
+			  }
+			  else
+			  {*/
+			    Calcu_attitude(ptfour[0],ptfour[1],ptfour[2],ptfour[3]);
+			    if(thetax<0) thetax+=360;
+			    //ROS_INFO("tx=%f, ty=%f, tz=%f, ", tvec.ptr<double>(0)[0],tvec.ptr<double>(1)[0],tvec.ptr<double>(2)[0]);
+			    //ROS_INFO("thetax=%f, thetay=%f, thetaz=%f ",thetax,thetay,thetaz);
+			    writeF<<"tx="<<tvec.ptr<double>(0)[0]<<endl;   // write in log
+			    writeF<<"ty="<<tvec.ptr<double>(1)[0]<<endl;   // write in log
+			    writeF<<"tz="<<tvec.ptr<double>(2)[0]<<endl;   // write in log
+			    writeF<<"thetax="<<thetax<<endl;   // write in log
+			    writeF<<"thetay="<<thetay<<endl;   // write in log
+			    writeF<<"thetaz="<<thetaz<<endl;   // write in log
+			    
+			    pos_result.x = tvec.ptr<double>(2)[0]/1000;  //m,close to tag, have not subscribe the safe distance 
+			    pos_result.y = tvec.ptr<double>(0)[0]/1000;  //m
+			    //pos_result.z = tvec.ptr<double>(1)[0]; 
+			    pos_result.yaw = thetax-180;  //jiaodu 
+			    
+			// }
 			//}
-		   // }
-#ifdef _SHOW_PHOTO
-		      circle(result_num, ptfour[0], 2, Scalar(255), 2);
-		      circle(result_num, ptfour[1], 4, Scalar(255), 2);
-		      circle(result_num, ptfour[2], 6, Scalar(255), 2);
-		      circle(result_num, ptfour[3], 8, Scalar(255), 2);
-#endif
-		     /* if(abs(senter.x-320)>30)
-		      {  
-			pos_result.x = 0; //5 pixles = 4cm
-			pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm
-			//pos_result.z = -(Senter.y-180)*0.04/5;
+		      }
+		      else  //no tag detected.
+		      {
+			pos_result.x = 0;
+			pos_result.y = 0;
 			pos_result.yaw = 0;
 		      }
-		      else
-		      {*/
-			Calcu_attitude(ptfour[0],ptfour[1],ptfour[2],ptfour[3]);
-			if(thetax<0) thetax+=360;
-			//ROS_INFO("tx=%f, ty=%f, tz=%f, ", tvec.ptr<double>(0)[0],tvec.ptr<double>(1)[0],tvec.ptr<double>(2)[0]);
-			//ROS_INFO("thetax=%f, thetay=%f, thetaz=%f ",thetax,thetay,thetaz);
-			pos_result.x = tvec.ptr<double>(2)[0]/1000;  //m,close to tag, have not subscribe the safe distance 
-			pos_result.y = tvec.ptr<double>(0)[0]/1000;  //m
-			//pos_result.z = tvec.ptr<double>(1)[0]; 
-			pos_result.yaw = thetax-180;  //jiaodu 
-			
-		     // }
-		    //}
-		  }
-		  else  //no tag detected.
-		  {
-		    pos_result.x = 0;
-		    pos_result.y = 0;
-		    pos_result.yaw = 0;
-		  }
-		  //namedWindow("num");
-		  //imshow("num", result_out);
-#ifdef _SHOW_PHOTO
-        char str_y[20];
-        char str_z[20];
-        char str_x[20];
-        char str_tz[20];
-        char str_ty[20];
-        char str_tx[20];
-        sprintf(str_y,"%lf",thetay);
-        sprintf(str_z,"%lf",thetaz);
-        sprintf(str_x,"%lf",thetax);
-        sprintf(str_tz,"%lf",tvec.ptr<double>(2)[0]);
-        sprintf(str_ty,"%lf",tvec.ptr<double>(1)[0]);
-        sprintf(str_tx,"%lf",tvec.ptr<double>(0)[0]);
-        string pre_str_y="thetay: ";
-        string pre_str_z="thetaz: ";
-        string pre_str_x="thetax: ";
-        string pre_str_tz="tz: ";
-        string pre_str_ty="ty: ";
-        string pre_str_tx="tx: ";  
-        string full_y=pre_str_y+str_y;
-        string full_z=pre_str_z+str_z;
-        string full_x=pre_str_x+str_x;
-        string full_tz=pre_str_tz+str_tz;
-        string full_ty=pre_str_ty+str_ty;
-        string full_tx=pre_str_tx+str_tx;
-        putText(result_num,full_y,Point(30,30),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
-        putText(result_num,full_z,Point(30,70),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
-        putText(result_num,full_x,Point(30,100),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
-        putText(result_num,full_tz,Point(30,130),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
-        putText(result_num,full_ty,Point(30,170),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
-        putText(result_num,full_tx,Point(30,200),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
-#endif
-		}
+		      //namedWindow("num");
+		      //imshow("num", result_out);
+    #ifdef _SHOW_PHOTO
+	    char str_y[20];
+	    char str_z[20];
+	    char str_x[20];
+	    char str_tz[20];
+	    char str_ty[20];
+	    char str_tx[20];
+	    sprintf(str_y,"%lf",thetay);
+	    sprintf(str_z,"%lf",thetaz);
+	    sprintf(str_x,"%lf",thetax);
+	    sprintf(str_tz,"%lf",tvec.ptr<double>(2)[0]);
+	    sprintf(str_ty,"%lf",tvec.ptr<double>(1)[0]);
+	    sprintf(str_tx,"%lf",tvec.ptr<double>(0)[0]);
+	    string pre_str_y="thetay: ";
+	    string pre_str_z="thetaz: ";
+	    string pre_str_x="thetax: ";
+	    string pre_str_tz="tz: ";
+	    string pre_str_ty="ty: ";
+	    string pre_str_tx="tx: ";  
+	    string full_y=pre_str_y+str_y;
+	    string full_z=pre_str_z+str_z;
+	    string full_x=pre_str_x+str_x;
+	    string full_tz=pre_str_tz+str_tz;
+	    string full_ty=pre_str_ty+str_ty;
+	    string full_tx=pre_str_tx+str_tx;
+	    putText(result_num,full_y,Point(30,30),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+	    putText(result_num,full_z,Point(30,70),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+	    putText(result_num,full_x,Point(30,100),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+	    putText(result_num,full_tz,Point(30,130),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+	    putText(result_num,full_ty,Point(30,170),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+	    putText(result_num,full_tx,Point(30,200),CV_FONT_HERSHEY_SIMPLEX,1,Scalar(255),2);
+    #endif
+	      }
 		
 	} 
         m_result_pub.publish ( pos_result );
+	
 #ifdef _SHOW_PHOTO
 	namedWindow("contours");
 	imshow("contours", result_num);
