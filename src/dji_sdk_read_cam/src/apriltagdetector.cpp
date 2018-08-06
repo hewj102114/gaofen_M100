@@ -785,8 +785,8 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		      
 		if(!flag)
 		{ //for drone coordinate, x is forward
-		  pos_result.x = -(Senter.y-180)*0.04/5;  //5 pixles = 4cm  
-		  pos_result.y = (Senter.x-300)*0.04/5;  //5 pixles = 4cm  (320,180)
+		  pos_result.x = -(Senter.y-160)*0.04/5;  //5 pixles = 4cm  
+		  pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm  (320,180)
 		  pos_result.z = 0;
 		  pos_result.yaw = 0;
 		}

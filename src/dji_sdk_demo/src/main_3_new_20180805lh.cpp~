@@ -61,11 +61,6 @@ int count_to_landing = 300;
 int samll_adjust_count = 0;//for a small scall adjust flight xy
 int count_forward=0;// go forward count
 
-//just now
-int count_to_forward = 100;
-bool take_off_flag = 0;
-
-
 int delay_count = 300;
 static float last_flight_x = 0.0;
 static float last_flight_y = 0.0;  
@@ -107,8 +102,7 @@ int main(int argc, char **argv)
     ros::Publisher state_in_mission_pub = n.advertise<std_msgs::Int8>("/dji_sdk_demo/state_in_mission",10);
     ros::Subscriber obstacle_distance_sub = n.subscribe ( "/guidance/obstacle_distance",10,obstacle_distance_callback );
     ros::Subscriber position_sub = n.subscribe("/guidance/position", 10, position_callback);
-    ros::Subscriber tag_detections_sub = n.subscribe ( "tag_detection/detections",100,tag_detection_resultCallback );
-    
+
     //for easy to adjust height
     flying_height_control_tracking = serach_flight_height_1;
     //For filtering;
@@ -131,7 +125,7 @@ int main(int argc, char **argv)
     mission_type.data=false; //false for round 3, true for round 4
 
     int searching_state = 0;
-    float bound_len = 1.0;//adjust bound lenght avoid getting out
+    float bound_len = 5.0;//adjust bound lenght avoid getting out
 
     ros::Rate loop_rate ( 50 );
     //Head down at the beginning.row,picth,yaw,duration
@@ -139,7 +133,7 @@ int main(int argc, char **argv)
 
     while ( ros::ok() )
     {
-	ros::spinOnce();
+	    ros::spinOnce();
 		
         // for numbers setting
         start_searching_pub.publish ( start_searching );
@@ -189,8 +183,6 @@ int main(int argc, char **argv)
                 writeF<<"filtered_x="<<filtered_x<<endl;   // write in log
                 writeF<<"filtered_y="<<filtered_y<<endl;   // write in log
                 
-                writeF<<"Detection_fg="<<Detection_fg<<endl;// write in log
-                
                 writeF << g_pos_x  << g_pos_y << g_pos_z << endl;
                 //
                 state_msg.data = state_in_mission;
@@ -222,26 +214,17 @@ int main(int argc, char **argv)
 
                             if(abs(ob_distance[0]-serach_flight_height_1) < 0.2 &&(ob_distance[0]<4))	//forward about 2m
                             {
-//                                 count++;
-//                                 if(count<100)
-//                                 {
-//                                     drone->attitude_control(0x4B,0.7,0,0,0); // go forward
-//                                 }
-//                                 else
-//                                 {
-//                                     count=0;
-//                                     state_in_mission = 0;
-//                                 }
-				   for(int i = 0; i < count_to_forward; i ++)
-				    {
-					if(i < count_to_forward)
-					     drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
-					else
-					    drone->attitude_control(0x4B, 0, 0, 0, 0);
-					usleep(10000);
-				    }
-				    state_in_mission = 0;
-				    
+                                count++;
+                                if(count<100)
+                                {
+                                    drone->attitude_control(0x4B,0.7,0,0,0); // go forward
+                                }
+                                else
+                                {
+                                    count=0;
+                                    state_in_mission = 0;
+                                }
+
                             }	
                         }
                         else
@@ -253,13 +236,11 @@ int main(int argc, char **argv)
 
                     case 0: //for parking pad 1
                     {
-		       
                         if(Detection_fg) //if detecting!
                         {
                             searching_state = 0;
 
                             flip_once = parking(filtered_x,filtered_y,serach_flight_height_1,Detection_fg,drone);
-			    
                             if(flip_once)
                             {
                                 state_in_mission=1;
@@ -347,7 +328,7 @@ int main(int argc, char **argv)
                                      }
                                      else
                                      {
-                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                        drone->attitude_control(0x4B,,-0.3,0,0);
                                      }
                                      break;
                                 }
@@ -432,7 +413,7 @@ int main(int argc, char **argv)
             }
         }
     }
-    
+
     return 0;
 }
 
@@ -504,7 +485,7 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
     {
         if(detection_flag)  //parking pad detected
         {     
-            if(abs(cmd_fligh_x)>0.12||abs(cmd_flight_y)>0.12)  //closing and keep height
+            if(abs(cmd_fligh_x)>0.16||abs(cmd_flight_y)>0.16)  //closing and keep height
             {
                 if ( ob_distance[0]<height-0.1)
                 {
@@ -516,7 +497,7 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
                 }
                 drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);
             }
-            else if(abs(cmd_fligh_x)<0.12&&abs(cmd_flight_y)<0.12) //samll adjust
+            else if(abs(cmd_fligh_x)<0.16&&abs(cmd_flight_y)<0.16) //samll adjust
             {
                 samll_adjust_count ++;
                 if(samll_adjust_count < 0)
@@ -538,30 +519,6 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
                     }
                     land_mode=2;
                 }
-	      
-// 		  if ( ob_distance[0]<1.8)
-// 		  {
-// 		    flying_height_control_tracking += 0.008;   //init 0.008
-// 		  }
-// 		  else if ( (ob_distance[0]>2.0)&&ob_distance[0]<6) 
-// 		  { 
-// 		    flying_height_control_tracking -= 0.008;    //init 0.008
-// 		  }
-// 		  drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
-// 
-// 		  if(ob_distance[0]<2.0)
-// 		  {
-// 		      for(int i = 0; i < count_to_landing; i ++)
-// 		      {
-// 			  if(i < count_to_landing)
-// 			      drone->attitude_control(0x4B, 0, 0, -0.5, 0);//NOT 0X42
-// 			  else
-// 			      drone->attitude_control(0x4B, 0, 0, 0, 0);
-// 			  usleep(10000);
-// 		      }
-// 		      
-// 		      land_mode=2;
-// 		  }
             }
         }
         else    //parkinng pad undetected
@@ -573,57 +530,34 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
     {
         //drone->takeoff();
         //sleep(1);
-//         if ( (ob_distance[0]<height-0.1))
-//         {
-//             flying_height_control_tracking += 0.003;
-//         }
-//         else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<5)
-//         { 
-//             flying_height_control_tracking -= 0.003;
-//         }
-//         drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
-// 
-//         if((ob_distance[0]>height - 0.2)&&ob_distance[0]<4)
-//         {
-//             land_mode=3;
-//         }
-      
-        if(take_off_flag == 0)
-	{
-	    drone->attitude_control(0x5B,0,0,3.8,0);
-	}				
-       if ( (ob_distance[0] > height)&& (ob_distance[0] < 4))
-	{
-	    drone->attitude_control(0x4B,0,0,0,0);
-	    take_off_flag  = 1;
-	    land_mode = 3;
-	}
+        if ( (ob_distance[0]<height-0.1))
+        {
+            flying_height_control_tracking += 0.003;
+        }
+        else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<5)
+        { 
+            flying_height_control_tracking -= 0.003;
+        }
+        drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+        if((ob_distance[0]>height - 0.2)&&ob_distance[0]<4)
+        {
+            land_mode=3;
+        }
     }
     else if(land_mode==3)   //automatic forward
     {
-	take_off_flag = 0;
-//        count_forward++;
-//         if(count_forward<100)
-//         {
-//             drone->attitude_control(0x4B,0.3,0,0,0);
-//         }
-//         else
-//         {
-//             count_forward=0;
-//             land_mode=0;
-//             return true;
-//         }
-	for(int i = 0; i < count_to_forward; i ++)
-	{
-	    if(i < count_to_forward)
-		  drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
-	    else
-		drone->attitude_control(0x4B, 0, 0, 0, 0);
-	    usleep(10000);
-	}
-	land_mode=0;
-	
-	return true;
+        count_forward++;
+        if(count_forward<100)
+        {
+            drone->attitude_control(0x4B,0.3,0,0,0);
+        }
+        else
+        {
+            count_forward=0;
+            land_mode=0;
+            return true;
+        }
     }
   return false;
 }
