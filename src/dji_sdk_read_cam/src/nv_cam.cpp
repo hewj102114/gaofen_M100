@@ -237,17 +237,40 @@ void* trackLoop ( void* tmp )
 	  continue;
 		
 //	ROS_INFO("mission_type: %d", tracker->m_state_in_mission);
-	if(tracker->m_state_in_mission==0)  //parking 2
+	//2018-08-07 evening 0,2,4,6,8,10 matched main_3_new.cpp
+// 	if(tracker->m_state_in_mission==0)  //parking 2 
+// 	  tracker->Num_detection(gray,mimg[1], false ,result);
+// 	else if(tracker->m_state_in_mission==2) //circle 3
+// 	  tracker->Num_detection(gray, mimg[2],true ,result);
+// 	else if(tracker->m_state_in_mission==4) //parking 4
+// 	  tracker->Num_detection(gray,mimg[3], false ,result);
+// 	else if(tracker->m_state_in_mission==6) //circle 5
+// 	  tracker->Num_detection(gray, mimg[4],true ,result);
+// 	else if(tracker->m_state_in_mission==8) //circle 6
+// 	  tracker->Num_detection(gray,mimg[5], true ,result);
+// 	else if(tracker->m_state_in_mission==10) //parking 7
+// 	  tracker->Num_detection(gray,mimg[6], false ,result);
+	
+	//2018-08-08 afternoon 0,2,4,6,8,10 matched reality environment
+	if(tracker->m_state_in_mission==0)  //parking 1 
 	  tracker->Num_detection(gray,mimg[1], false ,result);
-	else if(tracker->m_state_in_mission==1) //circle 3
-	  tracker->Num_detection(gray, mimg[2],true ,result);
-	else if(tracker->m_state_in_mission==2) //parking 4
+	else if(tracker->m_state_in_mission==2) //parking 2
+	  tracker->Num_detection(gray, mimg[2],false ,result);
+	else if(tracker->m_state_in_mission==4) //parking 3
 	  tracker->Num_detection(gray,mimg[3], false ,result);
-	else if(tracker->m_state_in_mission==3) //circle 5
+	else if(tracker->m_state_in_mission==6) //circle 4
 	  tracker->Num_detection(gray, mimg[4],true ,result);
-	else if(tracker->m_state_in_mission==4) //circle 6
-	  tracker->Num_detection(gray,mimg[5], true ,result);
-	else if(tracker->m_state_in_mission==5) //parking 7
+	else if(tracker->m_state_in_mission==8) //parking 5
+	  tracker->Num_detection(gray,mimg[5], false ,result);
+	else if(tracker->m_state_in_mission==10) //circle 6
+	  tracker->Num_detection(gray,mimg[6], true ,result);
+	else if(tracker->m_state_in_mission==12) //circle 7
+	  tracker->Num_detection(gray,mimg[6], true ,result);
+	else if(tracker->m_state_in_mission==14) //parking 8
+	  tracker->Num_detection(gray,mimg[6], false ,result);
+	else if(tracker->m_state_in_mission==16) //parking 9
+	  tracker->Num_detection(gray,mimg[6], false ,result);
+	else if(tracker->m_state_in_mission==19) //parking 10
 	  tracker->Num_detection(gray,mimg[6], false ,result);
 	else 
 	  ROS_INFO("bad state");

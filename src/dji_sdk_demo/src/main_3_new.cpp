@@ -40,11 +40,12 @@ static float g_pos_y = 0.0;
 static float g_pos_z = 0.0;
 /* motion */
 /* postion relative to original points*/
+float start_yaw = 0.0;
 void position_callback(const geometry_msgs::Vector3Stamped& g_pos)
 {
     // g_pos_x=cos(start_yaw)*g_pos.vector.x-sin(start_yaw)*g_pos.vector.y;
-	// g_pos_y=sin(start_yaw)*g_pos.vector.x+cos(start_yaw)*g_pos.vector.y;
-	// g_pos_z=g_pos.vector.z;
+    // g_pos_y=sin(start_yaw)*g_pos.vector.x+cos(start_yaw)*g_pos.vector.y;
+    // g_pos_z=g_pos.vector.z;
 
     g_pos_x=g_pos.vector.x;
     g_pos_y=g_pos.vector.y;
@@ -55,16 +56,16 @@ void position_callback(const geometry_msgs::Vector3Stamped& g_pos)
 
 int mode = 0;
 float serach_flight_height_1 = 3.0;// for numbers
-float serach_flight_height_2 = 1.2;// for tags
+float serach_flight_height_2 = 1.3;// for tags
 float flying_height_control_tracking = 3.0;
-int count_to_landing = 300;
+int count_to_landing = 280;      // if landoff height is 3.0, count_to_landing = 280;
 int samll_adjust_count = 0;//for a small scall adjust flight xy
 int count_forward=0;// go forward count
 
 //just now
-int count_to_forward = 100;
+int count_to_forward = 75;
 bool take_off_flag = 0;
-
+int count_to_forward_cross = 0;
 
 int delay_count = 300;
 static float last_flight_x = 0.0;
@@ -87,10 +88,8 @@ bool cbarrier(float &cmd_fligh_x,
 	      float &cmd_flight_y, 
 	      float &cmd_yaw, 
 	      float height,
-	      float set_height, 
 	      uint8_t detection_flag,
-	      DJIDrone* drone,
-	      int &delayCount);
+	      DJIDrone* drone);
 
 int main(int argc, char **argv) 
 {
@@ -118,7 +117,7 @@ int main(int argc, char **argv)
     int time_count=0;
     int count=0;// go forward count
 
-    float start_yaw = 0.0;
+//    float start_yaw = 0.0;
     bool flip_once = false;//mission success flag
 
     //public datas
@@ -132,6 +131,14 @@ int main(int argc, char **argv)
 
     int searching_state = 0;
     float bound_len = 1.0;//adjust bound lenght avoid getting out
+
+    //2018-08-07 evening
+    int tags_searching_state = 0;
+
+    //just now 2018-08-07 night
+    int cross_state = 0;
+    int cross_forward_count = 200;
+    float first_cross_height = 2.3;
 
     ros::Rate loop_rate ( 50 );
     //Head down at the beginning.row,picth,yaw,duration
@@ -154,8 +161,8 @@ int main(int argc, char **argv)
         filter_seq_x[filter_N-1] = drone->flight_x;
         filter_seq_y[filter_N-1] = drone->flight_y;
         last_flight_yaw = filtered_yaw;
-        filtered_x =  drone->flight_x*0.9;//( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 );
-        filtered_y =  (( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 ))*0.9;
+        filtered_x =  (( sum ( filter_seq_x,filter_N )-find_max ( filter_seq_x,filter_N )-find_min ( filter_seq_x,filter_N ) ) / ( filter_N-2 ))*0.8;
+        filtered_y =  (( sum ( filter_seq_y,filter_N )-find_max ( filter_seq_y,filter_N )-find_min ( filter_seq_y,filter_N ) ) / ( filter_N-2 ))*0.8;
         filtered_yaw= drone->flight_yaw;
         if(abs(filtered_yaw-last_flight_yaw)>20.0)   
         filtered_yaw = last_flight_yaw;
@@ -184,15 +191,11 @@ int main(int argc, char **argv)
             if(mode)
             {
                 ROS_INFO ( "In Mission" );
-                writeF<<"state_in_mission="<<state_in_mission<<endl;
-                //
-                writeF<<"filtered_x="<<filtered_x<<endl;   // write in log
-                writeF<<"filtered_y="<<filtered_y<<endl;   // write in log
-                
-                writeF<<"Detection_fg="<<Detection_fg<<endl;// write in log
-                
-                writeF << g_pos_x  << g_pos_y << g_pos_z << endl;
-                //
+ //               writeF<<"state_in_mission="<<state_in_mission<<endl;
+ //               writeF<<"filtered_x="<<filtered_x<<endl;   // write in log
+ //               writeF<<"filtered_y="<<filtered_y<<endl;   // write in log            
+ //               writeF<<"Detection_fg="<<Detection_fg<<endl;// write in log              
+ //               writeF << g_pos_x  << g_pos_y << g_pos_z << endl;
                 state_msg.data = state_in_mission;
                 state_in_mission_pub.publish(state_msg);
                 ROS_INFO("state_in_mission= %d",state_in_mission);
@@ -222,25 +225,15 @@ int main(int argc, char **argv)
 
                             if(abs(ob_distance[0]-serach_flight_height_1) < 0.2 &&(ob_distance[0]<4))	//forward about 2m
                             {
-//                                 count++;
-//                                 if(count<100)
-//                                 {
-//                                     drone->attitude_control(0x4B,0.7,0,0,0); // go forward
-//                                 }
-//                                 else
-//                                 {
-//                                     count=0;
-//                                     state_in_mission = 0;
-//                                 }
-				   for(int i = 0; i < count_to_forward; i ++)
-				    {
-					if(i < count_to_forward)
-					     drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
-					else
-					    drone->attitude_control(0x4B, 0, 0, 0, 0);
-					usleep(10000);
-				    }
-				    state_in_mission = 0;
+                            for(int i = 0; i < count_to_forward; i ++)
+                                {
+                                if(i < count_to_forward)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                usleep(10000);
+                                }
+                                state_in_mission = 0;
 				    
                             }	
                         }
@@ -252,8 +245,7 @@ int main(int argc, char **argv)
                     }
 
                     case 0: //for parking pad 1
-                    {
-		       
+                    {		       
                         if(Detection_fg) //if detecting!
                         {
                             searching_state = 0;
@@ -307,17 +299,45 @@ int main(int argc, char **argv)
                         }
                         break;
                     }
-        
-                    case 1:  //for crossing circle 3
+
+                    case 1://take off and forward
                     {
+                        if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                        {
+                            flying_height_control_tracking += 0.003;
+                        }
+                        else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                        { 
+                            flying_height_control_tracking -= 0.003;
+                        }
+                        drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                        if((ob_distance[0]>serach_flight_height_1 - 0.2)&&ob_distance[0]<4)
+                        {
+                            for(int i = 0; i < count_to_forward; i ++)
+                            {
+                                if(i < count_to_forward)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                usleep(10000);
+                            }
+                            state_in_mission=2;
+                        }
+                        break;	
+                    }
+
+                    case 2: //for parking pad 2
+                    {		       
                         if(Detection_fg) //if detecting!
                         {
                             searching_state = 0;
 
-                            flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.5,2.3,Detection_fg,drone,time_count);  //2018-07-31 19:50  1.2  1.9
+                            flip_once = parking(filtered_x,filtered_y,serach_flight_height_1,Detection_fg,drone);
+			    
                             if(flip_once)
                             {
-                                state_in_mission=2; 
+                                state_in_mission=3;
                                 flip_once=false;
                             }
                         }
@@ -362,22 +382,134 @@ int main(int argc, char **argv)
                         }
                         break;
                     }
-                 
-                    case 2:  //for parking pad 4
+
+                    case 3://take off and forward
                     {
-                       if(Detection_fg) //if detecting!
+ 
+                        if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                        {
+                            flying_height_control_tracking += 0.003;
+                        }
+                        else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                        { 
+                            flying_height_control_tracking -= 0.003;
+                        }
+                        drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                        if((ob_distance[0]>serach_flight_height_1 - 0.2)&&ob_distance[0]<4)
+                        {
+                            for(int i = 0; i < count_to_forward; i ++)
+                            {
+                                if(i < count_to_forward)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                usleep(10000);
+                            }
+                            state_in_mission=4;
+                        }
+                        break;	
+                    }
+
+                    case 4: //for parking pad 3
+                    {		       
+                        if(Detection_fg) //if detecting!
                         {
                             searching_state = 0;
 
                             flip_once = parking(filtered_x,filtered_y,serach_flight_height_1,Detection_fg,drone);
+			    
                             if(flip_once)
                             {
-                                state_in_mission=1;
+                                state_in_mission=5;
                                 flip_once=false;
                             }
                         }
                         else //keep searching
                         {	      
+                            switch (searching_state) 
+                            {
+                                case 0://1.first left
+                                {
+                                     if(g_pos_y-bound_len > 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 1;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 1://2.then right
+                                {
+                                     if(g_pos_y+bound_len < 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 2;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 2://3.then keep height
+                                {
+                                    drone->attitude_control(0x4B,0,0,0,0);
+                                     break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    }
+
+                    case 5://take off and forward,need to change height
+                    {
+                        drone->gimbal_angle_control(0,0,0,20);   //look farward.
+                        if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                        {
+                            flying_height_control_tracking += 0.003;
+                        }
+                        else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                        { 
+                            flying_height_control_tracking -= 0.003;
+                        }
+                        drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                        if((ob_distance[0]>serach_flight_height_1 - 1.5)&&ob_distance[0]<4) //change the height 1.5m
+                        {
+                            for(int i = 0; i < count_to_forward_cross; i ++) // change count_to_forward=10 to look number
+                            {
+                                if(i < count_to_forward_cross)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                usleep(10000);
+                            }
+                            state_in_mission=6;
+                        }
+                        break;	
+                    }
+
+                    case 6:  //for crossing circle 4
+                    {
+                        if(Detection_fg) //if detecting!
+                        {
+                            searching_state = 0;
+
+                            flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.5,Detection_fg,drone);  //2018-07-31 19:50  1.2  1.9
+                            if(flip_once)
+                            {
+                                state_in_mission=7; 
+                                flip_once=false;
+                            }
+                        }
+                        else //keep searching
+                        {		   
                             switch (searching_state) 
                             {
                                 case 0://1.first left
@@ -418,7 +550,741 @@ int main(int argc, char **argv)
                         break;
                     }
            	
-                    case 3: //land
+                    case 7://take off and forward,need to change forward distance
+                    {
+                        switch(cross_state)
+                        {
+                            case 0:
+                            {
+                                // go up
+                                if ( ob_distance[0]<first_cross_height-0.1)
+                                {
+                                    flying_height_control_tracking += 0.003;
+                                }
+                                else if ( (ob_distance[0]>first_cross_height+0.1)&&ob_distance[0]<10)
+                                {
+                                    flying_height_control_tracking -= 0.003;
+                                }
+                                drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+                                if(abs(first_cross_height-ob_distance[0])<0.2)
+                                {
+                                    //cross
+                                    for(int i = 0; i < cross_forward_count; i ++)
+                                    {
+                                    if(i < cross_forward_count)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                    else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                    usleep(10000);
+                                    }
+                                    cross_state = 1;
+                                }
+                                break;
+                            }
+                            case 1:
+                            {
+                                //Head down at the beginning.row,picth,yaw,duration
+                                drone->gimbal_angle_control ( 0,-900,0,20 ); 
+
+                                if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                                {
+                                    flying_height_control_tracking += 0.003;
+                                }
+                                else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                                { 
+                                    flying_height_control_tracking -= 0.003;
+                                }
+                                drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                                if((ob_distance[0]>serach_flight_height_1 - 0.2)&&ob_distance[0]<4)
+                                {
+                                    cross_state = 0;
+                                    state_in_mission=8;
+                                }
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                         break;
+                    }
+
+                    case 8: //for parking pad 5
+                    {		       
+                        if(Detection_fg) //if detecting!
+                        {
+                            searching_state = 0;
+
+                            flip_once = parking(filtered_x,filtered_y,serach_flight_height_1,Detection_fg,drone);
+			    
+                            if(flip_once)
+                            {
+                                state_in_mission=9;
+                                flip_once=false;
+                            }
+                        }
+                        else //keep searching
+                        {	      
+                            switch (searching_state) 
+                            {
+                                case 0://1.first left
+                                {
+                                     if(g_pos_y-bound_len > 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 1;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 1://2.then right
+                                {
+                                     if(g_pos_y+bound_len < 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 2;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 2://3.then keep height
+                                {
+                                    drone->attitude_control(0x4B,0,0,0,0);
+                                     break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    }
+
+                    case 9://take off and forward,need to change height
+                    {
+                        drone->gimbal_angle_control(0,0,0,20);   //look farward.
+                        if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                        {
+                            flying_height_control_tracking += 0.003;
+                        }
+                        else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                        { 
+                            flying_height_control_tracking -= 0.003;
+                        }
+                        drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                        if((ob_distance[0]>serach_flight_height_1 - 1.5)&&ob_distance[0]<4) //change the height 1.5m
+                        {
+                            for(int i = 0; i < count_to_forward_cross; i ++)
+                            {
+                                if(i < count_to_forward_cross)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                usleep(10000);
+                            }
+                            state_in_mission=10;
+                        }
+                        break;	
+                    }
+
+                    case 10:  //for crossing circle 6
+                    {
+                        if(Detection_fg) //if detecting!
+                        {
+                            searching_state = 0;
+
+                            flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.5,Detection_fg,drone);  //2018-07-31 19:50  1.2  1.9
+                            if(flip_once)
+                            {
+                                state_in_mission=11; 
+                                flip_once=false;
+                            }
+                        }
+                        else //keep searching
+                        {		   
+                            switch (searching_state) 
+                            {
+                                case 0://1.first left
+                                {
+                                     if(g_pos_y-bound_len > 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 1;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 1://2.then right
+                                {
+                                     if(g_pos_y+bound_len < 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 2;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 2://3.then keep height
+                                {
+                                    drone->attitude_control(0x4B,0,0,0,0);
+                                     break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    }
+
+                    case 11://take off and forward,need to change height and forward distance
+                    {
+                        switch(cross_state)
+                        {
+                            case 0:
+                            {
+                                // go up
+                                if ( ob_distance[0]<first_cross_height-0.1)
+                                {
+                                    flying_height_control_tracking += 0.003;
+                                }
+                                else if ( (ob_distance[0]>first_cross_height+0.1)&&ob_distance[0]<10)
+                                {
+                                    flying_height_control_tracking -= 0.003;
+                                }
+                                drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+                                if(abs(first_cross_height-ob_distance[0])<0.2)
+                                {
+                                    //cross
+                                    for(int i = 0; i < cross_forward_count; i ++)
+                                    {
+                                        if(i < cross_forward_count)
+                                        drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                        else
+                                        drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                        usleep(10000);
+                                    }
+                                    cross_state = 1;
+                                }
+                                break;
+                            }
+                            case 1:
+                            {
+                                drone->gimbal_angle_control(0,0,0,20);   //look farward.
+
+                                if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                                {
+                                    flying_height_control_tracking += 0.003;
+                                }
+                                else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                                { 
+                                    flying_height_control_tracking -= 0.003;
+                                }
+                                drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                                if((ob_distance[0]>serach_flight_height_1 - 1.5)&&ob_distance[0]<4) //set height=1.5
+                                {
+                                    cross_state = 0;
+                                    state_in_mission=12;
+                                }
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                         break;
+                    }
+
+                    case 12:  //for crossing circle 7
+                    {
+                        if(Detection_fg) //if detecting!
+                        {
+                            searching_state = 0;
+
+                            flip_once= cbarrier(filtered_x,filtered_y,filtered_yaw,1.5,Detection_fg,drone);  //2018-07-31 19:50  1.2  1.9
+                            if(flip_once)
+                            {
+                                state_in_mission=13; 
+                                flip_once=false;
+                            }
+                        }
+                        else //keep searching
+                        {		   
+                            switch (searching_state) 
+                            {
+                                case 0://1.first left
+                                {
+                                     if(g_pos_y-bound_len > 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 1;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 1://2.then right
+                                {
+                                     if(g_pos_y+bound_len < 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 2;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 2://3.then keep height
+                                {
+                                    drone->attitude_control(0x4B,0,0,0,0);
+                                     break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    }
+
+                    case 13://take off and forward
+                    {
+                        switch(cross_state)
+                        {
+                            case 0:
+                            {
+                                // go up
+                                if ( ob_distance[0]<first_cross_height-0.1)
+                                {
+                                    flying_height_control_tracking += 0.003;
+                                }
+                                else if ( (ob_distance[0]>first_cross_height+0.1)&&ob_distance[0]<10)
+                                {
+                                    flying_height_control_tracking -= 0.003;
+                                }
+                                drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
+                                if(abs(first_cross_height-ob_distance[0])<0.2)
+                                {
+                                    //cross
+                                    for(int i = 0; i < cross_forward_count; i ++)
+                                    {
+                                        if(i < cross_forward_count)
+                                        drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                        else
+                                        drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                        usleep(10000);
+                                    }
+                                    cross_state = 1;
+                                }
+                                break;
+                            }
+                            case 1:
+                            {
+                                //Head down at the beginning.row,picth,yaw,duration
+                                drone->gimbal_angle_control ( 0,-900,0,20 ); 
+
+                                if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                                {
+                                    flying_height_control_tracking += 0.003;
+                                }
+                                else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                                { 
+                                    flying_height_control_tracking -= 0.003;
+                                }
+                                drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                                if((ob_distance[0]>serach_flight_height_1 - 0.2)&&ob_distance[0]<4)
+                                {
+                                    cross_state = 0;
+                                    state_in_mission=12;
+                                }
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                         break;
+                    }
+
+                    case 14: //for parking pad 8
+                    {		       
+                        if(Detection_fg) //if detecting!
+                        {
+                            searching_state = 0;
+
+                            flip_once = parking(filtered_x,filtered_y,serach_flight_height_1,Detection_fg,drone);
+			    
+                            if(flip_once)
+                            {
+                                state_in_mission=15;
+                                flip_once=false;
+                            }
+                        }
+                        else //keep searching
+                        {	      
+                            switch (searching_state) 
+                            {
+                                case 0://1.first left
+                                {
+                                     if(g_pos_y-bound_len > 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 1;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 1://2.then right
+                                {
+                                     if(g_pos_y+bound_len < 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 2;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 2://3.then keep height
+                                {
+                                    drone->attitude_control(0x4B,0,0,0,0);
+                                     break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    }
+                    
+                    case 15://take off and forward
+                    {
+                        drone->gimbal_angle_control(0,0,0,20);   //look farward.
+                        if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                        {
+                            flying_height_control_tracking += 0.003;
+                        }
+                        else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                        { 
+                            flying_height_control_tracking -= 0.003;
+                        }
+                        drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                        if((ob_distance[0]>serach_flight_height_1 - 0.2)&&ob_distance[0]<4) 
+                        {
+                            for(int i = 0; i < count_to_forward; i ++)
+                            {
+                                if(i < count_to_forward)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                usleep(10000);
+                            }
+                            state_in_mission=16;
+                        }
+                        break;	
+                    }
+
+                    case 16: //for parking pad 9
+                    {		       
+                        if(Detection_fg) //if detecting!
+                        {
+                            searching_state = 0;
+
+                            flip_once = parking(filtered_x,filtered_y,serach_flight_height_1,Detection_fg,drone);
+			    
+                            if(flip_once)
+                            {
+                                state_in_mission=17;
+                                flip_once=false;
+                            }
+                        }
+                        else //keep searching
+                        {	      
+                            switch (searching_state) 
+                            {
+                                case 0://1.first left
+                                {
+                                     if(g_pos_y-bound_len > 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 1;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 1://2.then right
+                                {
+                                     if(g_pos_y+bound_len < 0)
+                                     {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 2;
+                                     }
+                                     else
+                                     {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                     }
+                                     break;
+                                }
+                                case 2://3.then keep height
+                                {
+                                    drone->attitude_control(0x4B,0,0,0,0);
+                                     break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    }
+
+                    case 17://take off and forward,need to change forward distance and set the height 1.1m
+                    {
+                        drone->gimbal_angle_control(0,0,0,20);   //look farward.
+                        if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                        {
+                            flying_height_control_tracking += 0.003;
+                        }
+                        else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                        { 
+                            flying_height_control_tracking -= 0.003;
+                        }
+                        drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                        if((ob_distance[0]>serach_flight_height_2 - 0.2)&&ob_distance[0]<4) 
+                        {
+                            for(int i = 0; i < count_to_forward; i ++)
+                            {
+                                if(i < count_to_forward)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                usleep(10000);
+                            }
+                            state_in_mission=18;
+
+                            start_searching.data=true; //for tags
+                            mission_type.data=true; 
+
+                        }
+                        break;	
+                    }
+
+                    case 18:// find tags
+                    {
+                        switch (tags_searching_state) 
+                        {
+                            case 0://1.first right
+                            {
+                                    if(g_pos_y-bound_len > 0)
+                                    {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        tags_searching_state = 1;
+                                    }
+                                    else
+                                    {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                    }
+                                    break;
+                            }
+                            case 1://2.then left
+                            {
+                                    if(g_pos_y+bound_len < 0)
+                                    {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 2;
+                                    }
+                                    else
+                                    {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                    }
+                                    break;
+                            }
+                            case 2://3.then keep height and go forward
+                            {
+                                drone->attitude_control(0x4B,0,0,0,0);
+                                for(int i = 0; i < count_to_forward; i ++)
+                                {
+                                    if(i < count_to_forward)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                    else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                    usleep(10000);
+                                }
+                                tags_searching_state=3;
+                                break;
+                            }
+                            case 3://4.then right
+                            {
+                                    if(g_pos_y-bound_len > 0)
+                                    {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        tags_searching_state = 4;
+                                    }
+                                    else
+                                    {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                    }
+                                    break;
+                            }
+                            case 4://5.then left
+                            {
+                                    if(g_pos_y+bound_len < 0)
+                                    {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        searching_state = 5;
+                                    }
+                                    else
+                                    {
+                                        drone->attitude_control(0x4B,0,-0.3,0,0);
+                                    }
+                                    break;
+                            }
+                            case 5://6.then keep height and go forward
+                            {
+                                drone->attitude_control(0x4B,0,0,0,0);
+                                for(int i = 0; i < count_to_forward; i ++)
+                                {
+                                    if(i < count_to_forward)
+                                    drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                    else
+                                    drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                    usleep(10000);
+                                }
+                                tags_searching_state=6;
+                                break;
+                            }
+                            case 6://7.then right
+                            {
+                                    if(g_pos_y-bound_len > 0)
+                                    {
+                                        drone->attitude_control(0x4B,0,0,0,0);
+                                        tags_searching_state = 7;
+                                    }
+                                    else
+                                    {
+                                        drone->attitude_control(0x4B,0,0.3,0,0);
+                                    }
+                                    break;
+                            }
+                            case 7:// go up 2.8m and then forward 
+                            {
+                                //Head down at the beginning.row,picth,yaw,duration
+                                drone->gimbal_angle_control ( 0,-900,0,20 ); 
+
+                                if ( (ob_distance[0]<serach_flight_height_1-0.1))
+                                {
+                                    flying_height_control_tracking += 0.003;
+                                }
+                                else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
+                                { 
+                                    flying_height_control_tracking -= 0.003;
+                                }
+                                drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
+
+                                if((ob_distance[0]>serach_flight_height_1 - 0.2)&&ob_distance[0]<4) 
+                                {
+                                    for(int i = 0; i < count_to_forward; i ++)
+                                    {
+                                        if(i < count_to_forward)
+                                        drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                        else
+                                        drone->attitude_control(0x4B, 0, 0, 0, 0);
+                                        usleep(10000);
+                                    }
+                                    tags_searching_state=0;
+                                }
+                                break;	
+                            }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+
+		    case 19:
+		    {
+		      if(Detection_fg) //if detecting!
+		      {
+			  searching_state = 0;
+
+			  flip_once = parking(filtered_x,filtered_y,serach_flight_height_1,Detection_fg,drone);
+
+			  if(flip_once)
+			  {
+			      start_searching.data=true; //for tags
+			      mission_type.data=true; 
+			      
+			      state_in_mission=20;
+			      flip_once=false;
+			      
+			  }
+		      }
+		      else //keep searching
+		      {	      
+			  switch (searching_state) 
+			  {
+			    case 0://1.first left
+			    {
+				if(g_pos_y-bound_len > 0)
+				{
+				    drone->attitude_control(0x4B,0,0,0,0);
+				    searching_state = 1;
+				}
+				else
+				{
+				    drone->attitude_control(0x4B,0,0.3,0,0);
+				}
+				break;
+			    }
+			    case 1://2.then right
+			    {
+				if(g_pos_y+bound_len < 0)
+				{
+				    drone->attitude_control(0x4B,0,0,0,0);
+				    searching_state = 2;
+				}
+				else
+				{
+				    drone->attitude_control(0x4B,0,-0.3,0,0);
+				}
+				break;
+			    }
+			    case 2://3.then keep height
+			    {
+				drone->attitude_control(0x4B,0,0,0,0);
+				break;
+			    }
+			    default:
+				break;
+			}
+		      }
+		      break;
+                            
+		    }  
+                    case 20: //land
                         drone->landing();
                         break;
 
@@ -468,7 +1334,6 @@ float find_max ( float a[], size_t len )
     {
         if ( a[j]>max )
             max = a[j];
-
     }
     return max;
 }
@@ -518,50 +1383,51 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
             }
             else if(abs(cmd_fligh_x)<0.12&&abs(cmd_flight_y)<0.12) //samll adjust
             {
-                samll_adjust_count ++;
-                if(samll_adjust_count < 0)
-                {
-                    drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0); 
-                }
-                else
-                {
-                    samll_adjust_count = 0;
-                    //drone->landing();
-                    //sleep(1);
-                    for(int i = 0; i < count_to_landing; i ++)
-                    {
-                        if(i < count_to_landing)
-                            drone->attitude_control(0x4B, 0, 0, -0.5, 0);//NOT 0X42
-                        else
-                            drone->attitude_control(0x4B, 0, 0, 0, 0);
-                        usleep(10000);
-                    }
-                    land_mode=2;
-                }
+//                 samll_adjust_count ++;
+//                 if(samll_adjust_count < 0)
+//                 {
+//                     drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0); 
+//                 }
+//                 else
+//                 {
+//                     samll_adjust_count = 0;
+//                     //drone->landing();
+//                     //sleep(1);
+//                     for(int i = 0; i < count_to_landing; i ++)
+//                     {
+//                         if(i < count_to_landing)
+//                             drone->attitude_control(0x4B, 0, 0, -0.5, 0);//NOT 0X42
+//                         else
+//                             drone->attitude_control(0x4B, 0, 0, 0, 0);
+//                         usleep(10000);
+//                     }
+//                     land_mode=2;
+//                 }
 	      
-// 		  if ( ob_distance[0]<1.8)
-// 		  {
-// 		    flying_height_control_tracking += 0.008;   //init 0.008
-// 		  }
-// 		  else if ( (ob_distance[0]>2.0)&&ob_distance[0]<6) 
-// 		  { 
-// 		    flying_height_control_tracking -= 0.008;    //init 0.008
-// 		  }
-// 		  drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
-// 
-// 		  if(ob_distance[0]<2.0)
-// 		  {
-// 		      for(int i = 0; i < count_to_landing; i ++)
-// 		      {
-// 			  if(i < count_to_landing)
-// 			      drone->attitude_control(0x4B, 0, 0, -0.5, 0);//NOT 0X42
-// 			  else
-// 			      drone->attitude_control(0x4B, 0, 0, 0, 0);
-// 			  usleep(10000);
-// 		      }
-// 		      
-// 		      land_mode=2;
-// 		  }
+		  if ( ob_distance[0]<1.8)
+		  {
+		    flying_height_control_tracking += 0.008;   //init 0.008
+		  }
+		  else if ( (ob_distance[0]>2.0)&&ob_distance[0]<6) 
+		  { 
+		    flying_height_control_tracking -= 0.008;    //init 0.008
+		  }
+		  drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
+
+		  if(ob_distance[0]<2.0)
+		  {
+		      for(int i = 0; i < count_to_landing; i ++)
+		      {
+			  if(i < count_to_landing)
+			      drone->attitude_control(0x4B, 0, 0, -0.5, 0);//NOT 0X42
+			  else
+			      drone->attitude_control(0x4B, 0, 0, 0, 0);
+			  usleep(10000);
+		      }
+		      writeF << "land_mode = 2" << endl;
+		      	land_mode=0;
+			return true;
+		    }
             }
         }
         else    //parkinng pad undetected
@@ -569,66 +1435,10 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
 
         }
     } 
-    else if(land_mode==2)   //automatic takeoff
-    {
-        //drone->takeoff();
-        //sleep(1);
-//         if ( (ob_distance[0]<height-0.1))
-//         {
-//             flying_height_control_tracking += 0.003;
-//         }
-//         else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<5)
-//         { 
-//             flying_height_control_tracking -= 0.003;
-//         }
-//         drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
-// 
-//         if((ob_distance[0]>height - 0.2)&&ob_distance[0]<4)
-//         {
-//             land_mode=3;
-//         }
-      
-        if(take_off_flag == 0)
-	{
-	    drone->attitude_control(0x5B,0,0,3.8,0);
-	}				
-       if ( (ob_distance[0] > height)&& (ob_distance[0] < 4))
-	{
-	    drone->attitude_control(0x4B,0,0,0,0);
-	    take_off_flag  = 1;
-	    land_mode = 3;
-	}
-    }
-    else if(land_mode==3)   //automatic forward
-    {
-	take_off_flag = 0;
-//        count_forward++;
-//         if(count_forward<100)
-//         {
-//             drone->attitude_control(0x4B,0.3,0,0,0);
-//         }
-//         else
-//         {
-//             count_forward=0;
-//             land_mode=0;
-//             return true;
-//         }
-	for(int i = 0; i < count_to_forward; i ++)
-	{
-	    if(i < count_to_forward)
-		  drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
-	    else
-		drone->attitude_control(0x4B, 0, 0, 0, 0);
-	    usleep(10000);
-	}
-	land_mode=0;
-	
-	return true;
-    }
   return false;
 }
 
-bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float height, float set_height, uint8_t detection_flag,DJIDrone* drone,int &delayCount)
+bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float height, uint8_t detection_flag,DJIDrone* drone)
 {
   if(cbring_mode==0)  //turn the gimbal direction
   {
@@ -663,7 +1473,7 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
       if(cmd_flight_y>0.2)  cmd_flight_y = 0.2;    //initial 0.25
       if(cmd_flight_y<-0.2) cmd_flight_y =-0.2;    //initial 0.25
       if(abs(cmd_yaw)<5&&cmd_flight_y<0.2)
-	drone->attitude_control ( 0x5B,0.2,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
+	drone->attitude_control ( 0x5B,0.0,cmd_flight_y,flying_height_control_tracking,cmd_yaw);   //initail x = 0.2
       else
 	drone->attitude_control ( 0x5B,0.0,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
       writeF<<"tag detected, cmd_yaw="<<cmd_yaw<<endl;
@@ -674,49 +1484,13 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
       drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
       writeF<<"tag NOT detected, cmd_yaw="<<cmd_yaw<<endl;   //yaw is not zero for no tag, need to be fixed.
     }
-    if(detection_flag&&abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)
-      cbring_mode=2;
-  }
-  else if(cbring_mode==2)   //go up
-  {
-    writeF<<"mode: "<<cbring_mode<<endl;
-    if ( ob_distance[0]<set_height-0.1)
+    if(detection_flag&&abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)// maybe should change
     {
-      flying_height_control_tracking += 0.003;
-    }
-    else if ( (ob_distance[0]>set_height+0.1)&&ob_distance[0]<10)
-    {
-      flying_height_control_tracking -= 0.003;
-    }
-    drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
-    
-    if(abs(set_height-ob_distance[0])<0.2)
-      cbring_mode=3;
-  }
-  else if(cbring_mode==3)  //cross
-  { 
-    writeF<<"mode: "<<cbring_mode<<", dtime="<<delayCount<<endl;
-    if ( ob_distance[0]<set_height-0.1)
-    {
-      flying_height_control_tracking += 0.001;
-    }
-    else if ( (ob_distance[0]>set_height+0.1)&&ob_distance[0]<10)
-    { 
-      flying_height_control_tracking -= 0.001;
-    }
-    drone->attitude_control ( 0x4B,0.4,0,0,0);  //go farward
-    delayCount++;
-    //sleep(10);
-    //if(detection_flag==0) 
-    //   drone->attitude_control ( 0x9B,1,0,flying_height_control_tracking,0);  //go farward
-    //else
-    if(delayCount>delay_count)
-    {
+      writeF<<"alined..."<<endl;
       cbring_mode=0;
-      delayCount=0;
-      return true; 
-    }
-  }
-  
+      return true;
+    } 
+      
+  } 
   return false;
 }

@@ -13,10 +13,9 @@
 #include "opencv2/opencv.hpp"
 using namespace cv;
 using namespace std;
-
 ofstream fcout( "/root/circleDetection.txt",ios::app );
 ofstream writeF ( "/home/ubuntu/GaofenChallenge/log1.txt");
-
+    
 float flight_height = 0.0;
 bool change_once_flag = true;  
 const float EPS = 0.00000001;      
@@ -678,7 +677,8 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 
 		  //if (Th1 > 3.5 && Th2 > 3.5  && Th4 > 100 && Th5 > 90&&abs(Th3)<50)   //afternoon, 4, 4, 120, 120
                   //if (Th1 > 1.7 && Th2 > 1.7  && Th4 > 60 && Th5 > 60&&abs(Th3)<50)    //2018-07-20-11:36  on the sunshine
-		   if (Th1 > 1.4 && Th2 > 1.4 && Th4 > 50 && Th5 >60&&abs(Th3)<50)       // 2018-07-31-18:55  beside the building
+		//   if (Th1 > 1.4 && Th2 > 1.4 && Th4 > 50 && Th5 >60&&abs(Th3)<50)       // 2018-07-31-18:55  beside the building
+		 if (Th1 > 1.3 && Th2 > 1.3 && Th4 > 50 && Th5 >60&&abs(Th3)<50)	// 2018-08-08-17:14  123
 			{  
 			  RedChannel.at<uchar>(j, i) = 255;
 			  GreenChannel.at<uchar>(j, i) = 255;
@@ -785,7 +785,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		      
 		if(!flag)
 		{ //for drone coordinate, x is forward
-		  pos_result.x = -(Senter.y-160)*0.04/5;  //5 pixles = 4cm  
+		  pos_result.x = -(Senter.y-180)*0.04/5;  //5 pixles = 4cm  
 		  pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm  (320,180)
 		  pos_result.z = 0;
 		  pos_result.yaw = 0;
