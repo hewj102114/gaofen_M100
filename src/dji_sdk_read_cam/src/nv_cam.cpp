@@ -29,6 +29,19 @@
 
 #include "apriltagdetector.h"
 #include <ARToolKitPlus/TrackerSingleMarker.h>
+
+// for aruco
+#include "aruco.h"
+#include <iostream>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <string>
+#include <stdexcept>
+using namespace std;
+using namespace aruco;
+
+
+
 using ARToolKitPlus::TrackerSingleMarker;
 using namespace cv;
 typedef unsigned char   BYTE;
@@ -278,99 +291,156 @@ void* trackLoop ( void* tmp )
       else if(tracker->m_mission_type==true&&tracker->m_start_searching==true)
       {
 
-	ARFloat corners_best[4][2];
-	ARFloat Xmincorner=width, Xmaxcorner=0;
-	ARFloat Ymincorner=height, Ymaxcorner=0;
-	double mindata=width+height;
-	int tlpoint=-1;
-	cv::Mat gray = cv::Mat ( oImg, true );
-	if(gray.empty())
+	// read camparam
+        aruco::CameraParameters CamParam;
+        CamParam.readFromXMLFile("/home/ubuntu/aruco-3.0.11/calib_cam.yml");
+  			// read the input image
+	cv::Mat InImage = cv::Mat ( oImg, true );
+	if(InImage.empty())
 	  continue;
+        
+//	InImage = imread("/home/ubuntu/aruco-3.0.11/build/utils/orgimage000.png",0);
+        // read marker size if specified (default value -1)
+        float MarkerSize = 0.164;
+        // Create the detector
+        MarkerDetector MDetector;
+      	//uses a configuration file. YOu can create it from aruco_test application
+
+        //MDetector.loadParamsFromFile(cml("-f"));
+
+				// Set the dictionary you want to work with, if you included option -d in command line
+				//By default, all valid dictionaries are examined
+      	MDetector.setDictionary(0.f);
+        // Ok, let's detect
+        vector<Marker> Markers = MDetector.detect(InImage, CamParam, MarkerSize);
+
 	
-	//cvtColor(gray,gray,CV_BGR2GRAY); //roslaunch set gray image transfer
-	std::vector<int> markerId_tmp;
-	//for(int i=0;i<12;i++)
-	//{
-	  //artracker.setThreshold(thresholds[i]);
-	  markerId_tmp = artracker.calc(gray.data);
-	 // if(markerId_tmp.size()>0)
-	//  {
-	 //   result_tmp=gray;
-	 //   break;
-	//  }
-	//}
-	if( markerId_tmp.size() > 0)
+	if(Markers.size() > 0)
 	{
-	  id_best = artracker.selectBestMarkerByCf(); /*choose the marker with highest confidence*/
-	  if(idmark!=id_best)
-	    idmark=id_best;
-	  if(idmark==id_best)
-	    detection_count++;
-	  if(detection_count==10) 
-	  {
-	    const ARToolKitPlus::ARMarkerInfo* marker_info = artracker.getMarkerInfoById(id_best);
-	    for( size_t s = 0; s < 4; s++){
-	      if(marker_info->vertex[s][0]<Xmincorner) Xmincorner=marker_info->vertex[s][0];
-	      if(marker_info->vertex[s][0]>Xmaxcorner) Xmaxcorner=marker_info->vertex[s][0];
-	      if(marker_info->vertex[s][1]<Ymincorner) Ymincorner=marker_info->vertex[s][1];
-	      if(marker_info->vertex[s][1]>Ymaxcorner) Ymaxcorner=marker_info->vertex[s][1];
-	      for( size_t t = 0; t < 2; t++){
-		corners_best[s][t] = marker_info->vertex[s][t];
-	      }
-	      if(corners_best[s][0]+corners_best[s][1]<mindata)
-	      {
-		mindata=corners_best[s][0]+corners_best[s][1];
-		tlpoint=s;
-	      }
-	    }
-	    
-	    int X_Differ=Xmaxcorner-Xmincorner;
-	    int Y_Differ=Ymaxcorner-Ymincorner;
-	    int X_Center=X_Differ*0.5+Xmincorner;
-	    int Y_Center=Y_Differ*0.5+Ymincorner;
-	    if(X_Center>0.1*width&&X_Center<0.9*width&&Y_Center>0.1*height&&Y_Center<0.9*height)
-	    {
-	     Mat warp_matrix( 3, 3, CV_32FC1 ); 
-	     Point2f src[4],dst[4];
-	     src[0]=Point2f(corners_best[tlpoint][0],corners_best[tlpoint][1]);
-	     src[1]=Point2f(corners_best[(tlpoint+1)%4][0],corners_best[(tlpoint+1)%4][1]);
-	     src[2]=Point2f(corners_best[(tlpoint+2)%4][0],corners_best[(tlpoint+2)%4][1]);
-	     src[3]=Point2f(corners_best[(tlpoint+3)%4][0],corners_best[(tlpoint+3)%4][1]);
-	     int maxlen=0;
-	     if(X_Differ>Y_Differ) maxlen=X_Differ;
-	     else maxlen=Y_Differ;
-	     dst[0]=Point2f(X_Center-0.5*maxlen,Y_Center-0.5*maxlen);
-	     dst[1]=Point2f(X_Center+0.5*maxlen,Y_Center-0.5*maxlen);
-	     dst[2]=Point2f(X_Center+0.5*maxlen,Y_Center+0.5*maxlen);
-	     dst[3]=Point2f(X_Center-0.5*maxlen,Y_Center+0.5*maxlen);
-	     
-	     warp_matrix=getPerspectiveTransform(src ,dst  );  
-	     warpPerspective( gray,gray, warp_matrix, gray.size()); 
-	     
-//	    cv::Rect rect;
-	    if(X_Center-maxlen<0) rect.x=0;
-	    else rect.x=X_Center-maxlen;
-	    if(Y_Center-maxlen<0) rect.y=0; 
-	    else rect.y=Y_Center-maxlen;
-	    if(X_Center+maxlen>width) rect.width=width-rect.x;
-	    else rect.width=X_Center+maxlen-rect.x;
-	    if(Y_Center+maxlen>height) rect.height=height-rect.y;
-	    else rect.height=Y_Center+maxlen-rect.y;
-	    if(rect.width==rect.height&&maxlen>50)
-	    gray(rect).copyTo(resultimg);
-	    }
-	  }
+		int index = Markers[0].id;
+		double x = Markers[0].Tvec.ptr<float>(0)[0];
+		double y = Markers[0].Tvec.ptr<float>(0)[1];
+		double z = Markers[0].Tvec.ptr<float>(0)[2];
+		if(abs(x)<0.3 && z>1.2 && z<1.5)
+		{
+			string num=std::to_string(index);
+			string imname2="/home/ubuntu/aruco-3.0.11/result/orgimage"+num+".png";
+			cv::imwrite(imname2,InImage);
+		}
 	}
-	if(detection_count>=50) 
-	  {
-	    ROS_INFO("original marker %d ", id_best);
-	    char str[100];
-	      sprintf(str,"/home/ubuntu/GaofenChallenge/Result/%d.png", id_best);
-//	      imwrite(str,resultimg);
-	      imwrite(str,gray(rect));
-	      idmark=-1; 
-	      detection_count=0;
-	    }
+
+//         // for each marker, draw info and its boundaries in the image
+//         for (unsigned int i = 0; i < Markers.size(); i++)
+//         {
+//             cout << Markers[i] << endl;
+//             Markers[i].draw(InImage, Scalar(0, 0, 255), 2);
+//         }
+//         // draw a 3d cube in each marker if there is 3d info
+//         if (CamParam.isValid() && MarkerSize != -1)
+//             for (unsigned int i = 0; i < Markers.size(); i++)
+//             {
+//                 CvDrawingUtils::draw3dCube(InImage, Markers[i], CamParam);
+//             }
+        // show input with augmented information
+//         cv::namedWindow("in", 1);
+//         cv::imshow("in", __resize(InImage,1280));
+// 	cv::waitKey(0);
+	
+	
+	
+// 	ARFloat corners_best[4][2];
+// 	ARFloat Xmincorner=width, Xmaxcorner=0;
+// 	ARFloat Ymincorner=height, Ymaxcorner=0;
+// 	double mindata=width+height;
+// 	int tlpoint=-1;
+// 	cv::Mat gray = cv::Mat ( oImg, true );
+// 	if(gray.empty())
+// 	  continue;
+// 	
+// 	//cvtColor(gray,gray,CV_BGR2GRAY); //roslaunch set gray image transfer
+// 	std::vector<int> markerId_tmp;
+// 	//for(int i=0;i<12;i++)
+// 	//{
+// 	  //artracker.setThreshold(thresholds[i]);
+// 	  markerId_tmp = artracker.calc(gray.data);
+// 	 // if(markerId_tmp.size()>0)
+// 	//  {
+// 	 //   result_tmp=gray;
+// 	 //   break;
+// 	//  }
+// 	//}
+// 	if( markerId_tmp.size() > 0)
+// 	{
+// 	  id_best = artracker.selectBestMarkerByCf(); /*choose the marker with highest confidence*/
+// 	  if(idmark!=id_best)
+// 	    idmark=id_best;
+// 	  if(idmark==id_best)
+// 	    detection_count++;
+// 	  if(detection_count==10) 
+// 	  {
+// 	    const ARToolKitPlus::ARMarkerInfo* marker_info = artracker.getMarkerInfoById(id_best);
+// 	    for( size_t s = 0; s < 4; s++){
+// 	      if(marker_info->vertex[s][0]<Xmincorner) Xmincorner=marker_info->vertex[s][0];
+// 	      if(marker_info->vertex[s][0]>Xmaxcorner) Xmaxcorner=marker_info->vertex[s][0];
+// 	      if(marker_info->vertex[s][1]<Ymincorner) Ymincorner=marker_info->vertex[s][1];
+// 	      if(marker_info->vertex[s][1]>Ymaxcorner) Ymaxcorner=marker_info->vertex[s][1];
+// 	      for( size_t t = 0; t < 2; t++){
+// 		corners_best[s][t] = marker_info->vertex[s][t];
+// 	      }
+// 	      if(corners_best[s][0]+corners_best[s][1]<mindata)
+// 	      {
+// 		mindata=corners_best[s][0]+corners_best[s][1];
+// 		tlpoint=s;
+// 	      }
+// 	    }
+// 	    
+// 	    int X_Differ=Xmaxcorner-Xmincorner;
+// 	    int Y_Differ=Ymaxcorner-Ymincorner;
+// 	    int X_Center=X_Differ*0.5+Xmincorner;
+// 	    int Y_Center=Y_Differ*0.5+Ymincorner;
+// 	    if(X_Center>0.1*width&&X_Center<0.9*width&&Y_Center>0.1*height&&Y_Center<0.9*height)
+// 	    {
+// 	     Mat warp_matrix( 3, 3, CV_32FC1 ); 
+// 	     Point2f src[4],dst[4];
+// 	     src[0]=Point2f(corners_best[tlpoint][0],corners_best[tlpoint][1]);
+// 	     src[1]=Point2f(corners_best[(tlpoint+1)%4][0],corners_best[(tlpoint+1)%4][1]);
+// 	     src[2]=Point2f(corners_best[(tlpoint+2)%4][0],corners_best[(tlpoint+2)%4][1]);
+// 	     src[3]=Point2f(corners_best[(tlpoint+3)%4][0],corners_best[(tlpoint+3)%4][1]);
+// 	     int maxlen=0;
+// 	     if(X_Differ>Y_Differ) maxlen=X_Differ;
+// 	     else maxlen=Y_Differ;
+// 	     dst[0]=Point2f(X_Center-0.5*maxlen,Y_Center-0.5*maxlen);
+// 	     dst[1]=Point2f(X_Center+0.5*maxlen,Y_Center-0.5*maxlen);
+// 	     dst[2]=Point2f(X_Center+0.5*maxlen,Y_Center+0.5*maxlen);
+// 	     dst[3]=Point2f(X_Center-0.5*maxlen,Y_Center+0.5*maxlen);
+// 	     
+// 	     warp_matrix=getPerspectiveTransform(src ,dst  );  
+// 	     warpPerspective( gray,gray, warp_matrix, gray.size()); 
+// 	     
+// //	    cv::Rect rect;
+// 	    if(X_Center-maxlen<0) rect.x=0;
+// 	    else rect.x=X_Center-maxlen;
+// 	    if(Y_Center-maxlen<0) rect.y=0; 
+// 	    else rect.y=Y_Center-maxlen;
+// 	    if(X_Center+maxlen>width) rect.width=width-rect.x;
+// 	    else rect.width=X_Center+maxlen-rect.x;
+// 	    if(Y_Center+maxlen>height) rect.height=height-rect.y;
+// 	    else rect.height=Y_Center+maxlen-rect.y;
+// 	    if(rect.width==rect.height&&maxlen>50)
+// 	    gray(rect).copyTo(resultimg);
+// 	    }
+// 	  }
+// 	}
+// 	if(detection_count>=50) 
+// 	  {
+// 	    ROS_INFO("original marker %d ", id_best);
+// 	    char str[100];
+// 	      sprintf(str,"/home/ubuntu/GaofenChallenge/Result/%d.png", id_best);
+// //	      imwrite(str,resultimg);
+// 	      imwrite(str,gray(rect));
+// 	      idmark=-1; 
+// 	      detection_count=0;
+// 	    }
 	//artracker.selectBestMarkerByCf();
 	//ROS_INFO("size : %d",markerId.size());
       } 

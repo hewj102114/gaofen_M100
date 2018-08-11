@@ -46,7 +46,6 @@ void position_callback(const geometry_msgs::Vector3Stamped& g_pos)
     // g_pos_x=cos(start_yaw)*g_pos.vector.x-sin(start_yaw)*g_pos.vector.y;
     // g_pos_y=sin(start_yaw)*g_pos.vector.x+cos(start_yaw)*g_pos.vector.y;
     // g_pos_z=g_pos.vector.z;
-
     g_pos_x=g_pos.vector.x;
     g_pos_y=g_pos.vector.y;
     g_pos_z=g_pos.vector.z;
@@ -55,19 +54,18 @@ void position_callback(const geometry_msgs::Vector3Stamped& g_pos)
 }
 
 int mode = 0;
+bool take_off_flag = 0;
+int samll_adjust_count = 0;//for a small scall adjust flight xy
+
 float serach_flight_height_1 = 3.0;// for numbers
 float serach_flight_height_2 = 1.3;// for tags
 float flying_height_control_tracking = 3.0;
-int count_to_landing = 280;      // if landoff height is 3.0, count_to_landing = 280;
-int samll_adjust_count = 0;//for a small scall adjust flight xy
-int count_forward=0;// go forward count
-
+int count_to_landing = 260;      // if landoff height is 3.0, count_to_landing = 280;
+				 //if landoff = 270 seems a little big
 //just now
 int count_to_forward = 75;
-bool take_off_flag = 0;
 int count_to_forward_cross = 0;
 
-int delay_count = 300;
 static float last_flight_x = 0.0;
 static float last_flight_y = 0.0;  
 static float last_flight_yaw = 0.0;
@@ -119,7 +117,7 @@ int main(int argc, char **argv)
 
 //    float start_yaw = 0.0;
     bool flip_once = false;//mission success flag
-
+    
     //public datas
     int state_in_mission = 0;
     std_msgs::Int8 state_msg;
@@ -137,7 +135,9 @@ int main(int argc, char **argv)
 
     //just now 2018-08-07 night
     int cross_state = 0;
-    int cross_forward_count = 200;
+    int cross_forward_count = 140;
+    int count_to_forward_cross2 = 85;
+    int count_forward_tags = 200;
     float first_cross_height = 2.3;
 
     ros::Rate loop_rate ( 50 );
@@ -304,11 +304,11 @@ int main(int argc, char **argv)
                     {
                         if ( (ob_distance[0]<serach_flight_height_1-0.1))
                         {
-                            flying_height_control_tracking += 0.003;
+                            flying_height_control_tracking += 0.008; //init 0.003,speed up 
                         }
                         else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
                         { 
-                            flying_height_control_tracking -= 0.003;
+                            flying_height_control_tracking -= 0.008; //init 0.003
                         }
                         drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
 
@@ -388,11 +388,11 @@ int main(int argc, char **argv)
  
                         if ( (ob_distance[0]<serach_flight_height_1-0.1))
                         {
-                            flying_height_control_tracking += 0.003;
+                            flying_height_control_tracking += 0.008;//init 0.003,speed up 
                         }
                         else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
                         { 
-                            flying_height_control_tracking -= 0.003;
+                            flying_height_control_tracking -= 0.008;//init 0.003,speed up 
                         }
                         drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
 
@@ -472,15 +472,15 @@ int main(int argc, char **argv)
                         drone->gimbal_angle_control(0,0,0,20);   //look farward.
                         if ( (ob_distance[0]<serach_flight_height_1-0.1))
                         {
-                            flying_height_control_tracking += 0.003;
+                            flying_height_control_tracking += 0.008;//init 0.003,speed up 
                         }
                         else if ( (ob_distance[0]>serach_flight_height_1+0.1)&&ob_distance[0]<5)
                         { 
-                            flying_height_control_tracking -= 0.003;
+                            flying_height_control_tracking -= 0.008;//init 0.003,speed up 
                         }
                         drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
 
-                        if((ob_distance[0]>serach_flight_height_1 - 1.5)&&ob_distance[0]<4) //change the height 1.5m
+                        if((ob_distance[0]>serach_flight_height_1 - 1.6)&&ob_distance[0]<4) //change the height 1.5m//1.4m
                         {
                             for(int i = 0; i < count_to_forward_cross; i ++) // change count_to_forward=10 to look number
                             {
@@ -608,7 +608,7 @@ int main(int argc, char **argv)
                         }
                          break;
                     }
-
+                    
                     case 8: //for parking pad 5
                     {		       
                         if(Detection_fg) //if detecting!
@@ -678,7 +678,7 @@ int main(int argc, char **argv)
                         }
                         drone->attitude_control(0x5B,0,0,flying_height_control_tracking,0);
 
-                        if((ob_distance[0]>serach_flight_height_1 - 1.5)&&ob_distance[0]<4) //change the height 1.5m
+                        if((ob_distance[0]>serach_flight_height_1 - 1.6)&&ob_distance[0]<4) //change the height 1.5m//1.4m
                         {
                             for(int i = 0; i < count_to_forward_cross; i ++)
                             {
@@ -767,10 +767,10 @@ int main(int argc, char **argv)
                                 if(abs(first_cross_height-ob_distance[0])<0.2)
                                 {
                                     //cross
-                                    for(int i = 0; i < cross_forward_count; i ++)
+                                    for(int i = 0; i < count_to_forward_cross2; i ++)
                                     {
-                                        if(i < cross_forward_count)
-                                        drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
+                                        if(i < count_to_forward_cross2)
+                                        drone->attitude_control(0x4B,0.72,0,0,0);//NOT 0X42
                                         else
                                         drone->attitude_control(0x4B, 0, 0, 0, 0);
                                         usleep(10000);
@@ -1075,9 +1075,9 @@ int main(int argc, char **argv)
 
                         if((ob_distance[0]>serach_flight_height_2 - 0.2)&&ob_distance[0]<4) 
                         {
-                            for(int i = 0; i < count_to_forward; i ++)
+                            for(int i = 0; i < count_forward_tags; i ++)
                             {
-                                if(i < count_to_forward)
+                                if(i < count_forward_tags)
                                     drone->attitude_control(0x4B,0.7,0,0,0);//NOT 0X42
                                 else
                                     drone->attitude_control(0x4B, 0, 0, 0, 0);
@@ -1373,11 +1373,11 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
             {
                 if ( ob_distance[0]<height-0.1)
                 {
-                    flying_height_control_tracking += 0.003;
+                    flying_height_control_tracking += 0.003;// initial 0.003
                 }
                 else if ( (ob_distance[0]>height+0.1)&&ob_distance[0]<10)
                 { 
-                    flying_height_control_tracking -= 0.003;
+                    flying_height_control_tracking -= 0.003;// initial 0.003
                 }
                 drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);
             }
@@ -1406,11 +1406,11 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
 	      
 		  if ( ob_distance[0]<1.8)
 		  {
-		    flying_height_control_tracking += 0.008;   //init 0.008
+		    flying_height_control_tracking += 0.015;   //init 0.008,speed up landing
 		  }
 		  else if ( (ob_distance[0]>2.0)&&ob_distance[0]<6) 
 		  { 
-		    flying_height_control_tracking -= 0.008;    //init 0.008
+		    flying_height_control_tracking -= 0.015;    //init 0.008
 		  }
 		  drone->attitude_control(0x9B,cmd_fligh_x,cmd_flight_y,flying_height_control_tracking,0);   //TODO: height adjusting
 
@@ -1440,6 +1440,8 @@ bool parking(float &cmd_fligh_x,float &cmd_flight_y,float height, uint8_t detect
 
 bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float height, uint8_t detection_flag,DJIDrone* drone)
 {
+  //for a test 
+  cmd_yaw = 0;
   if(cbring_mode==0)  //turn the gimbal direction
   {
     drone->gimbal_angle_control(0,0,0,20);   //look farward.
@@ -1468,14 +1470,15 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
     { 
       flying_height_control_tracking -= 0.002;
     }
+   
     if(detection_flag)
     {
       if(cmd_flight_y>0.2)  cmd_flight_y = 0.2;    //initial 0.25
       if(cmd_flight_y<-0.2) cmd_flight_y =-0.2;    //initial 0.25
       if(abs(cmd_yaw)<5&&cmd_flight_y<0.2)
-	drone->attitude_control ( 0x5B,0.0,cmd_flight_y,flying_height_control_tracking,cmd_yaw);   //initail x = 0.2
+	drone->attitude_control ( 0x4B,0.0,cmd_flight_y,0,cmd_yaw);   //initail x = 0.2
       else
-	drone->attitude_control ( 0x5B,0.0,cmd_flight_y,flying_height_control_tracking,cmd_yaw);
+	drone->attitude_control ( 0x4B,0.0,cmd_flight_y,0,cmd_yaw);
       writeF<<"tag detected, cmd_yaw="<<cmd_yaw<<endl;
     }
     else   
@@ -1484,7 +1487,8 @@ bool cbarrier(float &cmd_fligh_x,float &cmd_flight_y, float &cmd_yaw,float heigh
       drone->attitude_control ( 0x9B,0,0,flying_height_control_tracking,0);
       writeF<<"tag NOT detected, cmd_yaw="<<cmd_yaw<<endl;   //yaw is not zero for no tag, need to be fixed.
     }
-    if(detection_flag&&abs(cmd_fligh_x-1.4)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)// maybe should change
+ //   if(detection_flag&&abs(cmd_fligh_x-1.2)<0.2&&abs(cmd_flight_y)<0.2&&abs(cmd_yaw)<5)// maybe should change
+ if(detection_flag&&abs(cmd_flight_y)<0.15&&abs(cmd_yaw)<5)// maybe should change //init 0.2 unstable
     {
       writeF<<"alined..."<<endl;
       cbring_mode=0;
