@@ -612,9 +612,10 @@ void ApriltagDetector::calculate(cv::Mat &img, double & intercept, double & slop
 #endif
 }
 
-Mat cameraMatrix = (Mat_<double>(3, 3) << 256.3024, 0, 322.1386, 0, 257.3868, 164.8579, 0, 0, 1);
-Mat distCoeffs = (Mat_<double>(1, 4) << -0.1384, 0.0697, 0, 0);
-Point3f world_pnt_tl(-450,-450,0), world_pnt_tr(-450,450,0), world_pnt_br(450,450,0), world_pnt_bl(450,-450,0);
+Mat cameraMatrix = (Mat_<double>(3, 3) << 381.1694, 0, 327.1767, 0, 376.6416, 182.5309, 0, 0, 1);
+Mat distCoeffs = (Mat_<double>(1, 4) << -0.1414, 0.1355, 0, 0);
+//Point3f world_pnt_tl(-450,-450,0), world_pnt_tr(-450,450,0), world_pnt_br(450,450,0), world_pnt_bl(450,-450,0);
+Point3f world_pnt_tl(-275,-275,0), world_pnt_tr(-275,275,0), world_pnt_br(275,275,0), world_pnt_bl(275,-275,0);
 //Point3f world_pnt_tl(-83,-83,0), world_pnt_tr(-83,83,0), world_pnt_br(83,83,0), world_pnt_bl(83,-83,0);
 cv::Mat rvec = cv::Mat::zeros(3, 1, CV_64FC1);
 cv::Mat tvec = cv::Mat::zeros(3, 1, CV_64FC1);
@@ -692,6 +693,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			}
 		}
 	}
+	
 	merge(channels, img);
 	cvtColor(img, img, COLOR_BGR2GRAY);
 	cvtColor(mimg, mimg, COLOR_BGR2GRAY);
@@ -761,7 +763,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 	else 
 	  detection_flag.data=true;
 	
-	tag_detections_pub.publish(detection_flag);
+	//tag_detections_pub.publish(detection_flag);  //2018-08-11
 	
 	if (!contours_test.empty())  
 	{
@@ -772,7 +774,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		Moments mom = moments(contours_result[0]);
 		circle(result_num, Point(mom.m10 / mom.m00, mom.m01 / mom.m00), 2, Scalar(255), 2);
 		Senter = Point(mom.m10 / mom.m00, mom.m01 / mom.m00);
-		ROS_INFO("tx=%d, ty=%d ",Senter.x,Senter.y);
+//		ROS_INFO("tx=%d, ty=%d ",Senter.x,Senter.y);
 		
 		//output the result
 		  pos_result.header.frame_id = "x3_reldist";
@@ -785,7 +787,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		      
 		if(!flag)
 		{ //for drone coordinate, x is forward
-		  pos_result.x = -(Senter.y-180)*0.04/5;  //5 pixles = 4cm  
+		  pos_result.x = -(Senter.y-205)*0.04/5;  //5 pixles = 4cm  
 		  pos_result.y = (Senter.x-320)*0.04/5;  //5 pixles = 4cm  (320,180)
 		  pos_result.z = 0;
 		  pos_result.yaw = 0;
@@ -872,7 +874,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			  {*/
 			    Calcu_attitude(ptfour[0],ptfour[1],ptfour[2],ptfour[3]);
 			    if(thetax<0) thetax+=360;
-			    //ROS_INFO("tx=%f, ty=%f, tz=%f, ", tvec.ptr<double>(0)[0],tvec.ptr<double>(1)[0],tvec.ptr<double>(2)[0]);
+//			    ROS_INFO("tx=%f, ty=%f, tz=%f, ", tvec.ptr<double>(0)[0],tvec.ptr<double>(1)[0],tvec.ptr<double>(2)[0]);
 			    //ROS_INFO("thetax=%f, thetay=%f, thetaz=%f ",thetax,thetay,thetaz);
 			    writeF<<"tx="<<tvec.ptr<double>(0)[0]<<endl;   // write in log
 			    writeF<<"ty="<<tvec.ptr<double>(1)[0]<<endl;   // write in log
@@ -885,6 +887,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 			    pos_result.y = tvec.ptr<double>(0)[0]/1000;  //m
 			    //pos_result.z = tvec.ptr<double>(1)[0]; 
 			    pos_result.yaw = thetax-180;  //jiaodu 
+//			     ROS_INFO("yaw=%f ", pos_result.yaw);
 			    
 			// }
 			//}
@@ -933,6 +936,7 @@ int ApriltagDetector::Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk
 		
 	} 
         m_result_pub.publish ( pos_result );
+	tag_detections_pub.publish(detection_flag);  //2018-08-11
 	
 #ifdef _SHOW_PHOTO
 	namedWindow("contours");

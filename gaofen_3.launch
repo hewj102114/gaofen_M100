@@ -19,13 +19,42 @@
       <node pkg="guidance" type="guidanceNode" name="guidanceNode" output="screen" />   
 
 	<node pkg="dji_sdk_demo" type="dji_sdk_gaofen_3" name="dji_sdk_gaofen_3"  output="screen">
-		<param name="delayCount" type="int" value="350"/>
-		<param name="maxTakeoffWaitCount" type="int" value="700"/>
-		<param name="descendingSpeed"  value="0.005"/>
-		<param name="initTrackingHeight" value="3.0"/> 
-	        <param name="initDescedingHeightSearch" value="18.0"/>  
-                <param name="initial_searching_height" value="1.7"/>
-                
+	
+		<param name="bound_len" type="int" value="500"/>
+		<param name="park_direction_1" type="bool" value="false"/>
+		<param name="park_direction_2" type="bool" value="false"/>
+		<param name="park_direction_3" type="bool" value="false"/>
+		<param name="cross_direction_4" type="bool" value="false"/>
+		<param name="park_direction_5" type="bool" value="false"/>
+		<param name="cross_direction_6" type="bool" value="false"/>
+		<param name="cross_direction_7" type="bool" value="false"/>
+		<param name="park_direction_8" type="bool" value="false"/>
+		<param name="park_direction_9" type="bool" value="false"/>
+
+		<param name="serach_flight_height_1" value="3.0"/>
+		<param name="count_to_forward01" type="int" value="75"/>
+		<param name="count_to_forward12" type="int" value="75"/>
+		<param name="count_to_forward23" type="int" value="75"/>
+		<param name="count_to_forward34" type="int" value="0"/>
+		<param name="count_to_forward56" type="int" value="0"/>
+		<param name="count_to_forward89" type="int" value="75"/>
+		<param name="set_count_to_landing" type="int" value="230"/>
+		
+		<param name="first_square_height" value="1.4"/>
+		<param name="first_cross_height" value="2.3"/>
+		<param name="second_square_height" value="1.4"/>
+		<param name="second_cross_height" value="2.3"/>
+		<param name="third_square_height" value="1.4"/>
+		<param name="third_cross_height" value="2.3"/>
+		<param name="cross_forward_distance" value="3.2"/>
+		<param name="cross_forward_distance2" value="2.0"/>
+										
+		<param name="serach_flight_height_2" value="1.3"/>
+		<param name="count_forward_tags" type="int" value="200"/>
+		<param name="count_to_tags" type="int" value="200"/>
                 
 	</node>
 </launch>
+
+    
+    

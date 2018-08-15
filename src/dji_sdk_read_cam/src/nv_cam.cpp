@@ -37,10 +37,12 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <string>
 #include <stdexcept>
+#include<fstream> //log
 using namespace std;
 using namespace aruco;
 
 
+ofstream writeF2 ( "/home/ubuntu/GaofenChallenge/log_22.txt");
 
 using ARToolKitPlus::TrackerSingleMarker;
 using namespace cv;
@@ -295,7 +297,7 @@ void* trackLoop ( void* tmp )
         aruco::CameraParameters CamParam;
         CamParam.readFromXMLFile("/home/ubuntu/aruco-3.0.11/calib_cam.yml");
   			// read the input image
-	cv::Mat InImage = cv::Mat ( oImg, true );
+	cv::Mat InImage = cv::Mat ( pImg, true );
 	if(InImage.empty())
 	  continue;
         
@@ -321,13 +323,15 @@ void* trackLoop ( void* tmp )
 		double x = Markers[0].Tvec.ptr<float>(0)[0];
 		double y = Markers[0].Tvec.ptr<float>(0)[1];
 		double z = Markers[0].Tvec.ptr<float>(0)[2];
-		if(abs(x)<0.3 && z>1.2 && z<1.5)
+		if(abs(x)<0.3 && z>1.0 && z<2.0)
 		{
+			writeF2<<x << y << z <<endl;
 			string num=std::to_string(index);
-			string imname2="/home/ubuntu/aruco-3.0.11/result/orgimage"+num+".png";
+			string imname2="/home/ubuntu/aruco-3.0.11/result/get"+num+".png";
 			cv::imwrite(imname2,InImage);
 		}
 	}
+	
 
 //         // for each marker, draw info and its boundaries in the image
 //         for (unsigned int i = 0; i < Markers.size(); i++)
@@ -488,7 +492,7 @@ void cvMouseCallback(int mouseEvent,int x,int y,int flags,void* param)
 {
   int *count=(int*)param;
   char str[100];
-  sprintf(str,"/root/chess/%d.png",*count);
+  sprintf(str,"/home/ubuntu/chess/%d.png",*count);
   switch(mouseEvent)
   {
     case CV_EVENT_LBUTTONDOWN:
@@ -601,9 +605,10 @@ int main ( int argc, char **argv )
       printf ( "manifold init error \n" );
       return -1;
     }
-    //for calibration only
-    //cv::namedWindow("img",CV_WINDOW_AUTOSIZE);
-    //cv::setMouseCallback("img",cvMouseCallback,&nCount);
+    
+  //for calibration only
+  //cv::namedWindow("img",CV_WINDOW_AUTOSIZE);
+  //cv::setMouseCallback("img",cvMouseCallback,&nCount);
   
   while ( 1 )
     {    
@@ -640,9 +645,11 @@ int main ( int argc, char **argv )
 	caminfo_pub.publish ( cam_info );
 	image_pub.publish(im);
 	
-	char str[100];
-	sprintf(str,"/home/ubuntu/GaofenChallenge/cap/%d.png",nCount); 
-	if(nCount%100==0&&nCount>200)   cvSaveImage(str,pImg,0);
+	///ROS_INFO("image received!");
+	//cvShowImage("img",pImg);
+	//char str[100];
+	//sprintf(str,"/home/ubuntu/GaofenChallenge/cap/%d.png",nCount); 
+	//if(nCount%100==0&&nCount>200)   cvSaveImage(str,pImg,0);
 	ros::spinOnce();
 	nCount++; 
       }
