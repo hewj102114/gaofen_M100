@@ -323,12 +323,15 @@ void* trackLoop ( void* tmp )
 		double x = Markers[0].Tvec.ptr<float>(0)[0];
 		double y = Markers[0].Tvec.ptr<float>(0)[1];
 		double z = Markers[0].Tvec.ptr<float>(0)[2];
-		if(abs(x)<0.3 && z>1.0 && z<2.0)
+		if(abs(x)<0.3 && z>0.7 && z<2.0)
 		{
 			writeF2<<x << y << z <<endl;
+			ROS_INFO("1: %f 2:%f 3:%f",x,y,z);
+			
 			string num=std::to_string(index);
 			string imname2="/home/ubuntu/aruco-3.0.11/result/get"+num+".png";
 			cv::imwrite(imname2,InImage);
+			writeF2<< num <<endl;
 		}
 	}
 	
