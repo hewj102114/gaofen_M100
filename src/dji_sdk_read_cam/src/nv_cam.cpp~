@@ -1,0 +1,682 @@
+#include "ros/ros.h"
+#include <image_transport/image_transport.h>
+#include <cv_bridge/cv_bridge.h>
+#include <sensor_msgs/image_encodings.h>
+#include <sensor_msgs/CameraInfo.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <stdio.h>
+#include <malloc.h>
+#include <string.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <poll.h>
+#include <signal.h>
+#include <assert.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include "cv.h"
+#include "highgui.h"
+#include "djicam.h"  
+
+// AprilTag tracking
+#include <pthread.h>
+#include <iostream>
+#include <opencv/cv.h>
+#include <opencv/highgui.h>
+  
+#include <dji_sdk/Reldist.h>
+
+#include "apriltagdetector.h"
+#include <ARToolKitPlus/TrackerSingleMarker.h>
+
+// for aruco
+#include "aruco.h"
+#include <iostream>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <string>
+#include <stdexcept>
+#include<fstream> //log
+using namespace std;
+using namespace aruco;
+
+
+ofstream writeF2 ( "/home/ubuntu/GaofenChallenge/log_22.txt");
+
+using ARToolKitPlus::TrackerSingleMarker;
+using namespace cv;
+typedef unsigned char   BYTE;
+#define IMAGE_W 1280
+#define IMAGE_H 720  
+#define FRAME_SIZE              IMAGE_W*IMAGE_H*3
+
+int mission_type=1;    //1-line follow, 2-human follow
+
+unsigned char buffer[FRAME_SIZE] = {0};
+unsigned int frame_size = 0;
+unsigned int nframe = 0;
+FILE *fp;
+IplImage *pImg;
+IplImage *oImg;   //original image
+cv::Mat mimg[10];
+struct sRGB
+{
+  int r;
+  int g;
+  int b;
+};
+
+sRGB yuvTorgb ( int Y, int U, int V )
+{
+  sRGB rgb;
+  rgb.r = ( int ) ( Y + 1.4075 * ( V-128 ) );
+  rgb.g = ( int ) ( Y - 0.3455 * ( U-128 ) - 0.7169* ( V-128 ) );
+  rgb.b = ( int ) ( Y + 1.779 * ( U-128 ) );
+  rgb.r = ( rgb.r<0? 0: rgb.r>255? 255 : rgb.r );
+  rgb.g = ( rgb.g<0? 0: rgb.g>255? 255 : rgb.g );
+  rgb.b = ( rgb.b<0? 0: rgb.b>255? 255 : rgb.b );
+  return rgb;
+}
+
+unsigned char * NV12ToRGB ( unsigned char * src, unsigned char * rgb, int width, int height )
+{
+  int numOfPixel = width * height;
+  int positionOfU = numOfPixel;
+  int startY,step,startU,Y,U,V,index,nTmp;
+  sRGB tmp;
+
+  for ( int i=0; i<height; i++ )
+    {
+      startY = i*width;
+      step = i/2*width;
+      startU = positionOfU + step;
+      for ( int j = 0; j < width; j++ )
+        {
+          Y = startY + j;
+          if ( j%2 == 0 )
+            nTmp = j;
+          else
+            nTmp = j - 1;
+          U = startU + nTmp;
+          V = U + 1;
+          index = Y*3;
+          tmp = yuvTorgb ( ( int ) src[Y], ( int ) src[U], ( int ) src[V] );
+          rgb[index+0] = ( char ) tmp.b;
+          rgb[index+1] = ( char ) tmp.g;
+          rgb[index+2] = ( char ) tmp.r;
+        }
+    }
+  return rgb;
+}
+
+bool YUV420_To_BGR24 ( unsigned char *puc_y, unsigned char *puc_u, unsigned char *puc_v, unsigned char *puc_rgb, int width_y, int height_y )
+{
+  if ( !puc_y || !puc_u || !puc_v || !puc_rgb )
+    {
+      return false;
+    }
+  int baseSize = width_y * height_y;
+  int rgbSize = baseSize * 3;
+
+  BYTE* rgbData = new BYTE[rgbSize];
+  memset ( rgbData, 0, rgbSize );
+
+  int temp = 0;
+
+  BYTE* rData = rgbData;
+  BYTE* gData = rgbData + baseSize;
+  BYTE* bData = gData + baseSize;
+
+  int uvIndex =0, yIndex =0;
+
+
+  for ( int y=0; y < height_y; y++ )
+    {
+      for ( int x=0; x < width_y; x++ )
+        {
+          uvIndex = ( y>>1 ) * ( width_y>>1 ) + ( x>>1 );
+          yIndex = y * width_y + x;
+
+          temp = ( int ) ( puc_y[yIndex] + ( puc_v[uvIndex] - 128 ) * 1.4022 );
+          rData[yIndex] = temp<0 ? 0 : ( temp > 255 ? 255 : temp );
+
+          temp = ( int ) ( puc_y[yIndex] + ( puc_u[uvIndex] - 128 ) * ( -0.3456 ) +
+                           ( puc_v[uvIndex] - 128 ) * ( -0.7145 ) );
+          gData[yIndex] = temp < 0 ? 0 : ( temp > 255 ? 255 : temp );
+
+          temp = ( int ) ( puc_y[yIndex] + ( puc_u[uvIndex] - 128 ) * 1.771 );
+          bData[yIndex] = temp < 0 ? 0 : ( temp > 255 ? 255 : temp );
+        }
+    }
+
+  int widthStep = width_y*3;
+  for ( int y = 0; y < height_y; y++ )
+    {
+      for ( int x = 0; x < width_y; x++ )
+        {
+          puc_rgb[y * widthStep + x * 3 + 2] = rData[y * width_y + x]; //R
+          puc_rgb[y * widthStep + x * 3 + 1] = gData[y * width_y + x]; //G
+          puc_rgb[y * widthStep + x * 3 + 0] = bData[y * width_y + x]; //B
+        }
+    }
+
+  if ( !puc_rgb )
+    {
+      return false;
+    }
+  delete [] rgbData;
+  return true;
+}
+
+IplImage* YUV420_To_IplImage ( unsigned char* pYUV420, int width, int height )
+{
+  if ( !pYUV420 )
+    {
+      return NULL;
+    }
+
+  int baseSize = width*height;
+  int imgSize = baseSize*3;
+  BYTE* pRGB24 = new BYTE[imgSize];
+  memset ( pRGB24, 0, imgSize );
+
+  int temp = 0;
+
+  BYTE* yData = pYUV420;
+  BYTE* uData = pYUV420 + baseSize;
+  BYTE* vData = uData + ( baseSize>>2 );
+
+  if ( YUV420_To_BGR24 ( yData, uData, vData, pRGB24, width, height ) == false || !pRGB24 )
+    {
+      return NULL;
+    }
+
+  IplImage *image = cvCreateImage ( cvSize ( width, height ), 8,3 );
+  memcpy ( image->imageData, pRGB24, imgSize );
+
+  if ( !image )
+    {
+      return NULL;
+    }
+
+  delete [] pRGB24;
+  return image;
+}
+void cvMatToRawData(const cv::Mat& img, std::vector<unsigned char>& rawData){
+    /* convert the image into a gray level image*/
+    cv::Mat gray;
+    if( img.channels() > 1)
+        cv::cvtColor(img, gray, CV_RGB2GRAY);
+    else
+        gray = img;
+    rawData.resize(gray.rows*gray.cols);
+    for( size_t i = 0; i < gray.rows; i++){
+        for( size_t j = 0; j < gray.cols; j++)
+            rawData[i*gray.cols+j] = gray.at<unsigned char>(i,j);
+    }
+}
+
+void* trackLoop ( void* tmp )
+{
+  ros::Time t = ros::Time::now();
+  dji_sdk::Reldist result;
+
+  ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;//2018-08-20 maybe this can be revised
+
+
+  //for ARtag detection initilzation
+  const bool useBCH = true; 
+  const int width = IMAGE_W, height = IMAGE_H, bpp = 1;
+  TrackerSingleMarker artracker(width, height, 8, 6, 6, 6, 0);
+  artracker.setPixelFormat(ARToolKitPlus::PIXEL_FORMAT_LUM);
+  artracker.setPatternWidth(100.0); //?
+  artracker.init("/home/ubuntu/GaofenChallenge/PGR_M12x0.5_2.5mm.cal", 1.0f, 1000.0f);//
+  artracker.setBorderWidth(useBCH ? 0.125 : 0.25);
+  //int thresholds[12] = {20,40,60,80,100,120,140,160,180,200,220,240};
+  artracker.activateAutoThreshold (1);
+  artracker.setUndistortionMode(ARToolKitPlus::UNDIST_LUT);
+  artracker.setMarkerMode(useBCH ? ARToolKitPlus::MARKER_ID_BCH : ARToolKitPlus::MARKER_ID_SIMPLE);
+
+   
+  int id_best=-1;
+  int detection_count=0,idmark=-1;
+  cv::Mat result_tmp, resultimg;
+  
+  cv::Rect rect;
+  
+  int count = 0;
+  while ( 1 )
+  {
+    //  ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;
+      if(tracker->m_mission_type==false)
+      {
+        cv::Mat gray = cv::Mat ( pImg, true );
+        if(gray.empty()||mimg[1].empty())
+          continue;
+		
+//	ROS_INFO("mission_type: %d", tracker->m_state_in_mission);
+/*
+	      //2018-08-08 afternoon 0,2,4,6,8,10 matched reality environment
+        if(tracker->m_state_in_mission==0)  //parking 1 
+          tracker->Num_detection(gray,mimg[1], false ,result);
+        else if(tracker->m_state_in_mission==2) //parking 2
+          tracker->Num_detection(gray, mimg[2],false ,result);
+        else if(tracker->m_state_in_mission==4) //parking 3
+          tracker->Num_detection(gray,mimg[3], false ,result);
+        else if(tracker->m_state_in_mission==6) //circle 4
+          tracker->Num_detection(gray, mimg[4],true ,result);
+        else if(tracker->m_state_in_mission==8) //parking 5
+          tracker->Num_detection(gray,mimg[5], false ,result);
+        else if(tracker->m_state_in_mission==10) //circle 6
+          tracker->Num_detection(gray,mimg[6], true ,result);
+        else if(tracker->m_state_in_mission==12) //circle 7
+          tracker->Num_detection(gray,mimg[6], true ,result);
+        else if(tracker->m_state_in_mission==14) //parking 8
+          tracker->Num_detection(gray,mimg[6], false ,result);
+        else if(tracker->m_state_in_mission==16) //parking 9
+          tracker->Num_detection(gray,mimg[6], false ,result);
+        else if(tracker->m_state_in_mission==19) //parking 10
+          tracker->Num_detection(gray,mimg[6], false ,result);
+*/
+             //2018-08-08 afternoon 0,2,4,6,8,10 matched reality environment
+        if(tracker->m_state_in_mission==0)  //parking 1 
+          tracker->Num_detection(gray,mimg[0], false ,result);//park is false,circle is true
+        else if(tracker->m_state_in_mission==2) //parking 2
+          tracker->Num_detection(gray, mimg[1],false ,result);
+        else if(tracker->m_state_in_mission==4) //parking 3
+          tracker->Num_detection(gray,mimg[2], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==6) //circle 4
+          tracker->Num_detection(gray, mimg[3],tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==8) //parking 5
+          tracker->Num_detection(gray,mimg[4], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==10) //circle 6
+          tracker->Num_detection(gray,mimg[5], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==12) //circle 7
+          tracker->Num_detection(gray,mimg[6], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==14) //parking 8
+          tracker->Num_detection(gray,mimg[7], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==16) //parking 9
+          tracker->Num_detection(gray,mimg[8], false ,result);
+        else if(tracker->m_state_in_mission==19) //parking 10
+          tracker->Num_detection(gray,mimg[9], false ,result);
+        else 
+          ROS_INFO("bad state");
+      }
+//      else if(tracker->m_mission_type==true&&tracker->m_start_searching==true)
+    else if(tracker->m_mission_type==true)
+    {
+
+	// read camparam
+        aruco::CameraParameters CamParam;
+        CamParam.readFromXMLFile("/home/ubuntu/aruco-3.0.11/calib_cam.yml");
+  			// read the input image
+	cv::Mat InImage = cv::Mat ( pImg, true );
+	if(InImage.empty())
+	  continue;
+        
+//	InImage = imread("/home/ubuntu/aruco-3.0.11/build/utils/orgimage000.png",0);
+        // read marker size if specified (default value -1)
+        float MarkerSize = 0.164;
+        // Create the detector
+        MarkerDetector MDetector;
+      	//uses a configuration file. YOu can create it from aruco_test application
+
+        //MDetector.loadParamsFromFile(cml("-f"));
+
+				// Set the dictionary you want to work with, if you included option -d in command line
+				//By default, all valid dictionaries are examined
+      	MDetector.setDictionary(0.f);
+        // Ok, let's detect
+        vector<Marker> Markers = MDetector.detect(InImage, CamParam, MarkerSize);
+
+	
+	if(Markers.size() > 0)
+	{
+		int index = Markers[0].id;
+		double x = Markers[0].Tvec.ptr<float>(0)[0];
+		double y = Markers[0].Tvec.ptr<float>(0)[1];
+		double z = Markers[0].Tvec.ptr<float>(0)[2];
+		if(abs(x)<0.3 && z>1.0 && z<2.0)
+		{
+			writeF2<<x << y << z <<endl;
+			string num=std::to_string(index);
+			string imname2="/home/ubuntu/aruco-3.0.11/result/get"+num+".png";
+			cv::imwrite(imname2,InImage);
+		}
+	}
+	
+
+//         // for each marker, draw info and its boundaries in the image
+//         for (unsigned int i = 0; i < Markers.size(); i++)
+//         {
+//             cout << Markers[i] << endl;
+//             Markers[i].draw(InImage, Scalar(0, 0, 255), 2);
+//         }
+//         // draw a 3d cube in each marker if there is 3d info
+//         if (CamParam.isValid() && MarkerSize != -1)
+//             for (unsigned int i = 0; i < Markers.size(); i++)
+//             {
+//                 CvDrawingUtils::draw3dCube(InImage, Markers[i], CamParam);
+//             }
+        // show input with augmented information
+//         cv::namedWindow("in", 1);
+//         cv::imshow("in", __resize(InImage,1280));
+// 	cv::waitKey(0);
+	
+	
+	
+// 	ARFloat corners_best[4][2];
+// 	ARFloat Xmincorner=width, Xmaxcorner=0;
+// 	ARFloat Ymincorner=height, Ymaxcorner=0;
+// 	double mindata=width+height;
+// 	int tlpoint=-1;
+// 	cv::Mat gray = cv::Mat ( oImg, true );
+// 	if(gray.empty())
+// 	  continue;
+// 	
+// 	//cvtColor(gray,gray,CV_BGR2GRAY); //roslaunch set gray image transfer
+// 	std::vector<int> markerId_tmp;
+// 	//for(int i=0;i<12;i++)
+// 	//{
+// 	  //artracker.setThreshold(thresholds[i]);
+// 	  markerId_tmp = artracker.calc(gray.data);
+// 	 // if(markerId_tmp.size()>0)
+// 	//  {
+// 	 //   result_tmp=gray;
+// 	 //   break;
+// 	//  }
+// 	//}
+// 	if( markerId_tmp.size() > 0)
+// 	{
+// 	  id_best = artracker.selectBestMarkerByCf(); /*choose the marker with highest confidence*/
+// 	  if(idmark!=id_best)
+// 	    idmark=id_best;
+// 	  if(idmark==id_best)
+// 	    detection_count++;
+// 	  if(detection_count==10) 
+// 	  {
+// 	    const ARToolKitPlus::ARMarkerInfo* marker_info = artracker.getMarkerInfoById(id_best);
+// 	    for( size_t s = 0; s < 4; s++){
+// 	      if(marker_info->vertex[s][0]<Xmincorner) Xmincorner=marker_info->vertex[s][0];
+// 	      if(marker_info->vertex[s][0]>Xmaxcorner) Xmaxcorner=marker_info->vertex[s][0];
+// 	      if(marker_info->vertex[s][1]<Ymincorner) Ymincorner=marker_info->vertex[s][1];
+// 	      if(marker_info->vertex[s][1]>Ymaxcorner) Ymaxcorner=marker_info->vertex[s][1];
+// 	      for( size_t t = 0; t < 2; t++){
+// 		corners_best[s][t] = marker_info->vertex[s][t];
+// 	      }
+// 	      if(corners_best[s][0]+corners_best[s][1]<mindata)
+// 	      {
+// 		mindata=corners_best[s][0]+corners_best[s][1];
+// 		tlpoint=s;
+// 	      }
+// 	    }
+// 	    
+// 	    int X_Differ=Xmaxcorner-Xmincorner;
+// 	    int Y_Differ=Ymaxcorner-Ymincorner;
+// 	    int X_Center=X_Differ*0.5+Xmincorner;
+// 	    int Y_Center=Y_Differ*0.5+Ymincorner;
+// 	    if(X_Center>0.1*width&&X_Center<0.9*width&&Y_Center>0.1*height&&Y_Center<0.9*height)
+// 	    {
+// 	     Mat warp_matrix( 3, 3, CV_32FC1 ); 
+// 	     Point2f src[4],dst[4];
+// 	     src[0]=Point2f(corners_best[tlpoint][0],corners_best[tlpoint][1]);
+// 	     src[1]=Point2f(corners_best[(tlpoint+1)%4][0],corners_best[(tlpoint+1)%4][1]);
+// 	     src[2]=Point2f(corners_best[(tlpoint+2)%4][0],corners_best[(tlpoint+2)%4][1]);
+// 	     src[3]=Point2f(corners_best[(tlpoint+3)%4][0],corners_best[(tlpoint+3)%4][1]);
+// 	     int maxlen=0;
+// 	     if(X_Differ>Y_Differ) maxlen=X_Differ;
+// 	     else maxlen=Y_Differ;
+// 	     dst[0]=Point2f(X_Center-0.5*maxlen,Y_Center-0.5*maxlen);
+// 	     dst[1]=Point2f(X_Center+0.5*maxlen,Y_Center-0.5*maxlen);
+// 	     dst[2]=Point2f(X_Center+0.5*maxlen,Y_Center+0.5*maxlen);
+// 	     dst[3]=Point2f(X_Center-0.5*maxlen,Y_Center+0.5*maxlen);
+// 	     
+// 	     warp_matrix=getPerspectiveTransform(src ,dst  );  
+// 	     warpPerspective( gray,gray, warp_matrix, gray.size()); 
+// 	     
+// //	    cv::Rect rect;
+// 	    if(X_Center-maxlen<0) rect.x=0;
+// 	    else rect.x=X_Center-maxlen;
+// 	    if(Y_Center-maxlen<0) rect.y=0; 
+// 	    else rect.y=Y_Center-maxlen;
+// 	    if(X_Center+maxlen>width) rect.width=width-rect.x;
+// 	    else rect.width=X_Center+maxlen-rect.x;
+// 	    if(Y_Center+maxlen>height) rect.height=height-rect.y;
+// 	    else rect.height=Y_Center+maxlen-rect.y;
+// 	    if(rect.width==rect.height&&maxlen>50)
+// 	    gray(rect).copyTo(resultimg);
+// 	    }
+// 	  }
+// 	}
+// 	if(detection_count>=50) 
+// 	  {
+// 	    ROS_INFO("original marker %d ", id_best);
+// 	    char str[100];
+// 	      sprintf(str,"/home/ubuntu/GaofenChallenge/Result/%d.png", id_best);
+// //	      imwrite(str,resultimg);
+// 	      imwrite(str,gray(rect));
+// 	      idmark=-1; 
+// 	      detection_count=0;
+// 	    }
+	//artracker.selectBestMarkerByCf();
+	//ROS_INFO("size : %d",markerId.size());
+      } 
+      /*
+       if(detection_count>=2) 
+	  {
+	    ROS_INFO("original marker %d ", id_best);
+	    TrackerSingleMarker restracker(resultimg.cols, resultimg.rows, 8, 6, 6, 6, 0);
+	    restracker.setPixelFormat(ARToolKitPlus::PIXEL_FORMAT_LUM);
+	    restracker.setPatternWidth(100.0); //?
+	    restracker.init("/root/PGR_M12x0.5_2.5mm.cal", 1.0f, 1000.0f);
+	    restracker.setBorderWidth(useBCH ? 0.125 : 0.25);
+	    //int thresholds[12] = {20,40,60,80,100,120,140,160,180,200,220,240};
+	    restracker.activateAutoThreshold (1);
+	    restracker.setUndistortionMode(ARToolKitPlus::UNDIST_LUT);
+	    restracker.setMarkerMode(useBCH ? ARToolKitPlus::MARKER_ID_BCH : ARToolKitPlus::MARKER_ID_SIMPLE);
+	    char str[100];
+	    std::vector<int> markerId;
+	    markerId = restracker.calc(resultimg.data);
+	    if(markerId.size()>0)
+	    {
+	      ROS_INFO("Found marker %d ", markerId[0]);
+	      sprintf(str,"/root/Result/%d.png", markerId[0]);
+	      imwrite(str,resultimg);
+	      idmark=-1; 
+	      detection_count=0;
+	    }
+
+	  }*/
+
+      count++;
+      if ( count == 100 )
+      {
+          count = 0;
+  //        ROS_INFO ( "Process FPS: %0.2f\n",100/ ( ros::Time::now().toSec()-t.toSec() ) );
+          t=ros::Time::now();
+      }
+
+      ros::spinOnce();
+  }
+}
+
+
+void cvMouseCallback(int mouseEvent,int x,int y,int flags,void* param)
+{
+  int *count=(int*)param;
+  char str[100];
+  sprintf(str,"/home/ubuntu/chess/%d.png",*count);
+  switch(mouseEvent)
+  {
+    case CV_EVENT_LBUTTONDOWN:
+      cvSaveImage(str,pImg,0);
+      ROS_INFO("image saved");
+      break;
+  }
+  return;
+}
+
+
+int main ( int argc, char **argv )
+{
+  ros::init ( argc,argv,"image_raw" );
+  int ret, nKey;
+  int nState = 1;
+  int nCount = 1;
+
+  int gray_or_rgb = 0;
+  int to_mobile = 1;
+
+  IplImage *pRawImg;
+  mimg[0] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m1.jpg"); 
+  mimg[1] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m2.jpg"); 
+  mimg[2] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m3.jpg"); 
+  mimg[3] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m4.jpg"); 
+  mimg[4] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m5.jpg"); 
+  mimg[5] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m6.jpg"); 
+  mimg[6] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m7.jpg"); 
+  mimg[7] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m8.jpg"); 
+  mimg[8] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m9.jpg"); 
+  mimg[9] = cv::imread("/home/ubuntu/GaofenChallenge/Moban/m10.jpg"); 
+  //while(mimg[0].channels()>=2)
+
+ 
+  unsigned char *pData;
+
+  int mode = GETBUFFER_MODE;
+
+
+  ros::NodeHandle nh_private ( "~" );
+  nh_private.param ( "gray_or_rgb", gray_or_rgb, 0 );
+  nh_private.param ( "to_mobile", to_mobile, 1 );
+
+  printf ( "%d\n",gray_or_rgb );
+
+  if ( gray_or_rgb )
+    {
+      pRawImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,3 );
+      oImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,3 );
+      pImg = cvCreateImage ( cvSize ( 640, 360 ),IPL_DEPTH_8U,3 );
+      pData  = new unsigned char[1280 * 720 * 3];
+    }
+  else
+    {
+      pRawImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,1 );
+      oImg = cvCreateImage ( cvSize ( IMAGE_W, IMAGE_H ),IPL_DEPTH_8U,1 );
+      pImg = cvCreateImage ( cvSize ( 640, 360 ),IPL_DEPTH_8U,1 );
+    }
+  if ( to_mobile )
+    {
+      mode |= TRANSFER_MODE;
+    }
+
+  ros::NodeHandle node;
+  image_transport::ImageTransport transport ( node );
+  image_transport::Publisher image_pub = transport.advertise ( "dji_sdk/image_raw", 1 );
+  ros::Publisher caminfo_pub = node.advertise<sensor_msgs::CameraInfo> ( "dji_sdk/camera_info",1 );
+
+
+  ros::Time time=ros::Time::now();
+  cv_bridge::CvImage cvi;
+  sensor_msgs::Image im;
+  sensor_msgs::CameraInfo cam_info;
+
+  cam_info.header.frame_id = "/camera";
+  cam_info.height = IMAGE_H/2;
+  cam_info.width = IMAGE_W/2;
+  cam_info.distortion_model = "";
+  cam_info.D.push_back ( -0.1297646493949856 );
+  cam_info.D.push_back ( 0.0946885697670611 );
+  cam_info.D.push_back ( -0.0002935002712265514 );
+  cam_info.D.push_back ( -0.00022663675362156343 );
+  cam_info.D.push_back ( 0.0 );
+  cam_info.K = {388.40923066779754, 0.0, 318.06257844065226, 0.0, 518.1538449374815, 241.17339016626644, 0.0, 0.0, 1.0};
+  cam_info.R = {1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0};
+  cam_info.P = {373.5429992675781, 0.0, 317.51131336952494, 0.0, 0.0, 504.4360656738281, 240.6131009245937, 0.0, 0.0, 0.0, 1.0, 0.0};
+  cam_info.binning_x = 0;
+  cam_info.binning_x = 0;
+
+  cam_info.roi.x_offset = 0;
+  cam_info.roi.y_offset = 0;
+  cam_info.roi.height = 0;
+  cam_info.roi.width = 0;
+  cam_info.roi.do_rectify = false;
+
+  // create a thread to do AprilTag Detection
+  pthread_t pid;
+  ApriltagDetector* detectorAndTracker = new ApriltagDetector ( node );//sub sth.
+  int res = pthread_create ( &pid, NULL, trackLoop,  detectorAndTracker);
+  
+  if ( res != 0 )
+    printf ( "pthread_create error!\n" );
+  
+  ret = manifold_cam_init ( mode );
+ 
+  if ( ret == -1 )
+    {
+ 
+      printf ( "manifold init error \n" );
+      return -1;
+    }
+    
+  //for calibration only
+//  cv::namedWindow("img",CV_WINDOW_AUTOSIZE);
+//  cv::setMouseCallback("img",cvMouseCallback,&nCount);
+  
+  while ( 1 )
+    {    
+      ret = manifold_cam_read ( buffer, &nframe, 1 );
+      if ( ret != -1 )
+      {
+	if ( gray_or_rgb )
+	{
+	  NV12ToRGB ( buffer,pData,1280,720 );
+	  memcpy ( pRawImg->imageData,pData,FRAME_SIZE );
+	}
+	else
+	{
+	  memcpy ( pRawImg->imageData,buffer,FRAME_SIZE/3 );
+	}
+	oImg=pRawImg;
+	cvResize ( pRawImg,pImg,CV_INTER_LINEAR );//input pRamImg,output pImg
+
+	time=ros::Time::now();
+	cvi.header.stamp = time;
+	cvi.header.frame_id = "image";
+	if ( gray_or_rgb )
+	{
+	  cvi.encoding = "bgr8";
+	}
+	else
+	{
+	  cvi.encoding = "mono8";
+	} 
+	cvi.image = pImg;
+	cvi.toImageMsg ( im );
+	cam_info.header.seq = nCount;
+	cam_info.header.stamp = time;
+	caminfo_pub.publish ( cam_info );
+	image_pub.publish(im);
+	   
+//	ROS_INFO("image received!");
+//	cvShowImage("img",pImg);
+	char str[100];
+	sprintf(str,"/home/ubuntu/GaofenChallenge/cap/%d.png",nCount); 
+	if(nCount%20==0&&nCount>200)   cvSaveImage(str,pImg,0);
+
+	ros::spinOnce();
+	nCount++; 
+      }
+      else
+        break;
+      usleep ( 1000 );
+    }
+  while ( !manifold_cam_exit() )
+  {
+    sleep ( 1 );
+  }
+  fclose ( fp );
+  sleep ( 1 );
+  return 0;
+}

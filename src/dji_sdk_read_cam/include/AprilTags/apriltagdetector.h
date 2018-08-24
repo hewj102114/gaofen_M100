@@ -44,6 +44,7 @@
 #ifndef PI
 const double PI = 3.14159265358979323846;
 #endif
+using namespace cv;
 
 const double TWOPI = 2.0*PI;
 static int last_received_apriltag_type = 1;
@@ -133,7 +134,7 @@ public:
     m_isTracking ( false ),
     m_CMD_from_remote('W'),
     m_mission_type ( true ),
-    m_start_searching(false),
+    m_start_searching(true),
     m_state_in_mission(0),
 //    m_used_apriltag_type(1),
 
@@ -194,6 +195,8 @@ public:
 
   void Calcu_attitude(cv::Point2f pnt_tl_src, cv::Point2f pnt_tr_src, cv::Point2f pnt_br_src, cv::Point2f pnt_bl_src);
   int Num_detection(cv::Mat &img,cv::Mat mimg,bool flag, dji_sdk::Reldist & pos_result);
+  void findSquares(cv::Mat src, vector<vector<Point> > &squares);
+  void drawSquares( cv::Mat image, const vector<vector<Point> >& squares );
 
 
 void cmd_from_mobile_callback(const dji_sdk::TransparentTransmissionData & transData)
@@ -209,6 +212,7 @@ void mission_type_callback(const std_msgs::Bool &mission_data)
 void start_searching_callback(const std_msgs::Bool &start_searching_data)
 {
   m_start_searching=start_searching_data.data;
+  ROS_INFO("cmd received, %d", m_start_searching);
 }
 
 void state_in_mission_callback(const std_msgs::Int8 &state_in_mission)

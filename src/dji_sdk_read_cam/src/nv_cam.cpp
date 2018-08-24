@@ -221,7 +221,10 @@ void* trackLoop ( void* tmp )
 {
   ros::Time t = ros::Time::now();
   dji_sdk::Reldist result;
-  ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;
+
+  ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;//2018-08-20 maybe this can be revised
+
+
   //for ARtag detection initilzation
   const bool useBCH = true; 
   const int width = IMAGE_W, height = IMAGE_H, bpp = 1;
@@ -245,53 +248,64 @@ void* trackLoop ( void* tmp )
   int count = 0;
   while ( 1 )
   {
+    //  ApriltagDetector* tracker = ( ApriltagDetector* ) tmp;
       if(tracker->m_mission_type==false)
       {
-	cv::Mat gray = cv::Mat ( pImg, true );
-	if(gray.empty()||mimg[1].empty())
-	  continue;
+        cv::Mat gray = cv::Mat ( pImg, true );
+        if(gray.empty()||mimg[1].empty())
+          continue;
 		
 //	ROS_INFO("mission_type: %d", tracker->m_state_in_mission);
-	//2018-08-07 evening 0,2,4,6,8,10 matched main_3_new.cpp
-// 	if(tracker->m_state_in_mission==0)  //parking 2 
-// 	  tracker->Num_detection(gray,mimg[1], false ,result);
-// 	else if(tracker->m_state_in_mission==2) //circle 3
-// 	  tracker->Num_detection(gray, mimg[2],true ,result);
-// 	else if(tracker->m_state_in_mission==4) //parking 4
-// 	  tracker->Num_detection(gray,mimg[3], false ,result);
-// 	else if(tracker->m_state_in_mission==6) //circle 5
-// 	  tracker->Num_detection(gray, mimg[4],true ,result);
-// 	else if(tracker->m_state_in_mission==8) //circle 6
-// 	  tracker->Num_detection(gray,mimg[5], true ,result);
-// 	else if(tracker->m_state_in_mission==10) //parking 7
-// 	  tracker->Num_detection(gray,mimg[6], false ,result);
-	
-	//2018-08-08 afternoon 0,2,4,6,8,10 matched reality environment
-	if(tracker->m_state_in_mission==0)  //parking 1 
-	  tracker->Num_detection(gray,mimg[1], false ,result);
-	else if(tracker->m_state_in_mission==2) //parking 2
-	  tracker->Num_detection(gray, mimg[2],false ,result);
-	else if(tracker->m_state_in_mission==4) //parking 3
-	  tracker->Num_detection(gray,mimg[3], false ,result);
-	else if(tracker->m_state_in_mission==6) //circle 4
-	  tracker->Num_detection(gray, mimg[4],true ,result);
-	else if(tracker->m_state_in_mission==8) //parking 5
-	  tracker->Num_detection(gray,mimg[5], false ,result);
-	else if(tracker->m_state_in_mission==10) //circle 6
-	  tracker->Num_detection(gray,mimg[6], true ,result);
-	else if(tracker->m_state_in_mission==12) //circle 7
-	  tracker->Num_detection(gray,mimg[6], true ,result);
-	else if(tracker->m_state_in_mission==14) //parking 8
-	  tracker->Num_detection(gray,mimg[6], false ,result);
-	else if(tracker->m_state_in_mission==16) //parking 9
-	  tracker->Num_detection(gray,mimg[6], false ,result);
-	else if(tracker->m_state_in_mission==19) //parking 10
-	  tracker->Num_detection(gray,mimg[6], false ,result);
-	else 
-	  ROS_INFO("bad state");
+/*
+	      //2018-08-08 afternoon 0,2,4,6,8,10 matched reality environment
+        if(tracker->m_state_in_mission==0)  //parking 1 
+          tracker->Num_detection(gray,mimg[1], false ,result);
+        else if(tracker->m_state_in_mission==2) //parking 2
+          tracker->Num_detection(gray, mimg[2],false ,result);
+        else if(tracker->m_state_in_mission==4) //parking 3
+          tracker->Num_detection(gray,mimg[3], false ,result);
+        else if(tracker->m_state_in_mission==6) //circle 4
+          tracker->Num_detection(gray, mimg[4],true ,result);
+        else if(tracker->m_state_in_mission==8) //parking 5
+          tracker->Num_detection(gray,mimg[5], false ,result);
+        else if(tracker->m_state_in_mission==10) //circle 6
+          tracker->Num_detection(gray,mimg[6], true ,result);
+        else if(tracker->m_state_in_mission==12) //circle 7
+          tracker->Num_detection(gray,mimg[6], true ,result);
+        else if(tracker->m_state_in_mission==14) //parking 8
+          tracker->Num_detection(gray,mimg[6], false ,result);
+        else if(tracker->m_state_in_mission==16) //parking 9
+          tracker->Num_detection(gray,mimg[6], false ,result);
+        else if(tracker->m_state_in_mission==19) //parking 10
+          tracker->Num_detection(gray,mimg[6], false ,result);
+*/
+             //2018-08-08 afternoon 0,2,4,6,8,10 matched reality environment
+        if(tracker->m_state_in_mission==0)  //parking 1 
+          tracker->Num_detection(gray,mimg[0], false ,result);//park is false,circle is true
+        else if(tracker->m_state_in_mission==2) //parking 2
+          tracker->Num_detection(gray, mimg[1],false ,result);
+        else if(tracker->m_state_in_mission==4) //parking 3
+          tracker->Num_detection(gray,mimg[2], true,result);
+        else if(tracker->m_state_in_mission==6) //circle 4
+          tracker->Num_detection(gray, mimg[3],tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==8) //parking 5
+          tracker->Num_detection(gray,mimg[4], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==10) //circle 6
+          tracker->Num_detection(gray,mimg[5], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==12) //circle 7
+          tracker->Num_detection(gray,mimg[6], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==14) //parking 8
+          tracker->Num_detection(gray,mimg[7], tracker->m_start_searching ,result);
+        else if(tracker->m_state_in_mission==16) //parking 9
+          tracker->Num_detection(gray,mimg[8], false ,result);
+        else if(tracker->m_state_in_mission==19) //parking 10
+          tracker->Num_detection(gray,mimg[9], false ,result);
+        else 
+          ROS_INFO("bad state");
       }
-      else if(tracker->m_mission_type==true&&tracker->m_start_searching==true)
-      {
+//      else if(tracker->m_mission_type==true&&tracker->m_start_searching==true)
+    else if(tracker->m_mission_type==true)
+    {
 
 	// read camparam
         aruco::CameraParameters CamParam;
@@ -323,15 +337,12 @@ void* trackLoop ( void* tmp )
 		double x = Markers[0].Tvec.ptr<float>(0)[0];
 		double y = Markers[0].Tvec.ptr<float>(0)[1];
 		double z = Markers[0].Tvec.ptr<float>(0)[2];
-		if(abs(x)<0.3 && z>0.7 && z<2.0)
+		if(abs(x)<0.3 && z>1.0 && z<2.0)
 		{
 			writeF2<<x << y << z <<endl;
-			ROS_INFO("1: %f 2:%f 3:%f",x,y,z);
-			
 			string num=std::to_string(index);
 			string imname2="/home/ubuntu/aruco-3.0.11/result/get"+num+".png";
 			cv::imwrite(imname2,InImage);
-			writeF2<< num <<endl;
 		}
 	}
 	
@@ -610,8 +621,8 @@ int main ( int argc, char **argv )
     }
     
   //for calibration only
-  //cv::namedWindow("img",CV_WINDOW_AUTOSIZE);
-  //cv::setMouseCallback("img",cvMouseCallback,&nCount);
+//  cv::namedWindow("img",CV_WINDOW_AUTOSIZE);
+//  cv::setMouseCallback("img",cvMouseCallback,&nCount);
   
   while ( 1 )
     {    
@@ -647,12 +658,13 @@ int main ( int argc, char **argv )
 	cam_info.header.stamp = time;
 	caminfo_pub.publish ( cam_info );
 	image_pub.publish(im);
-	
-	///ROS_INFO("image received!");
-	//cvShowImage("img",pImg);
-	//char str[100];
-	//sprintf(str,"/home/ubuntu/GaofenChallenge/cap/%d.png",nCount); 
-	//if(nCount%100==0&&nCount>200)   cvSaveImage(str,pImg,0);
+	   
+//	ROS_INFO("image received!");
+//	cvShowImage("img",pImg);
+	char str[100];
+	sprintf(str,"/home/ubuntu/GaofenChallenge/cap/%d.png",nCount); 
+	if(nCount%20==0&&nCount>200)   cvSaveImage(str,pImg,0);
+
 	ros::spinOnce();
 	nCount++; 
       }
