@@ -1,0 +1,3200 @@
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 2
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 1
+squaresize = 1
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 0
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+squaresize = 2
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully
+tx=527.611
+ty=514.398
+tz=1615.73
+thetax=-176.275
+thetay=-4.29697
+thetaz=89.0598
+detection_flag successfully1
+detection_flag successfully
+tx=488.189
+ty=511.095
+tz=1610.92
+thetax=-176.889
+thetay=-3.74218
+thetaz=89.3211
+detection_flag successfully1
+detection_flag successfully
+tx=463.647
+ty=513.742
+tz=1629.02
+thetax=-176.789
+thetay=-1.67143
+thetaz=89.4579
+detection_flag successfully1
+detection_flag successfully
+tx=463.647
+ty=513.742
+tz=1629.02
+thetax=-176.789
+thetay=-1.67143
+thetaz=89.4579
+detection_flag successfully1
+detection_flag successfully
+tx=431.258
+ty=511.984
+tz=1631.41
+thetax=-178.411
+thetay=-0.243354
+thetaz=90.4199
+detection_flag successfully1
+detection_flag successfully
+tx=378.324
+ty=514.395
+tz=1641.46
+thetax=-178.522
+thetay=0.0674541
+thetaz=90.0146
+detection_flag successfully1
+detection_flag successfully
+tx=353.181
+ty=514.492
+tz=1648.37
+thetax=179.928
+thetay=0.917954
+thetaz=90.8061
+detection_flag successfully1
+detection_flag successfully
+tx=353.181
+ty=514.492
+tz=1648.37
+thetax=179.928
+thetay=0.917954
+thetaz=90.8061
+detection_flag successfully1
+detection_flag successfully
+tx=314.248
+ty=524.53
+tz=1663.84
+thetax=-177.818
+thetay=-0.366046
+thetaz=89.3837
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully
+tx=-1615.04
+ty=809.394
+tz=2248.11
+thetax=-177.488
+thetay=-3.41483
+thetaz=90.2866
+detection_flag successfully1
+detection_flag successfully
+tx=-1695.19
+ty=736.285
+tz=2287.04
+thetax=-178.875
+thetay=-2.08328
+thetaz=89.2044
+detection_flag successfully1
+detection_flag successfully
+tx=-1747.2
+ty=662.59
+tz=2309.13
+thetax=-179.026
+thetay=-1.5011
+thetaz=89.006
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully
+tx=-436.708
+ty=678.662
+tz=2059.88
+thetax=137.319
+thetay=25.178
+thetaz=85.0596
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully
+tx=2423.13
+ty=1209.34
+tz=3128.66
+thetax=161.123
+thetay=5.16757
+thetaz=96.7479
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1
+detection_flag successfully1

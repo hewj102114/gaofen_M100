@@ -1693,7 +1693,7 @@ int main(int argc, char **argv)
                                 }
 */
 //                                tags_searching_state=3;
- tags_searching_state=2;//for tags
+				tags_searching_state=2;//for tags
                                 break;
                             }
                             case 3://4.then right

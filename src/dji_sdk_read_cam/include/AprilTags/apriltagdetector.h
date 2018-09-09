@@ -212,7 +212,7 @@ void mission_type_callback(const std_msgs::Bool &mission_data)
 void start_searching_callback(const std_msgs::Bool &start_searching_data)
 {
   m_start_searching=start_searching_data.data;
-  ROS_INFO("cmd received, %d", m_start_searching);
+  //ROS_INFO("cmd received, %d", m_start_searching);
 }
 
 void state_in_mission_callback(const std_msgs::Int8 &state_in_mission)

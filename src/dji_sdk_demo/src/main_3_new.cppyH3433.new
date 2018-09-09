@@ -28,7 +28,7 @@ void ultrasonic_callback(const sensor_msgs::LaserScan& g_ul)
     for (int i = 0; i < 5; i++)
     {
 	ul_distance[i]=g_ul.ranges[i];
-//        printf( "ultrasonic distance: [%f]  reliability: [%d]\n", g_ul.ranges[i], (int)g_ul.intensities[i] );
+        printf( "ultrasonic distance: [%f]  reliability: [%d]\n", g_ul.ranges[i], (int)g_ul.intensities[i] );
     }
 }
 
@@ -40,7 +40,7 @@ void obstacle_distance_callback ( const sensor_msgs::LaserScan & g_oa )
     for ( int i=0; i<5; i++ )
         ob_distance[i]=g_oa.ranges[i];
 
-   ROS_INFO("1: %f 2:%f 3:%f 4: %f 5:%f",ob_distance[0],ob_distance[1],ob_distance[2],ob_distance[3],ob_distance[4]);
+//   ROS_INFO("1: %f 2:%f 3:%f 4: %f 5:%f",ob_distance[0],ob_distance[1],ob_distance[2],ob_distance[3],ob_distance[4]);
 }
 
 
@@ -358,6 +358,8 @@ int main(int argc, char **argv)
 	//ROS_INFO("IN");
         // for numbers setting
 	
+	mission_type.data=true;//tags/////////////////////////////////////////////////////////////////////////////////////////
+
         start_searching_pub.publish ( start_searching );
         mission_type_pub.publish ( mission_type );
 
@@ -448,9 +450,9 @@ int main(int argc, char **argv)
 
                            // writeF<<"ob_distance[0]="<<ob_distance[0]<<endl;   // write in log
                            // writeF <<"X="<<g_pos_x<<"  Y="<< g_pos_y <<"  Z="<<g_pos_z << endl;
-
-                            if(abs(ob_distance[0]-serach_flight_height_1) < 0.2 &&(ob_distance[0]<4))	//forward about 2m
-	
+//???????????????????????????????????????????????????????????????
+           //                 if(abs(ob_distance[0]-serach_flight_height_1) < 0.2 &&(ob_distance[0]<4))	//forward about 2m
+			    if(abs(ob_distance[0]-serach_flight_height_1) < 1.8 &&(ob_distance[0]<4))	//forward about 2m
                             {
                                 for(int i = 0; i < count_to_forward01; i ++)
                                 {
@@ -460,8 +462,9 @@ int main(int argc, char **argv)
                                     drone->attitude_control(0x4B, 0, 0, 0, 0);
                                 usleep(10000);
                                 }
-                                state_in_mission = 0;//cross circle  /////////////////////////////////////////////////////
-                              
+                       //         state_in_mission = 0;//cross circle  /////////////////////////////////////////////////////
+                               state_in_mission = 18;//cross circle 
+                                
              //                   writeF<<"start yaw = "<<start_yaw<<endl;
 			       // writeF <<"X="<<g_pos_x<<"  Y="<< g_pos_y <<"  Z="<<g_pos_z << endl;
 	
@@ -498,11 +501,11 @@ int main(int argc, char **argv)
                         {
                             if(park_direction_1) //right
                             {
-                                drone->attitude_control(0x4B,0,0.3,0,0);
+                                drone->attitude_control(0x4B,0,0.5,0,0);
                             }
                             else
                             {
-                                drone->attitude_control(0x4B,0,-0.3,0,0);
+                                drone->attitude_control(0x4B,0,-0.5,0,0);
                             }                           
                         }
                         break;
@@ -620,11 +623,11 @@ int main(int argc, char **argv)
                         {
                             if(park_direction_2) //right
                             {
-                                drone->attitude_control(0x4B,0,0.3,0,0);
+                                drone->attitude_control(0x4B,0,0.5,0,0);
                             }
                             else
                             {
-                                drone->attitude_control(0x4B,0,-0.3,0,0);
+                                drone->attitude_control(0x4B,0,-0.5,0,0);
                             }   	
                         }
                         break;
@@ -771,11 +774,11 @@ int main(int argc, char **argv)
                         {	      
                             if(park_direction_3) //right
                             {
-                                drone->attitude_control(0x4B,0,searching_velocity,0,0);
+                                drone->attitude_control(0x4B,-0.1,searching_velocity,0,0);
                             }
                             else
                             {
-                                drone->attitude_control(0x4B,0,-1*searching_velocity,0,0);
+                                drone->attitude_control(0x4B,-0.1,-1*searching_velocity,0,0);
                             }           
                         }
                         break;
@@ -954,11 +957,11 @@ int main(int argc, char **argv)
                         {		   
                           if(cross_direction_4) //right
                             {
-                                drone->attitude_control(0x4B,-0.1,searching_velocity,0,0); /////??????????????????
+                                drone->attitude_control(0x4B,0,searching_velocity,0,0);
                             }
                             else
                             {
-                                drone->attitude_control(0x4B,-0.1,-1*searching_velocity,0,0);  ///??????????????????????
+                                drone->attitude_control(0x4B,0,-1*searching_velocity,0,0);
                             }          
                         }
                         break;
@@ -1568,7 +1571,6 @@ int main(int argc, char **argv)
 		      }
                     }
 */
-
 		    case 18:// find tags
                     {
 		      if(abs(drone->yaw_from_drone-start_yaw)*57.3>6)
